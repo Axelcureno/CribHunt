@@ -222,8 +222,19 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
 body {
+    width: 100%;
+    height: 100%;
+}
+
+.body-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/heroimages/fourteen.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.body-container-mycribhunt {
     width: 100%;
     height: 100%;
     background-image: url('../img/heroimages/sixteen.jpg');
@@ -280,7 +291,11 @@ body {
 .register-container {
     background-color: #fff;
     width: 30%;
+    height: auto;
     position: fixed;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    box-shadow: 10 2px 5px 0 rgba(0,0,0,.26);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -322,12 +337,16 @@ body {
     border: solid #666 1px;
     padding: 10px;
     -moz-border-radius: 0 4px 4px 4px;
-    -webkit-border-radius: 0 4px 4px 4px; 
+    -webkit-border-radius: 0 4px 4px 4px;
+}
+.resultado {
+    color: #e74c3c;
+    padding-top: 5px;
 }
 .forma-registroinicio {
     display: block;
     width: 100%;
-    margin: 1em;
+    padding: 1em;
 }
 .forma-registroinicio {
     width: inherit;
@@ -341,6 +360,7 @@ body {
     margin-top: 0.5em;
     padding: 0.5em;
     color: #2c3e50;
+    line-height: 20px;
 }
 .register-container .forma-registroinicio .boton-registroinicio {
     background-color: #1abc9c;

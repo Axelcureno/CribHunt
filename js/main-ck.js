@@ -1,1 +1,1 @@
-$(document).ready(function(){});
+$(document).ready(function(){$(".tab").on("click",function(){$(".resultado").html("")});$("#registro-usuario").submit(function(e){e.preventDefault();$password=$("#password").val();$password2=$("#password2").val();var t=$(this).serialize();$.ajax({url:"registrousuario.php",type:"post",data:t,success:function(e){$(".resultado").html(e)},error:function(){}})})});
