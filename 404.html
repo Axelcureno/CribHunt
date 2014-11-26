@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Page Not Found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
     <style>
 
         * {
@@ -14,10 +16,13 @@
         html {
             color: #888;
             display: table;
-            font-family: sans-serif;
+            font-family: 'Roboto', sans-serif;
             height: 100%;
             text-align: center;
             width: 100%;
+            background-image: url('img/heroimages/nine.jpg');
+            background-repeat:no-repeat;
+            background-size: cover;
         }
 
         body {
@@ -27,14 +32,18 @@
         }
 
         h1 {
-            color: #555;
-            font-size: 2em;
+            color: #fff;
+            font-size: 5em;
             font-weight: 400;
+            text-shadow: 2px 2px #000;
         }
 
         p {
             margin: 0 auto;
-            width: 280px;
+            width: 500px;
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px #000;
         }
 
         @media only screen and (max-width: 280px) {
@@ -44,7 +53,7 @@
             }
 
             h1 {
-                font-size: 1.5em;
+                font-size: 5em;
                 margin: 0 0 0.3em;
             }
 
@@ -53,8 +62,8 @@
     </style>
 </head>
 <body>
-    <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <h1>Error 404</h1>
+    <p>Este no es el hogar que estas buscando.</p>
 </body>
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

@@ -6,6 +6,9 @@ $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $passwordconfirmacion = $_POST['passwordconfirmacion'];
+date_default_timezone_set("America/Merida");
+$date = date('Y-m-d H:i:s');
+
 // 	Codigos de error
 // 	200 = Registro exitoso
 // 	250 = Contraseñas no coinciden
@@ -26,7 +29,7 @@ $passwordconfirmacion = $_POST['passwordconfirmacion'];
 			$hashedpassword = crypt($email, $password);
 			$cleannombres = preg_replace("/[^\p{L}\p{N}]/u", ' ', $nombres);
 			$cleanapellidos = preg_replace("/[^\p{L}\p{N}]/u", ' ', $apellidos);
-			mysqli_query($con, "INSERT INTO usuarios (nombres, apellidos, email, password) VALUES ('$cleannombres', '$cleanapellidos', '$email', '$hashedpassword')");
+			mysqli_query($con, "INSERT INTO usuarios (nombres, apellidos, email, password, fecharegistro) VALUES ('$cleannombres', '$cleanapellidos', '$email', '$hashedpassword', '$date')");
 			$result = 'El registro fue exitoso';
 		}
 	}

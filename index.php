@@ -1,11 +1,7 @@
 <?php
 session_start();
     function verificar_login($user,$password,&$result) {
-    $con=mysqli_connect("localhost","root","donfrijol13","cribhunt");
-    if (mysqli_connect_errno())
-    {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
+    include('dbcon.php');
     $hashedpassword = crypt($user, $password);
     $sql = "SELECT * FROM usuarios WHERE email = '$user' and password = '$hashedpassword'";
     $rec = mysqli_query($con, $sql);
@@ -45,7 +41,7 @@ if(!isset($_SESSION['usersicam']))
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>CribHunt Login</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -65,27 +61,29 @@ if(!isset($_SESSION['usersicam']))
                 <div class="registro-logo-container">
                     <img src="img/logo.svg" alt="CribHunt">
                 </div>
-            <div id="tab-container" class="tab-container">
-              <ul class='etabs'>
-                <li class='tab'><a href="#tabs1-registro">Registrarse</a></li>
-                <li class='tab'><a href="#tabs1-iniciosesion">Iniciar Sesión</a></li>
-              </ul>
-              <div id="tabs1-registro">
-                <div class="bienvenido">
-                    <h2>¡Bienvenido a tu registro!</h2>
-                </div>
-                    <div class="forma-registroinicio">
-                        <form id="registro-usuario" action="" method="post">
-                            <input required placeholder="Nombre(s)" type="text" name="nombres">
-                            <input required placeholder="Apellidos" type="text" name="apellidos">
-                            <input required placeholder="Email" type="text" name="email">
-                            <input id="password" required placeholder="Contraseña" type="password" name="password">
-                            <input id="password2" required placeholder="Confirmar Contraseña" type="password" name="passwordconfirmacion">
-                            <div class="resultado"></div>
-                            <input class="boton-registroinicio" type="submit" value="Registrarse">
-                        </form>
+                <div id="tab-container" class="tab-container">
+                  <ul class='etabs'>
+                    <li class='tab'><a href="#tabs1-registro">Registrarse</a></li>
+                    <li class='tab'><a href="#tabs1-iniciosesion">Iniciar Sesión</a></li>
+                  </ul>
+                  <div id="tabs1-registro">
+                    <div class="bienvenido">
+                        <h2>¡Bienvenido a tu registro!</h2>
                     </div>
-              </div>
+                        <div class="forma-registroinicio">
+                            <form id="registro-usuario" action="" method="post">
+                                <input required placeholder="Nombre(s)" type="text" name="nombres">
+                                <input required placeholder="Apellidos" type="text" name="apellidos">
+                                <input required placeholder="Email" type="text" name="email">
+                                <input id="password" required placeholder="Contraseña" type="password" name="password">
+                                <input id="password2" required placeholder="Confirmar Contraseña" type="password" name="passwordconfirmacion">
+                                <div class="terminos-condiciones">
+                                    <input required id="aceptocheck" class="acepto" type="checkbox"><span class="heleido">He leído y acepto los <span class="link-terminos"><a href="">Términos y Condiciones</a></span></span>
+                                </div>                                <div class="resultado"></div>
+                                <input id="botonderegistro" class="boton-registroinicio" disabled="disabled" name="registrarse" type="submit" value="Registrarse">
+                            </form>
+                        </div>
+                  </div>
               <div id="tabs1-iniciosesion">
                 <div class="bienvenido">
                     <h2>¡Bienvenido de vuelta!</h2>
@@ -96,6 +94,7 @@ if(!isset($_SESSION['usersicam']))
                             <input required placeholder="Contraseña" type="password" name="passwordinicio">
                             <div class="resultado"></div>
                             <input class="boton-registroinicio" type="submit" name="login" value="Iniciar Sesión">
+                            <a href="#"><div class="olvidaste-password">Olvidaste tu contraseña?</div></a>
                         </form>
                     </div>
               </div>
@@ -114,16 +113,5 @@ if(!isset($_SESSION['usersicam']))
         <script src="js/main.js"></script>
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-         -->
     </body>
 </html>
