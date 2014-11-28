@@ -49,6 +49,26 @@ $(document).ready(function() {
 		});
 
 	});
+	$("#agregarcribform").submit(function(event) {
+	  // Stop form from submitting normally
+	  event.preventDefault();
+	  // Get some values from elements on the page:
+	  var values = $(this).serialize();
+	  // Send the data using post and put the results in a div
+	    $.ajax({
+	        url: "uploadcrib.php",
+	        type: "post",
+	        data: values,
+	        success: function(result){
+	        	$('.resultado').html(result);
+	    	},
+	        error:function(){
+
+	               }
+		});
+
+	});
+
 	$("a").click(function() {
 	  /* grabs URL from HREF attribute then adds an  */
 	  /* ID from the DIV I want to grab data from    */

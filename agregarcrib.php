@@ -13,43 +13,6 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     {
         $nombreusuario = $row['nombres'];
     }
-
-//if Submit was clicked
-if(isset($_POST['submit'])) {
-    //We define a favriable for the target folder for the file
-    $target = "uploads/";
-    //We define a variable with the name of the file
-    $file_name = $_FILES['file']['name'];
-    //We define a variable for the temporary directory for the file
-    $tmp_dir = $_FILES['file']['tmp_name'];
-
-    //We use a try to match the following, if it fails the catch exception is called
-    try
-    {
-        //We use a regular expression to only accept image files, if it fails the throw exception is called
-        if(!preg_match('/(gif|jpe?g|png)$/i', $file_name) || 
-            //We use another regex in our if to check if the file type is an image, like a double check
-            !preg_match('/^(image)/', $_FILES['file']['type']) ||
-            //We also check if the file size is over 300000 bytes
-            $_FILES['file']['size'] > 300000) 
-        {   
-            //In case the if matches (means something is different in 3 cases) the exception is made and the file is not uploaded
-            throw new Exception("Not quite, buddy!");
-            //We call the exit of the try
-            exit;
-        }
-        //In case nothing was wrong, we move the file to the destination directory
-        move_uploaded_file($tmp_dir, $target . $file_name);
-        //We make a boolean var to say everything went fine with the file uploaded
-        $status = true;
-    }
-    //In case something went wrong with the first try, a message is displayed to show the error 
-    catch(Exception $e)
-        {
-            echo $e->getMessage();
-        }
-}
-
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -112,35 +75,42 @@ if(isset($_POST['submit'])) {
         <div class="site-wrap">
             <div id="site-wrap-agregarcrib">
                 <div class="canvas-cribhunt-agregar">
-                <div class="frame">
-                    <div class="descripcion-agregar">
-                        Cuentanos sobre tu Crib
-                    </div>
-                    <div class="bit-2">
-                        <div class="publicar-container">
-                            <div class="titulo">Agrega unas imagenes</div>
-                                <form enctype="multipart/form-data" action="" method="POST">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                                    <label for="file">Elige una imagen:</label> <input id="file" name="file" type="file" /><br />
-                                    <input type="submit" value="Subir Imagen" name="submit" />
-                                </form>
+                    <div class="frame">
+                        <div class="bit-2">
+                                <div class="titulo">Cuentanos sobre tu Crib</div>
+                                    <form id="agregarcribform" enctype="multipart/form-data" action="" method="POST">
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                                        <label for="file">Elige una imagen:</label>
+                                        <input required id="file" name="file" type="file" />
+                                        <input required placeholder="Titulo" type="text" name="titulocrib">
+                                        <label required for="categoriacrib">Categoría</label>
+                                        <select required name="categoriacrib" id="categoriacrib">
+                                            <option value="casa">Casa</option>
+                                            <option value="departamento">Departamento</option>
+                                            <option value="cuarto">Cuarto</option>
+                                        </select>
+                                        <textarea required placeholder="Características" name="caracteristicascrib" id="caracteristicascrib" cols="30" rows="6"></textarea>
+                                        <textarea required placeholder="Requisitos" name="requisitoscrib" id="requisitoscrib" cols="30" rows="6"></textarea>
+                                        <input required placeholder="Precio" type="text" name="preciocrib">
+                                        <input placeholder="Universidades cerca (más de una separar por comas)" type="text" name="universidadescrib">
+                                        <input required placeholder="Ciudad" type="text" name="ciudadcrib">
+                                        <input required placeholder="Estado" type="text" name="estadocrib">
+                                        <input required placeholder="Colonia" type="text" name="coloniacrib">
+                                        <input required placeholder="Código Postal" type="text" name="cpcrib">
+                                        <input required placeholder="Dirección" type="text" name="direccioncrib">
+                                        <input required placeholder="País" type="text" name="paiscrib">
+                                        <input id="agregarsubmitcrib" type="submit" value="Enviar" name="submit" />
+                                        <div class="resultado"></div>
+                                    </form>
+                                <?php 
+                                 ?>
+                        </div>
+                        <div class="bit-2">
+                            <div class="publicar-container">
+                                <div class="titulo">Información General</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="bit-2">
-                        <div class="publicar-container">
-                            <div class="titulo">Información General</div>
-                            <?php 
-                                //If the variable status exists (the file was uploaded) we display a message to confirm everything went fine
-                                if(isset($status)) {
-                                    //We define a var with the path of the file so we can make an html link to see the file, genius.
-                                    $path = $target . $file_name;
-                                    echo "Felicidades. <a href=\"$path\">Da clic para ver tu imagen.</a>";
-                                }
-
-                             ?>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
             <div id="canvas-cribmap">
