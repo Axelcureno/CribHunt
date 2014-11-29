@@ -73,31 +73,26 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                 </div>
             </div>
         <div class="site-wrap">
-            <div id="parameter-search">
-            <form id="parameter-cribsearch" action="" method="post">
-                <div class="linea-parameter-search">
-                    <label for="ciudad-cribsearch">Ciudad y/o Colonia</label>
-                    <input id="cribsearch-places" type="text" placeholder="Francisco de Montejo, Mérida" name="ciudad-cribsearch">
-                </div>
-                <div class="linea-parameter-search">
-                    <label for="categoria-cribsearch">Categoría</label>
-                    <select name="categoria-cribsearch">
-                      <option value="Cualquiera" selected>Cualquiera</option>
-                      <option value="casa">Casa</option>
-                      <option value="departamento">Departamento</option>
-                      <option value="cuarto">Cuarto</option>
-                    </select>
-                </div>
-                <div class="linea-parameter-search no-border-bottom-linea">
-                    <label for="precio-cribsearch">Precio</label>
-                    <div id="slider-precio-cribsearch"></div>
-                    <input type="text" id="amount" readonly>
-                    <input id="submit-parameter-cribsearch" type="submit" value="Buscar" name="submit-parameter-cribsearch">
-                </div>
-            </form>
-            </div>
-            <div class="canvas-cribhunt">
+            <div class="canvas-cribhunt-miscribs">
+            <div class="titulo-miscribs">Mis Cribs</div>
                 <div id="canvas-mycribhunt" class="frame">
+                    <?php 
+                    include('dbcon.php');
+                    $count = 0;
+                    $sql = mysqli_query($con, "SELECT * FROM cribs WHERE idusuarioqueregistracrib = '$id'") or die(mysqli_error($con));
+                    while($row = mysqli_fetch_object($sql))
+                    {
+                        $result = $row;
+                        echo $result;
+                        $count++;
+                    }
+                    if ($count == 0) {
+                        //echo "Aún no tienes Cribs registrados :(";
+                    }
+
+
+
+                     ?>
                     <div class="bit-4">
                         <div class="crib-container">
                             <div class="crib-image">
@@ -132,7 +127,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                             </div>
                             <div class="descripcion-crib">
                                 <div class="titulo-crib">
-                                    Departamento en Altabrisa con 2 cuartos
+                                    <a href="detallecrib.php">Casa con 2 recamaras en Altabrisa</a>
                                 </div>
                             </div>
                         </div>
@@ -426,3 +421,4 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         </script>
     </body>
 </html>
+

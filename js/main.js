@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	$('.inline').fancybox({
+		type : 'inline',
+		height : '100%',
+	});
+	$('.fancy-img').fancybox();
 	$('.tab').on('click', function() {
 		$('.resultado').html('');
 	});
@@ -28,7 +33,7 @@ $(document).ready(function() {
 
 	        }
 		});
-
+		$(".inline").trigger('click'); 
 	});
 	$("#cribsearch").submit(function(event) {
 	  // Stop form from submitting normally
@@ -64,7 +69,7 @@ $(document).ready(function() {
 	    	},
 	        error:function(){
 
-	               }
+	        }
 		});
 
 	});
@@ -73,15 +78,25 @@ $(document).ready(function() {
 	  /* grabs URL from HREF attribute then adds an  */
 	  /* ID from the DIV I want to grab data from    */
 	  var myUrl = $(this).attr("href");
-	  $(".site-wrap").post(myUrl + "#site-wrap-agregarcrib");
+	  $(".site-wrap").post(myUrl + "#site-wrap");
 	  return false;
 	});
 });
         (function(){
         	var $container = $('#canvas-mycribhunt');
+        	var $containerlistacribs = $('#canvas-mycribhunt');
 
         	//Funcion de Isotope para las columnas de las casas
             $container.imagesLoaded( function() {
+                $container.isotope({
+                    itemSelector: '.bit-4',
+                    layoutMode: 'masonry',
+                    masonry: {
+                      columnWidth: 0
+                    }
+                });
+            });
+            $containerlistacribs.imagesLoaded( function() {
                 $container.isotope({
                     itemSelector: '.bit-4',
                     layoutMode: 'masonry',

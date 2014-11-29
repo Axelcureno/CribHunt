@@ -12,6 +12,17 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     while($row = mysqli_fetch_array($rec))
     {
         $nombreusuario = $row['nombres'];
+        $apellidousuario = $row['apellidos'];
+        $email = $row['email'];
+        $universidad = $row['universidad'];
+        $sexo = $row['sexo'];
+        $telefono = $row['telefono'];
+        $direccion = $row['direccion'];
+        $ciudad = $row['ciudad'];
+        $colonia = $row['colonia'];
+        $codigopostal = $row['codigopostal'];
+        $estado = $row['estado'];
+        $pais = $row['pais'];
     }
 ?>
 <!doctype html>
@@ -76,55 +87,47 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <div class="site-wrap">
             <div id="site-wrap-agregarcrib">
                 <div class="canvas-cribhunt-agregar">
+                <div class="titulo">Tu Perfil</div>
                     <div class="frame">
+                    <form id="form-profile" action="">
                         <div class="bit-2">
-                            <div class="titulo">¿Cómo Funciona CribHunt?</div>
-                            <div class="como-funciona">
-                                Primero que nada, queremos darte las gracias por utilizar CribHunt.<br>
-                                Cuando pensamos en desarrollar esta aplicación, lo hicimos con el fin de ayudar
-                                a estudiantes que les resulta sumamente complicado buscar un lugar para vivir.<br>
-                                En el siguiente formulario, necesitamos que nos cuentes del lugar que piensas ofrecer,
-                                esto para poder mostrar a detalle a los demás usuarios todas las características.<br>
-                                Es muy importante que sepas que tu información personal así como la información que
-                                compartas en CribHunt no la compartiremos con absolutamente nadie.<br>
-                                También te prometemos no enviarte información que tu no solicites, y esperamos no tener
-                                que mostrar publicidad en nuestro sitio (sabemos cuanto la odias).<br>
-                                CribHunt fue pensado por estudiantes, para estudiantes así que sientete en completa confianza.
-                                Si tienes alguna duda, queja, sugerencia o encontraste un bug no dudes en escribirnos a
-                                axel@cribhunt.in<br>
-                                Una vez más, gracias por utilizar CribHunt. Esperemos que los disfrutes y te guste tanto como a nosotros.
-                            </div>
+                                <div class="imagen-perfil-admin">
+                                <div class="tu-imagen">Tu imagen de Perfil</div>
+                                    <img src="img/users/axelcureno/profile.png" alt="">
+                                    <div class="cambiar-imagen"><a href="#">Cambiar</a></div>
+                                </div>
                         </div>
                         <div class="bit-2">
-                            <div class="publicar-container">
-                                <div class="titulo">Ahora, cuentanos sobre tu Crib</div>
-                                <form id="agregarcribform" enctype="multipart/form-data" action="" method="POST">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                                    <label for="file">Elige una imagen:</label>
-                                    <input required id="file" name="file" type="file" />
-                                    <input required placeholder="Titulo" type="text" name="titulocrib">
-                                    <label required for="categoriacrib">Categoría</label>
-                                    <select required name="categoriacrib" id="categoriacrib">
-                                        <option value="casa">Casa</option>
-                                        <option value="departamento">Departamento</option>
-                                        <option value="cuarto">Cuarto</option>
-                                    </select>
-                                    <textarea required placeholder="Características" name="caracteristicascrib" id="caracteristicascrib" cols="30" rows="6"></textarea>
-                                    <textarea required placeholder="Requisitos" name="requisitoscrib" id="requisitoscrib" cols="30" rows="6"></textarea>
-                                    <input required placeholder="Precio" type="text" name="preciocrib">
-                                    <input placeholder="Universidades cerca (más de una separar por comas)" type="text" name="universidadescrib">
-                                    <input required placeholder="Ciudad" type="text" name="ciudadcrib">
-                                    <input required placeholder="Estado" type="text" name="estadocrib">
-                                    <input required placeholder="Colonia" type="text" name="coloniacrib">
-                                    <input required placeholder="Código Postal" type="text" name="cpcrib">
-                                    <input required placeholder="Dirección" type="text" name="direccioncrib">
-                                    <input required placeholder="País" type="text" name="paiscrib">
-                                    <input id="agregarsubmitcrib" type="submit" value="Enviar" name="submitcrib" />
-                                    <div style="display:none;"><a href=".resultado" class="inline">Inline</a></div>
-                                    <div class="resultado"></div>
-                                </form>
-                            </div>
+                            <label for="nombreusuario">Nombre(s)</label>
+                            <input placeholder="Nombres" type="text" value="<?php echo $nombreusuario ?>">
+                            <label for="nombreusuario">Apellidos</label>
+                            <input placeholder="Apellidos" type="text" value="<?php echo $apellidousuario ?>">
+                            <label for="nombreusuario">Email</label>
+                            <input placeholder="Email" type="text" value="<?php echo $email ?>">
+                            <label for="nombreusuario">Universidad</label>
+                            <input placeholder="Universidad" type="text" value="<?php echo $universidad ?>">
+                            <label for="nombreusuario">Sexo</label>
+                            <input placeholder="Sexo" type="text" value="<?php echo $sexo ?>">
+                            <label for="nombreusuario">Télefono</label>
+                            <input placeholder="Teléfono" type="text" value="<?php echo $telefono ?>">
+                            <label for="nombreusuario">Dirección</label>
+                            <input placeholder="Dirección" type="text" value="<?php echo $direccion ?>">
+                            <label for="nombreusuario">Dirección</label>
+                            <input type="text" value="<?php echo $direccion ?>">
+                            <label for="nombreusuario">Ciudad</label>
+                            <input placeholder="Ciudad" type="text" value="<?php echo $ciudad ?>">
+                            <label for="nombreusuario">Colonia</label>
+                            <input placeholder="Colonia" type="text" value="<?php echo $colonia ?>">
+                            <label for="nombreusuario">Código Postal</label>
+                            <input placeholder="Código Postal" type="text" value="<?php echo $codigopostal ?>">
+                            <label for="nombreusuario">Estado</label>
+                            <input placeholder="Estado" type="text" value="<?php echo $estado ?>">
+                            <label for="nombreusuario">País</label>
+                            <input placeholder="País" type="text" value="<?php echo $pais ?>">
+                            <input class="actualizarperfil" type="submit" value="Actualizar" name="submit">
+
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>

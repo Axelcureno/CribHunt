@@ -76,53 +76,88 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <div class="site-wrap">
             <div id="site-wrap-agregarcrib">
                 <div class="canvas-cribhunt-agregar">
+                <div class="titulo-crib">Casa con 2 recamaras en Altabrisa</div>
                     <div class="frame">
                         <div class="bit-2">
-                            <div class="titulo">¿Cómo Funciona CribHunt?</div>
-                            <div class="como-funciona">
-                                Primero que nada, queremos darte las gracias por utilizar CribHunt.<br>
-                                Cuando pensamos en desarrollar esta aplicación, lo hicimos con el fin de ayudar
-                                a estudiantes que les resulta sumamente complicado buscar un lugar para vivir.<br>
-                                En el siguiente formulario, necesitamos que nos cuentes del lugar que piensas ofrecer,
-                                esto para poder mostrar a detalle a los demás usuarios todas las características.<br>
-                                Es muy importante que sepas que tu información personal así como la información que
-                                compartas en CribHunt no la compartiremos con absolutamente nadie.<br>
-                                También te prometemos no enviarte información que tu no solicites, y esperamos no tener
-                                que mostrar publicidad en nuestro sitio (sabemos cuanto la odias).<br>
-                                CribHunt fue pensado por estudiantes, para estudiantes así que sientete en completa confianza.
-                                Si tienes alguna duda, queja, sugerencia o encontraste un bug no dudes en escribirnos a
-                                axel@cribhunt.in<br>
-                                Una vez más, gracias por utilizar CribHunt. Esperemos que los disfrutes y te guste tanto como a nosotros.
+                            <div class="imagen-principal-crib">
+                                <a class="fancy-img" href="img/cribs/livingrm4.jpg"><img src="img/cribs/livingrm4.jpg" alt=""></a>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Contacto</div>
+                                <div class="elemento-crib">Teléfono: 9999999999</div>
+                                <div class="elemento-crib">Email: axelcureno@me.com</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Ciudad</div>
+                                <div class="elemento-crib">Mérida</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Ciudad</div>
+                                <div class="elemento-crib">Mérida</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Estado</div>
+                                <div class="elemento-crib">Yucatán</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Colonia</div>
+                                <div class="elemento-crib">Altabrisa</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Código Postal</div>
+                                <div class="elemento-crib">México</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Dirección</div>
+                                <div class="elemento-crib">Calle 23-B por 25 Fracc. Altabrisa</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">País</div>
+                                <div class="elemento-crib">México</div>
                             </div>
                         </div>
                         <div class="bit-2">
-                            <div class="publicar-container">
-                                <div class="titulo">Ahora, cuentanos sobre tu Crib</div>
-                                <form id="agregarcribform" enctype="multipart/form-data" action="" method="POST">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                                    <label for="file">Elige una imagen:</label>
-                                    <input required id="file" name="file" type="file" />
-                                    <input required placeholder="Titulo" type="text" name="titulocrib">
-                                    <label required for="categoriacrib">Categoría</label>
-                                    <select required name="categoriacrib" id="categoriacrib">
-                                        <option value="casa">Casa</option>
-                                        <option value="departamento">Departamento</option>
-                                        <option value="cuarto">Cuarto</option>
-                                    </select>
-                                    <textarea required placeholder="Características" name="caracteristicascrib" id="caracteristicascrib" cols="30" rows="6"></textarea>
-                                    <textarea required placeholder="Requisitos" name="requisitoscrib" id="requisitoscrib" cols="30" rows="6"></textarea>
-                                    <input required placeholder="Precio" type="text" name="preciocrib">
-                                    <input placeholder="Universidades cerca (más de una separar por comas)" type="text" name="universidadescrib">
-                                    <input required placeholder="Ciudad" type="text" name="ciudadcrib">
-                                    <input required placeholder="Estado" type="text" name="estadocrib">
-                                    <input required placeholder="Colonia" type="text" name="coloniacrib">
-                                    <input required placeholder="Código Postal" type="text" name="cpcrib">
-                                    <input required placeholder="Dirección" type="text" name="direccioncrib">
-                                    <input required placeholder="País" type="text" name="paiscrib">
-                                    <input id="agregarsubmitcrib" type="submit" value="Enviar" name="submitcrib" />
-                                    <div style="display:none;"><a href=".resultado" class="inline">Inline</a></div>
-                                    <div class="resultado"></div>
-                                </form>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Precio</div>
+                                <div class="elemento-crib">$8,000/mes</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Categoría</div>
+                                <div class="elemento-crib">Casa</div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Características</div>
+                                <div class="elemento-crib">
+                                    <ul>
+                                        <li>2 recamaras con camas matrimoniales</li>
+                                        <li>Television en ambas recamaras</li>
+                                        <li>Boiler eléctrico</li>
+                                        <li>Aires Acondicionados en todas las recamaras</li>
+                                        <li>Cuenta con estudio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Requisitos</div>
+                                <div class="elemento-crib">
+                                    <ul>
+                                        <li>1 mensualidad de anticipo</li>
+                                        <li>Pago del contrato</li>
+                                        <li>1 mensualidad de depósito</li>
+                                        <li>Aval con residencia en Mérida, Yucatán</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Universidades aledañas</div>
+                                <div class="elemento-crib">
+                                    <ul>
+                                        <li>Universidad Modelo (0.8km)</li>
+                                        <li>Universidad Marista de Mérida (3.5km)</li>
+                                        <li>UNID  (1.2km)</li>
+                                        <li>Universidad Anáhuac Mayab (18km)</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,10 +205,9 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             }); 
         </script>
         <script>
-        
         $(function() {
             var houselatlong = new google.maps.LatLng(21.0027759, -89.6330445);
-            var houselatlong2 = new google.maps.LatLng(21.1113653, -89.6120213);
+            var houselatlong2 = new google.maps.LatLng(21.026246, -89.584965);
             var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
             var map;
 
@@ -201,7 +235,46 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                         icon: image
                     });
 
-                    map.setCenter(pos);
+                    var contentString1 = '<div style="width:200px;" id="content">'+
+                    '<a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">Casa con 2 recamaras en Altabrisa</h1></a>'+
+                    '<div id="bodyContent">'+
+                    '<img style="max-width:200px;" src="img/cribs/livingrm4.jpg">'+
+                    '</div>';
+
+                    var contentString2 = '<div style="width:200px;" id="content">'+
+                    '<a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">Casa con 2 recamaras en Altabrisa</h1></a>'+
+                    '<div id="bodyContent">'+
+                    '<img style="max-width:200px;" src="img/cribs/livingrm4.jpg">'+
+                    '</div>';
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString1
+                    });
+
+                    var infowindow2 = new google.maps.InfoWindow({
+                        content: contentString2
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: houselatlong2,
+                        map: map,
+                        icon: iconhouse
+                    });
+                    var marker2 = new google.maps.Marker({
+                        position: houselatlong,
+                        map: map,
+                        icon: iconhouse
+                    });
+                    //Agrega el listener cuando das click en el marker
+                    google.maps.event.addListener(marker, 'click', function() {
+                      infowindow.open(map,marker);
+                    });
+                    google.maps.event.addListener(marker2, 'click', function() {
+                      infowindow2.open(map,marker2);
+                    });
+
+                      map.setCenter(pos);
+                      marker.setMap(map);
 
                 }, function() {
                   handleNoGeolocation(true);
