@@ -18,6 +18,21 @@ html {
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+@keyframes materialResponse {
+  0% { 
+    width: 0;
+    height: 0;
+    margin: 0;
+    background: rgba(255,255,255,0.1);
+  }
+  100% { 
+    width: 250%;
+    height: 250%;
+    margin: -125%;
+    background: rgba(255,255,255,0.4);
+  }
+}
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
@@ -50,6 +65,31 @@ hr {
 a {
     text-decoration: none;
     color: inherit;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #3F51B5;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #3F51B5;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #3F51B5;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #3F51B5;
+}
+#cribhunt-searchfield::-webkit-input-placeholder {
+    color: #FFF;
+}
+#cribhunt-searchfield:-moz-placeholder {
+    color: #FFF;
+
+}
+#cribhunt-searchfield::-moz-placeholder {
+    color: #FFF;
+
 }
 /*
  * Remove the gap between images, videos, audio and canvas and the bottom of
@@ -204,7 +244,34 @@ textarea {
   .bit-10,
   .bit-11,
   .bit-12 {
-    width: 100%;
+    width: 50%;
+  }
+  #parameter-search .parameter-cribsearch #slider-precio-cribsearch {
+    width: 30%;
+  }
+  #parameter-search  #slider-precio-cribsearch {
+  width: 40%;
+  }
+  #parameter-search .linea-parameter-search #cribsearch-places {
+    display: inline-block;
+    width: 330px;
+  }
+  #parameter-search .no-border-bottom-linea #submit-parameter-cribsearch {
+    top: 80px;
+  }
+  .main-menu .logo-container img {
+    width: 100px;
+    height: 50px;
+  }
+  #parameter-search #amount {
+    display: block;
+    float: right;
+    color: #f6931f;
+    font-weight: bold;
+    margin-left: 0;
+    width: 35%;
+    border: 0!important;
+    margin-top: -5px;
   }
   body .register-container {
     width: 100%;
@@ -239,6 +306,7 @@ textarea {
   }
   .site-wrap #parameter-search {
     width: 100%;
+    height: 175px;
   }
   .site-wrap .canvas-cribhunt {
     width: 100%;
@@ -339,29 +407,28 @@ body {
 }
 
 .main-menu {
-  background-color: #00B0FF;
+  background-color: #FF5722;
   box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 64px;
   margin: 0;
-  padding: 0;
+  padding: 6px;
   top: 0;
   left: 0;
-  border-bottom: 2px solid #0277BD;
   z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
 .canvas-cribhunt {
   width: 70%;
-  height: 68%;
+  height: 74%;
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 225px;
+  top: 155px;
   float: left;
-  background-color: #fff;
   overflow: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 .titulo-miscribs {
   background-color: #039BE5;
@@ -373,15 +440,15 @@ body {
 }
 .canvas-cribhunt-miscribs {
   width: 70%;
-  height: 93%;
+  height: 91%;
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 50px;
+  top: 64px;
   float: left;
   background-color: #fff;
   overflow: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 .linea-prop-crib {
   width: 100%;
@@ -419,17 +486,18 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+#canvas-mycribhunt .bit-4 {
+  padding: 5px;
+}
 #site-wrap-agregarcrib {
   width: 70%;
   height: 100%;
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 50px;
+  top: 0px;
   float: left;
   background-color: #fff;
-  overflow: scroll;
-  overflow-x: hidden;
 }
 #canvas-cribmap {
   width: 30%;
@@ -439,17 +507,34 @@ body {
   right: 0;
   position: absolute;
   background-color: #fff;
-  bottom: 0px;
-  padding-top: 50px;
+  top: 0px;
+  padding-top: 0;
   overflow: hidden;
+  z-index: 998;
+}
+#canvas-cribmap-add {
+  width: 30%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  right: 0;
+  position: absolute;
+  background-color: #fff;
+  /* top: 64px; */
+  padding-top: 0;
+  overflow: hidden;
+  z-index: 998;
 }
 #cribmap-container {
+ height: 100%; margin: 0; padding: 0;
+}
+#somecomponent {
  height: 100%; margin: 0; padding: 0;
 }
 .logo-container {
     width: 100px;
     height: 50px;
-    margin-left: 60px;
+    margin-left: 0;
     display: block;
     float: left;
 }
@@ -525,7 +610,7 @@ body {
 
 .navigation {
     list-style: none;
-    background: #0288D1;
+    background: #3F51B5;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -536,21 +621,37 @@ body {
     z-index: 0;
 }
 .site-wrap {
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #fff;
-    background-repeat:no-repeat;
-    background-size: cover;
-    position: relative;
-    top: 0;
-    bottom: 100%;
-    left: 0;
-    z-index: 1;
-    box-shadow: 0 5px 0 0 rgba(0,0,0,0.26);
+/* min-width: 100%; */
+/* min-height: 100%; */
+  width: 100%;
+  height:90.5%;
+  overflow: hidden;
+  background-color: #EEE;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 63px;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16);
 }
+
+.site-wrap-add {
+/* min-width: 100%; */
+/* min-height: 100%; */
+  width: 100%;
+  height:90.5%;
+  overflow: hidden;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 63px;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16);
+}
+
 .nav-trigger {
     position: absolute;
     clip: rect(0, 0, 0, 0);
@@ -558,8 +659,8 @@ body {
 }
 label[for="nav-trigger"] {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     z-index: 2;
 }
 label[for="nav-trigger"] {
@@ -630,6 +731,8 @@ body {
 .register-container .forma-registroinicio .boton-registroinicio:disabled {
     background-color: #81D4FA;
 }
+.container-agregar-crib {
+  padding:5px; }
 .olvidaste-password {
     margin-top: 10px;
     color: #2c3e50;
@@ -666,28 +769,34 @@ body {
     padding-right: 10px;
 }
 #cribhunt-searchfield {
+    background: #FF5722;
     width: 90%;
     height: 30px;
     padding: 7px;
     float: left;
     border: none;
     font-size: 18px;
-    color: #0288D1;
+    color: #fff;
     font-weight: 300;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #fff;
 }
 #cribsearch-submit {
-    font-family: 'icomoon';
+    background-image: url('../img/icons/search_icon.svg');
     width: 10%;
-    background-color: #039BE5;
+    background-color: #FF5722;
     color: #fff;
     font-size: 18px;
     padding: 6px;
     border: none;
     float: left;
     cursor: pointer;
+    background-size: 100%;
 }
 #cribsearch-submit:hover {
-  background-color: #0288D1;
+  background-color: #FF5722;
 }
 .toolbar {
     width: 25%;
@@ -736,16 +845,11 @@ body {
   height: 150px;
 }
 .nav-item {
-  border-top: 2px solid #0277BD;
-  border-bottom: none;
   padding: 12px;
   color: #fff;
 }
-.last-nav-item {
-  border-bottom: 2px solid #0277BD;
-}
 .nav-item:hover {
-  background-color: #0277BD;
+  background-color: #283593;
 }
 .menu-de-usuario {
   display: block;
@@ -768,6 +872,14 @@ body {
 .crib-container {
   width: 100%;
   height: inherit;
+  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+  transition: all .2s ease-in-out;
+}
+
+.crib-container:hover {
+  transform: scale(1.010);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
 .crib-image {
   width: 100%;
@@ -779,9 +891,13 @@ body {
   -moz-transition: opacity 0.4s;
   -ms-transition: opacity 0.4s;
   transition: opacity 0.4s;
+    border-radius: 2px 2px 0px 0px;
 }
 .descripcion-crib {
-  background-color: #039BE5;
+  background-color: #fff;
+  color: #222;
+  padding: 10px 10px 10px 10px;
+  border-radius: 0px 0px 2px 2px;
 }
 .crib-image .precio-crib {
   float: right;
@@ -793,11 +909,8 @@ body {
   position: relative;
   text-shadow: 0 0 20px rgba(0,0,0,1.5);
 }
-.crib-container {
-  padding: 5px;
-}
 .descripcion-crib .titulo-crib {
-  font-weight: 300;
+  font-weight: 500;
   color: #fff;
   font-size: 16px;
   padding: 10px;
@@ -816,20 +929,19 @@ body {
   color: #f6931f;
   font-weight: bold;
   margin-left: 0;
-  width: 40%;
-  border:0;
+  width: 37%;
+  border:0!important;
 }
 #parameter-search {
   width: 70%;
-  height: 25%;
+  height: 164px;
   margin: 0;
   position: absolute;
   display: block;
-  top: 50px;
+  top: 0px;
   float: left;
-  background-color: #fff;
+  background-color: #3F51B5;
   font-weight: 300;
-  box-shadow: 0 2px 0px rgba(0,0,0,0.26);
   z-index: 1;
 }
 #parameter-search .linea-parameter-search {
@@ -838,24 +950,27 @@ body {
   height: auto;
   padding: 13px;
   display: inline-block;
-  border-bottom: 1px solid #B3E5FC;
 }
 #parameter-search .no-border-bottom-linea {
   border-bottom: none;
 }
 .linea-parameter-search label {
-  color: #01579B;
+  color: #fff;;
   font-size: 16px;
   display: inline-block;
 }
 .linea-parameter-search input {
   display: inline-block;
   width: 400px;
-  border: 1px solid #29B6F6;
+  border-bottom: 1px solid #FFFFFF;
   margin-left: 10px;
   font-size: 16px;
-  color: #01579B;
+  color: #FFFFFF;
   padding: 3px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background: #3F51B5;
 }
 .linea-parameter-search select {
   margin-left: 10px;
@@ -866,24 +981,74 @@ body {
   margin-left: 10px;
 }
 .no-border-bottom-linea #submit-parameter-cribsearch {
-  width: initial;
-  background-color: #03A9F4;
+  background-image: url('../img/icons/search_icon.svg');
+  background-size: 60%;
+  background-color: #FF5722;
   color: #fff;
   padding: 10px;
-  border-bottom: 3px solid #0277BD;
   float: right;
-  margin-top: -6px;
+  margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px;
   position: absolute;
-  right: 0;
-  margin-right: 10px;
+  right: 20px;
+  margin-right: 15px;
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.26);
+  border-radius: 32px;
+  font-size: 30px;
+  height: 65px;
+  width: 65px;
+  padding-top: 14px;
+  top: 130px;
+  transition: all .2s ease-in-out;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 13px 14px;
+}
+
+.no-border-bottom-linea #submit-parameter-cribsearch:active {
+  /*animation: materialResponse 0.4s ease;*/
+  z-index: 2;
+}
+.no-border-bottom-linea #submit-parameter-cribsearch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+#parameter-cribsearch .linea-parameter-search .ui-widget-content {
+border: none;
+background: #ffffff;
+height: 2px;
+}
+
+#parameter-cribsearch .linea-parameter-search .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+border: none;
+background: #e6e6e6;
+font-weight: normal;
+color: #555555;
+}
+#parameter-cribsearch .linea-parameter-search .ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+  border-radius: 10px;
+  margin-top: -6px;
+}
+#parameter-cribsearch .ui-widget-header {
+  border: none!important;
+  background: #E91E63;
+  color: #222222;
 }
 .canvas-cribhunt-agregar {
   width: 100%;
-  height: 93%;
+  height: 100%;
   display: block;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 .canvas-cribhunt-lista {
   width: 100%;
@@ -922,6 +1087,21 @@ body {
   padding: 5px;
   float: left;
   font-size: 18px;
+  display: inline-block;
+  border-bottom: 1px solid #29B6F6;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #01579B;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+#agregarcribform input[type="submit"], #agregarcribform input[type="reset"] {
+  border: 2px solid #29B6F6;
+  background: transparent;
+  border-radius: 2px;
+  color: #29B6F6;
 }
 .como-funciona {
   color: #0277BD;
@@ -982,6 +1162,46 @@ body {
   color: #fff;
   border-bottom: 3px solid #0277BD;
   border: none;
+}
+
+.form-uploadcrib {
+  margin: 10px;
+  width: 600px;
+}
+
+.container-agregar-crib .container {
+  width: 100%;
+}
+.form-upload-container {
+  padding: 10px;
+}
+form-uploadcrib .label-form {
+  color: #fff;
+  font-size: 16px;
+  display: inline-block;
+}
+.form-uploadcrib input {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  margin-left: 0px;
+  font-size: 16px;
+  color: #000;
+  padding: 3px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.form-upload-container #map-canvas {
+  width: 500px;
+  height: 300px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.latlong-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 /* ==========================================================================
    Helper classes

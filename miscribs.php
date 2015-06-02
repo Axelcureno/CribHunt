@@ -83,7 +83,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                     while($row = mysqli_fetch_object($sql))
                     {
                         $result = $row;
-                        echo $result;
+                        //echo $result;
                         $count++;
                     }
                     if ($count == 0) {
@@ -322,13 +322,13 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         $(function() {
             var houselatlong = new google.maps.LatLng(21.0027759, -89.6330445);
             var houselatlong2 = new google.maps.LatLng(21.1113653, -89.6120213);
-            var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
+            //var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
             var map;
 
             function initialize() {
                 var mapOptions = {
-                  zoom: 13,
-                  styles: stylesArray
+                  zoom: 13
+                  //styles: stylesArray
                 };
 
             $("#cribsearch-places").geocomplete();

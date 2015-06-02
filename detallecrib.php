@@ -1,18 +1,11 @@
 <?php
 session_start();
-if(!isset($_SESSION['usersicam']))
-{
-   header("location:index.php");
-}
-include("dbcon.php");
+include("functions.php");
 
-$id = $_SESSION['usersicam'];
-$sql = "SELECT * FROM usuarios WHERE id = '$id'";
-    $rec = mysqli_query($con, $sql);
-    while($row = mysqli_fetch_array($rec))
-    {
-        $nombreusuario = $row['nombres'];
-    }
+$request = $_GET['handler'];
+$encoding = explode(".", $request); // to get the encoding (array);
+$parameters = explode("/", $encoding[0]); // to get the parameters (array);
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -76,7 +69,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <div class="site-wrap">
             <div id="site-wrap-agregarcrib">
                 <div class="canvas-cribhunt-agregar">
-                <div class="titulo-crib">Casa con 2 recamaras en Altabrisa</div>
+                <div class="titulo-crib">        <?php echo parse_str($_SERVER['QUERY_STRING']); ?></div>
                     <div class="frame">
                         <div class="bit-2">
                             <div class="imagen-principal-crib">
@@ -208,13 +201,13 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         $(function() {
             var houselatlong = new google.maps.LatLng(21.0027759, -89.6330445);
             var houselatlong2 = new google.maps.LatLng(21.026246, -89.584965);
-            var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
+            //var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
             var map;
 
             function initialize() {
                 var mapOptions = {
-                  zoom: 13,
-                  styles: stylesArray
+                  zoom: 13
+                  //styles: stylesArray
                 };
 
             $("#cribsearch-places").geocomplete();

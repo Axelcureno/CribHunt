@@ -1,0 +1,459 @@
+<?php
+include("functions.php");
+include("dbcon.php");
+startpage();
+
+$id = $_SESSION['usersicam'];
+$sql = "SELECT * FROM usuarios WHERE id = '$id'";
+    $rec = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_array($rec))
+    {
+        $nombreusuario = $row['nombres'];
+    }
+?>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My CribHunt</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/fancybox.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/jquery.fileupload.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <script src="js/vendor/jquery-2.1.1.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+        <script src="js/locationpicker.jquery.js"></script>
+        <style>
+  
+  h2 {
+    margin-bottom: 0;
+  }
+  
+  small {
+    display: block;
+    margin-top: 40px;
+    font-size: 9px;
+  }
+  
+  small,
+  small a {
+    color: #666;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  #toolbar [data-wysihtml5-action] {
+    float: right;
+  }
+  
+  #toolbar,
+  textarea {
+    width: 100%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    height: 280px;
+    border: 2px solid #29B6F6;
+    font-family: Verdana;
+    font-size: 11px;
+  }
+  
+  textarea:focus {
+    color: black;
+    border: 2px solid black;
+  }
+  
+  .wysihtml5-command-active {
+    font-weight: bold;
+  }
+  
+  [data-wysihtml5-dialog] {
+    margin: 5px 0 0;
+    padding: 5px;
+    border: 1px solid #666;
+  }
+  
+  a[data-wysihtml5-command-value="red"] {
+    color: red;
+  }
+  
+  a[data-wysihtml5-command-value="green"] {
+    color: green;
+  }
+  
+  a[data-wysihtml5-command-value="blue"] {
+    color: blue;
+  }
+</style>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <ul class="navigation">
+        <div class="perfil-usuario">
+            <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
+            <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
+        </div>
+        <div class="menu-de-usuario">
+            <div class="que-deseas">
+            ¿Qué deseas hacer?
+        </div>
+            <a class="nav-a-item" href="miscribs.php"><li class="nav-item">Mis Cribs</li></a>
+            <a class="nav-a-item" href="mycribhunt.php"><li class="nav-item">Buscar Crib</li></a>
+            <a class="nav-a-item" href="agregarcrib.php"><li class="nav-item">Publicar tu Crib</li></a>
+            <!--<a class="nav-a-item" href="mycribwishlist.php"><li class="nav-item">Mi Crib Wishlist</li></a>-->
+            <a class="nav-a-item" href="perfil.php"><li class="nav-item">Administrar Perfil</li></a>
+            <!--<a class="nav-a-item" href="opciones.php"><li class="nav-item">Opciones</li></a>-->
+            <a class="nav-a-item" href="logout.php"><li class="nav-item last-nav-item">Salir</li></a>
+        </div>
+        
+        </ul>
+            <div class="main-menu">
+                <div class="logo-container">
+                    <a href="mycribhunt.php"><img src="img/logo.svg" alt="CribHunt"></a>
+                </div>
+            <div class="search-container">
+                    <form id="cribsearch" action="" method="post">
+                        <input id="cribhunt-searchfield" type="text" placeholder="Casa, 3 recamaras, 3 baños, Mérida..." name="cribsearch">
+                        <input id="cribsearch-submit" type="submit" value="" name="cribsearch">
+                    </form>
+            </div>
+                <div class="toolbar">
+                    <div class="usuario-bienvenido"><span class="holausuario">¿Alguna sugerencia?</span></div>
+                        <div class="perfil-container">
+                                <a href="logout.php"><img src="img/icons/logout.svg" alt="Usuario" title="Cerrar Sesión"></a>
+                        </div>
+                </div>
+            </div>
+        <div class="site-wrap-add">
+            <div id="site-wrap-agregarcrib">
+                <div class="canvas-cribhunt-agregar">
+                    <div class="frame">
+                        <form id="agregarcribform" action="addcrib_submit" method="post" accept-charset="utf-8">
+                            <div class="bit-2">
+                                <div class="form-upload-container">
+                                    <label for="titulo">Titulo</label>
+                                    <input required type="text" name="titulo" value="">
+                                </div>
+                                <div class="form-upload-container">
+                                    <div class="label-form">Subir Imagen(es):</div>
+                                    <input type="hidden" role="uploadcare-uploader"
+                                      data-images-only="true"
+                                      data-multiple="true" />
+                                      <input required style="display:none;" id="imagenprincipal-input" type="text" name="imagenprincipalinput" value="">
+                                      <input required style="display:none;" id="imagen-input" type="text" name="imageninput" value="">
+                                </div>
+                                <div class="form-upload-container">
+                                    <label for="titulo">Categoría</label>
+                                    <select name="categoria">
+                                        <option value="casa">Casa</option>
+                                        <option value="departamento">Departamento</option>
+                                        <option value="cuarto">Cuarto</option>
+                                    </select>
+                                </div>
+                                <input required style="display:none" type="text" name="latitudcrib" id="us2-lat"/>
+                                <input required style="display:none"type="text" name="longitudcrib" id="us2-lon"/>
+                            <div class="form-upload-container">
+                                <label for="titulo">Características</label>
+                                    <div id="toolbar1" style="display: none;">
+                                        <a data-wysihtml5-command="bold" title="CTRL+B">Negrita</a> |
+                                        <a data-wysihtml5-command="italic" title="CTRL+I">Itálica</a> |
+                                        <a data-wysihtml5-command="createLink">Insertar enlace</a> |
+                                        <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
+                                        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
+                                        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
+                                        <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                        <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
+                                        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
+                                        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
+                                        <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">Azul</a> |
+                                        <a data-wysihtml5-command="insertSpeech">Speech</a>
+                                        <a data-wysihtml5-action="change_view">Cambiar a vista HTML</a>
+                                        
+                                        <div data-wysihtml5-dialog="createLink" style="display: none;">
+                                          <label>
+                                            Link:
+                                            <input data-wysihtml5-dialog-field="href" value="http://">
+                                          </label>
+                                          <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancelar</a>
+                                        </div>
+                                        
+                                        <div data-wysihtml5-dialog="insertImage" style="display: none;">
+                                          <label>
+                                            Imagen:
+                                            <input data-wysihtml5-dialog-field="src" value="http://">
+                                          </label>
+                                          <label>
+                                            Alinear:
+                                            <select data-wysihtml5-dialog-field="className">
+                                              <option value="">Default</option>
+                                              <option value="wysiwyg-float-left">Izquierda</option>
+                                              <option value="wysiwyg-float-right">Derecha</option>
+                                            </select>
+                                          </label>
+                                          <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                                        </div>
+                                      </div>
+                                    <textarea required id="caractextarea" type="text" cols="40" rows="8" name="caracteristicas" required></textarea>
+                                    <br><input type="reset" value="Volver a comenzar!">
+                                </div>
+                                <div class="form-upload-container">
+                                        <label for="titulo">Requisitos</label>
+                                              <div id="toolbar2" style="display: none;">
+                                                <a data-wysihtml5-command="bold" title="CTRL+B">Negrita</a> |
+                                                <a data-wysihtml5-command="italic" title="CTRL+I">Itálica</a> |
+                                                <a data-wysihtml5-command="createLink">Insertar enlace</a> |
+                                                <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
+                                                <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
+                                                <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
+                                                <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                                <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">Azul</a> |
+                                                <a data-wysihtml5-command="insertSpeech">Speech</a>
+                                                <a data-wysihtml5-action="change_view">Cambiar a vista HTML</a>
+                                                
+                                                <div data-wysihtml5-dialog="createLink" style="display: none;">
+                                                  <label>
+                                                    Link:
+                                                    <input data-wysihtml5-dialog-field="href" value="http://">
+                                                  </label>
+                                                  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancelar</a>
+                                                </div>
+                                                
+                                                <div data-wysihtml5-dialog="insertImage" style="display: none;">
+                                                  <label>
+                                                    Imagen:
+                                                    <input data-wysihtml5-dialog-field="src" value="http://">
+                                                  </label>
+                                                  <label>
+                                                    Alinear:
+                                                    <select data-wysihtml5-dialog-field="className">
+                                                      <option value="">Default</option>
+                                                      <option value="wysiwyg-float-left">Izquierda</option>
+                                                      <option value="wysiwyg-float-right">Derecha</option>
+                                                    </select>
+                                                  </label>
+                                                  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                                                </div>
+                                              </div>
+                                            <textarea id="reqtextarea" type="text" cols="40" rows="8" name="requisitos" required></textarea>
+                                            <br><input type="reset" value="Volver a comenzar!">
+                                    </div>
+                        </div>
+                        <div class="bit-2">
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Precio</label>
+                                        <input required type="text" name="precio" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Universidad(es) aledaña(s)</label>
+                                              <div id="toolbar3" style="display: none;">
+                                                <a data-wysihtml5-command="bold" title="CTRL+B">Negrita</a> |
+                                                <a data-wysihtml5-command="italic" title="CTRL+I">Itálica</a> |
+                                                <a data-wysihtml5-command="createLink">Insertar enlace</a> |
+                                                <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
+                                                <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
+                                                <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
+                                                <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                                <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
+                                                <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">Azul</a> |
+                                                <a data-wysihtml5-command="insertSpeech">Speech</a>
+                                                <a data-wysihtml5-action="change_view">Cambiar a vista HTML</a>
+                                                
+                                                <div data-wysihtml5-dialog="createLink" style="display: none;">
+                                                  <label>
+                                                    Link:
+                                                    <input data-wysihtml5-dialog-field="href" value="http://">
+                                                  </label>
+                                                  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancelar</a>
+                                                </div>
+                                                
+                                                <div data-wysihtml5-dialog="insertImage" style="display: none;">
+                                                  <label>
+                                                    Imagen:
+                                                    <input data-wysihtml5-dialog-field="src" value="http://">
+                                                  </label>
+                                                  <label>
+                                                    Alinear:
+                                                    <select data-wysihtml5-dialog-field="className">
+                                                      <option value="">Default</option>
+                                                      <option value="wysiwyg-float-left">Izquierda</option>
+                                                      <option value="wysiwyg-float-right">Derecha</option>
+                                                    </select>
+                                                  </label>
+                                                  <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                                                </div>
+                                              </div>
+                                        <textarea id="unitextarea" type="text" cols="40" rows="8" name="universidades" required></textarea>
+                                <br><input type="reset" value="Volver a comenzar!">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Teléfono</label>
+                                        <input required type="text" name="telefono" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Ciudad</label>
+                                        <input required id="ciudadcrib" type="text" name="ciudad" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Estado</label>
+                                        <input required id="estadocrib" type="text" name="estado" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Colonia</label>
+                                        <input required id="coloniacrib" type="text" name="colonia" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Código Postal</label>
+                                        <input required id="cpcrib" type="text" name="cp" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">Dirección</label>
+                                        <input required id="direccioncrib" type="text" name="direccion" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <label for="titulo">País</label>
+                                        <input required id="paiscrib" type="text" name="pais" value="">
+                                    </div>
+                                    <div class="form-upload-container">
+                                        <input id="enviar" type="submit" name="submitcrib" value="Enviar">
+                                    </div>
+                                    <div class="form-upload-container">
+                                      <div class="result"></div>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="canvas-cribmap-add">
+                    <div id="somecomponent" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+       <script charset="utf-8" src="//ucarecdn.com/widget/2.0.4/uploadcare/uploadcare.full.min.js"></script>
+        <script src="js/parser_rules/advanced.js"></script>
+        <script src="js/wysihtml5-0.3.0.min.js"></script>
+        <script>
+          var editor1 = new wysihtml5.Editor("caractextarea", {
+            toolbar:      "toolbar1",
+            stylesheets:  "css/wysihtml5.css",
+            parserRules:  wysihtml5ParserRules
+          });
+
+          var editor2 = new wysihtml5.Editor("reqtextarea", {
+            toolbar:      "toolbar2",
+            stylesheets:  "css/wysihtml5.css",
+            parserRules:  wysihtml5ParserRules
+          });
+          
+          var editor3 = new wysihtml5.Editor("unitextarea", {
+            toolbar:      "toolbar3",
+            stylesheets:  "css/wysihtml5.css",
+            parserRules:  wysihtml5ParserRules
+          });
+
+</script>
+        <script>
+        function updateControls(addressComponents) {
+            $('#direccioncrib').val(addressComponents.addressLine1);
+            $('#ciudadcrib').val(addressComponents.city);
+            $('#estadocrib').val(addressComponents.stateOrProvince);
+            $('#cpcrib').val(addressComponents.postalCode);
+            $('#paiscrib').val(addressComponents.country);
+        }
+            $('#somecomponent').locationpicker({
+                location: {latitude: 21.0335705, longitude: -89.6270551},
+                radius: 50,
+                inputBinding: {
+                    latitudeInput: $('#us2-lat'),
+                    longitudeInput: $('#us2-lon'),
+                    radiusInput: $('#us2-radius'),
+                    locationNameInput: $('#us2-address')
+                },
+                onchanged: function (currentLocation, radius, isMarkerDropped) {
+                    var addressComponents = $(this).locationpicker('map').location.addressComponents;
+                    updateControls(addressComponents);
+                },
+                oninitialized: function(component) {
+                    var addressComponents = $(component).locationpicker('map').location.addressComponents;
+                    updateControls(addressComponents);
+                }
+            });
+        </script>
+  <script>
+            UPLOADCARE_LOCALE = "en";
+            UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
+            UPLOADCARE_PUBLIC_KEY = "1827376d3a32a0439684";
+
+    var multipleWidget = uploadcare.MultipleWidget("[role=uploadcare-uploader]");
+        //$ = uploadcare.jQuery; // skip this if you already have jQuery on the page
+        multipleWidget.onChange(function(group) {
+          if (group) {
+            group; // group object
+            group.files(); // array of file objects
+            group.files()[0].done(function(fileInfo) {
+              $('#imagenprincipal-input').val(fileInfo.cdnUrl);
+              console.log(fileInfo.cdnUrl);
+            });
+            $.when.apply(null, group.files()).then(function() {
+              arguments; // array of individual file infos
+              $.each(arguments, function() {
+                $('#imagen-input').val($('#imagen-input').val() + this.cdnUrl);
+                //$('#imagen-input').val(this.uuid);
+              });
+            });
+          }
+
+    });
+    </script>
+
+    <script>
+        $("#agregarcribform").submit(function(event) {
+          // Stop form from submitting normally
+          event.preventDefault();
+          // Get some values from elements on the page:
+          var values = $(this).serialize();
+          // Send the data using post and put the results in a div
+            $.ajax({
+                url: "nuevouploadcrib.php",
+                type: "post",
+                data: values,
+                success: function(result){
+                  $('.resultado').html(result);
+              },
+                error:function(){
+
+                }
+          });
+
+        }); 
+    </script>
+      
+    </body>
+</html>

@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$('.tab').on('click', function() {
 		$('.resultado').html('');
 	});
-	if(undefined == $("#aceptocheck").attr('checked')){
+	if(undefined === $("#aceptocheck").attr('checked')){
 		$('#aceptocheck').on('click', function() {
 			if ($("#aceptocheck").is(':checked')) {
 				$('#botonderegistro').removeAttr('disabled');
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 	        }
 		});
-		$(".inline").trigger('click'); 
+		$(".inline").trigger('click');
 	});
 	$("#cribsearch").submit(function(event) {
 	  // Stop form from submitting normally
@@ -54,7 +54,8 @@ $(document).ready(function() {
 		});
 
 	});
-	$("#agregarcribform").submit(function(event) {
+	
+	$("#parameter-cribsearch").submit(function(event) {
 	  // Stop form from submitting normally
 	  event.preventDefault();
 	  // Get some values from elements on the page:
@@ -74,13 +75,14 @@ $(document).ready(function() {
 
 	});
 
-	$("a").click(function() {
-	  /* grabs URL from HREF attribute then adds an  */
-	  /* ID from the DIV I want to grab data from    */
-	  var myUrl = $(this).attr("href");
-	  $(".site-wrap").post(myUrl + "#site-wrap");
-	  return false;
-	});
+$(".crib-item").click(function(){
+	event.preventDefault();
+    // Load the content of the page referenced in the a-tags href
+    //$(".site-wrap").load($(this).attr("href"));
+    // Prevent browsers default behavior to follow the link when clicked
+    //return false;
+});
+
 });
         (function(){
         	var $container = $('#canvas-mycribhunt');
@@ -90,7 +92,7 @@ $(document).ready(function() {
             $container.imagesLoaded( function() {
                 $container.isotope({
                     itemSelector: '.bit-4',
-                    layoutMode: 'masonry',
+                    layoutMode: 'fitRows',
                     masonry: {
                       columnWidth: 0
                     }
@@ -99,7 +101,7 @@ $(document).ready(function() {
             $containerlistacribs.imagesLoaded( function() {
                 $container.isotope({
                     itemSelector: '.bit-4',
-                    layoutMode: 'masonry',
+                    layoutMode: 'fitRows',
                     masonry: {
                       columnWidth: 0
                     }

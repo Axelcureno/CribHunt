@@ -1,17 +1,13 @@
 <?php
-session_start();
-if(!isset($_SESSION['usersicam']))
-{
-   header("location:index.php");
-}
-//if Submit was clicked
-$result = [];
+include("functions.php");
+include("dbcon.php");
+startpage();
+
 if(isset($_POST['titulocrib'])) {
-        include('dbcon.php'); 
+        $result = [];
         date_default_timezone_set("America/Merida");
         $date = date('Y-m-d H:i:s');
         $id = $_SESSION['usersicam'];
-        $path = "Prueba";
         $titulocrib = $_POST['titulocrib'];
         $categoriacrib = $_POST['categoriacrib'];
         $imagenprincipalcrib = $path;
@@ -27,13 +23,20 @@ if(isset($_POST['titulocrib'])) {
         $cpcrib = $_POST['cpcrib'];
         $direccioncrib = $_POST['direccioncrib'];
         $paiscrib = $_POST['paiscrib'];
+        $target = "uploads/".$id."/".$categoriacrib."/".$titulocrib;
 
-        mysqli_query($con, "INSERT INTO cribs (titulocrib, categoriacrib, imagenprincipalcrib, caracteristicascrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib) VALUES ('$titulocrib', '$categoriacrib', '$imagenprincipalcrib', '$caracteristicascrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
+            if (!file_exists($target)) {
+                mkdir($target, 0777, true);
+            }
+
+        //En teoria, aqui debe ir una funcion que logre subir las imagenes al servidor.
+
+        mysqli_query($con, "INSERT INTO cribs (titulocrib, urlcrib, categoriacrib, imagenescrib, caracteristicascrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib) VALUES ('$titulocrib', '$urlcrib', '$categoriacrib', '$imagenescrib', '$caracteristicascrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
         if(error_get_last()) {
             $result = error_get_last();
         } else {
             $result = "El registro fue exitoso";
         }
 }
-        echo $result;
+        echo var_dump($result);
  ?>
