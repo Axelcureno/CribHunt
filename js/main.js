@@ -29,7 +29,7 @@ $(document).ready(function() {
 	        success: function(result){
 	        	$('.resultado').html(result);
 	    	},
-	        error:function(){
+	        error:function() {
 
 	        }
 		});
@@ -74,14 +74,6 @@ $(document).ready(function() {
 		});
 
 	});
-
-$(".crib-item").click(function(){
-	event.preventDefault();
-    // Load the content of the page referenced in the a-tags href
-    //$(".site-wrap").load($(this).attr("href"));
-    // Prevent browsers default behavior to follow the link when clicked
-    //return false;
-});
 
 });
         (function(){

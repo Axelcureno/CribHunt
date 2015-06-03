@@ -1,9 +1,11 @@
-$(function() {    var json = new Object();
+$(function() {    
+
+    var json = new Object();
 
     $.ajax({
         async: false,
         dataType : 'json',
-        url: 'markerswebservice.php',
+        url: 'http://localhost/cribhunt/markerswebservice.php',
         type : 'GET',
         success: function(data) {
             for(var i in data){
@@ -32,8 +34,8 @@ $(function() {    var json = new Object();
                     
                     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     //Iconos de Google Maps
-                    var image = 'img/icons/geolocation.png';
-                    var iconhouse = 'img/icons/location-red.png';
+                    var image = 'http://localhost/cribhunt/img/icons/geolocation.png';
+                    var iconhouse = 'http://localhost/cribhunt/img/icons/location-red.png';
                     var infowindow =  new google.maps.InfoWindow({
                         content: ""
                     });
@@ -47,7 +49,7 @@ $(function() {    var json = new Object();
                     for (var i = 0; i < json.length; i++) {
 
                         var obj = json[i];
-                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="' + obj.urlcrib + '"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
+                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="http://localhost/cribhunt/' + obj.urlcrib + '"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
 
                         var infowindow = new google.maps.InfoWindow({
                             content: description

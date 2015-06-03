@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("functions.php");
-include("dbcon.php");
+
 //$id = $_SESSION['usersicam'];
 //$sql = "SELECT * FROM usuarios WHERE id = '$id'";
 //    $rec = mysqli_query($con, $sql);
@@ -12,40 +12,10 @@ include("dbcon.php");
 
 $cribArray = array();
 $index = 0;
-$sql = "SELECT * FROM cribs";
-$result = $con->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $cribArray[$index] = $row;
-        $index++;
-    }
-} else {
-    echo "0 resultados";
-}
-
-$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-
-    // Split the URL into its constituent parts.
-    $parse = parse_url($url);
-
-    // Remove the leading forward slash, if there is one.
-    $path = ltrim($parse['path'], '/');
-
-    // Put each element into an array.
-    $elements = explode('/', $path);
-
-    // Create a new empty array.
-    $args = array();
-
-    // Loop through each pair of elements.
-    for( $i = 0; $i < count($elements); $i = $i + 2) {
-        $args[$elements[$i]] = $elements[$i + 1];
-    }
-
-
+$request = $_SERVER['REQUEST_URI'];
 
 ?>
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -56,8 +26,8 @@ $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -68,7 +38,7 @@ $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         <![endif]-->
             <div class="main-menu">
                 <div class="logo-container">
-                    <a href="index.php"><img src="img/logo.svg" alt="CribHunt"></a>
+                    <a href="<?php echo URL ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
                 </div>
                 <div class="search-container">
                         <form id="cribsearch" action="" method="post">
@@ -102,29 +72,52 @@ $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
             </form>
             </div>
             <div class="canvas-cribhunt">
-                <div id="canvas-mycribhunt" class="frame">
+                
 <?php 
+if ($request != '/cribhunt/') {
+    include('detallecrib.php');
+} else {
+    echo '<div id="canvas-mycribhunt" class="frame">';
+    $sql = "SELECT * FROM cribs";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $cribArray[$index] = $row;
+            $index++;
+        }
+    } else {
+        echo "0 resultados";
+    }
     for ($i=0; $i < count($cribArray); $i++) { 
-                echo '<a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '<div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . '</div></div><div class="descripcion-crib">' . $cribArray[$i]["titulocrib"] . '</div></div></div></a>';
+        echo '<a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '<div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . '</div></div><div class="descripcion-crib">' . $cribArray[$i]["titulocrib"] . '</div></div></div></a>';
     }
+    echo '</div>';
+}
 
-    if (isset($args)) {
-        print_r($args);
-    }
+
+
 ?>
-                </div>
             </div>
             <div id="canvas-cribmap">
                 <div id="cribmap-container"></div>
             </div>
         </div>
 
-        <script src="js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/markers.js"></script>
+        <script src="<?php echo URL ?>js/plugins.js"></script>
+        <script src="<?php echo URL ?>js/main.js"></script>
+        <?php 
+
+        if ($request != '/cribhunt/') {
+
+        } else {
+            echo '<script src="' . URL . 'js/markers.js"></script>';
+        }
+
+         ?>
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
         <script>
