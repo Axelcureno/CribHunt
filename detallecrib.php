@@ -1,22 +1,3 @@
-<?php 
-
-$parts = explode('/', rtrim($request, '/'));
-
-
-
-    $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
-    $result = $con->query($sql);
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $cribArray[$index] = $row;
-            $index++;
-        }
-    }
-
-
-
- ?> 
             <div id="site-wrap-agregarcrib">
                 <div class="canvas-cribhunt-agregar">
                 <div class="titulo-crib"><?php echo $cribArray[0]["titulocrib"]; ?></div>

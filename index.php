@@ -75,6 +75,22 @@ $request = $_SERVER['REQUEST_URI'];
                 
 <?php 
 if ($request != '/cribhunt/') {
+
+    $parts = explode('/', rtrim($request, '/'));
+
+
+
+    $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $cribArray[$index] = $row;
+            $index++;
+        }
+    }
+
+
     include('detallecrib.php');
 } else {
     echo '<div id="canvas-mycribhunt" class="frame">';
@@ -113,11 +129,90 @@ if ($request != '/cribhunt/') {
 
         if ($request != '/cribhunt/') {
 
+        echo '<script>';
+        echo '$(function() {';
+        echo 'var houselatlong = new google.maps.LatLng(' . $cribArray[0]["latitudcrib"] . ', ' . $cribArray[0]["longitudcrib"] . ');';
+            //var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
+        echo 'var map;';
+
+        echo 'function initialize() {';
+                 echo 'var mapOptions = {';
+                   echo 'zoom: 15';
+                  //styles: stylesArray
+                 echo '};';
+
+         echo '$("#cribsearch-places").geocomplete();';
+            // To add the marker to the map, call setMap();
+            
+         echo 'map = new google.maps.Map(document.getElementById("cribmap-container"), mapOptions);';
+            // Intento de HTML5 Geolocation
+             echo 'if(navigator.geolocation) {';
+             echo 'navigator.geolocation.getCurrentPosition(function(position) {';
+              echo 'var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);';
+                    //Iconos de Google Maps
+              echo 'var image = "http://localhost/cribhunt/img/icons/geolocation.png";';
+               echo 'var iconhouse = "http://localhost/cribhunt/img/icons/location-red.png";';
+
+                    echo 'var geolocationmarker = new google.maps.Marker({';
+                     echo 'position: pos,';
+                     echo 'map: map,';
+                     echo 'icon: image';
+                    echo '});';
+
+                    echo 'var contentString1 = \'<div style="width:200px;" id="content">\'+\'<a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' . $cribArray[0]["titulocrib"] . '</h1></a>\' + \'<div id="bodyContent">\'+ \'<img style="max-width:200px;" src="' . $cribArray[0]["imagenprincipalcrib"] . '">\' + \'</div>\';';
+
+                    echo 'var infowindow = new google.maps.InfoWindow({';
+                        echo 'content: contentString1';
+                    echo '});';
+
+                    echo 'var marker = new google.maps.Marker({';
+                    echo 'position: houselatlong,';
+                    echo 'map: map,';
+                    echo 'icon: iconhouse';
+                     echo '});';
+                    //Agrega el listener cuando das click en el marker
+                    echo 'google.maps.event.addListener(marker, \'click\', function() {';
+                    echo 'infowindow.open(map,marker);';
+                    echo '});';
+
+                    echo 'map.setCenter(houselatlong);';
+                    echo 'marker.setMap(map);';
+
+                    echo '}, function() {';
+                    echo 'handleNoGeolocation(true);';
+                echo '});';
+              echo '} else {';
+                // Navegador no soporta HTML5 Geolocation
+                echo 'handleNoGeolocation(false);';
+              echo '}';
+            echo '}';
+
+            echo 'function handleNoGeolocation(errorFlag) {';
+            echo 'if (errorFlag) {';
+            echo 'var content = \'Hubo un error con el servicio de Geolocalización.\';';
+            echo '} else {';
+            echo 'var content = \'Error: Tu navegador no soporta Geolocalización :(\';';
+            echo '}';
+
+            echo 'var options = {';
+            echo 'map: map,';
+            echo 'position: new google.maps.LatLng(60, 105),';
+            echo 'content: content';
+            echo '};';
+
+            echo 'var infowindow = new google.maps.InfoWindow(options);';
+            echo 'map.setCenter(options.position);';
+            echo '}';
+            
+            echo 'google.maps.event.addDomListener(window, \'load\', initialize);';
+        echo '});';
+        echo '</script>'; 
+        
         } else {
             echo '<script src="' . URL . 'js/markers.js"></script>';
         }
 
-         ?>
+?>
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
         <script>
