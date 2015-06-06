@@ -421,14 +421,15 @@ body {
 }
 .canvas-cribhunt {
   width: 70%;
-  height: 74%;
+  height: 83%;
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 155px;
+  top: 228px;
   float: left;
   overflow: scroll;
   overflow-x: hidden;
+}
 }
 .titulo-miscribs {
   background-color: #039BE5;
@@ -452,7 +453,14 @@ body {
 }
 .linea-prop-crib {
   width: 100%;
-  padding: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #222;
+  padding: 10px 10px 10px 10px;
+  border-radius: 2px;
+  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
 }
 .titulo-crib {
   font-size: 24px;
@@ -462,19 +470,27 @@ body {
 }
 .imagen-principal-crib {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
+  border-radius: 2px;
+  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
 }
 .imagen-principal-crib img {
   width: 100%;
 }
 .titulo-prop-crib {
-  color: #0288D1;
+  color: #222222;
   font-size: 18px;
   font-weight: bold;
-
+  border-bottom: 1px solid #D7D7D7;
+  margin-left: -10px;
+  padding-left: 10px;
+  margin-right: -10px;
+  padding-right: 10px;
 }
 .elemento-crib {
-  color: #0288D1;
+  color: #222222;
   font-size: 16px;
   font-weight: 300;
 }
@@ -490,7 +506,7 @@ body {
   padding: 5px;
 }
 #site-wrap-agregarcrib {
-  width: 70%;
+  width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -507,7 +523,7 @@ body {
   right: 0;
   position: absolute;
   background-color: #fff;
-  top: 0px;
+  top: 64px;
   padding-top: 0;
   overflow: hidden;
   z-index: 998;
@@ -872,13 +888,13 @@ body {
   width: 100%;
   height: inherit;
   /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
-  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
 }
 
 .crib-container:hover {
   /* transform: scale(1.010); */
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .crib-image {
   width: 100%;
@@ -937,7 +953,7 @@ body {
   margin: 0;
   position: absolute;
   display: block;
-  top: 0px;
+  top: 64px;
   float: left;
   background-color: #3F51B5;
   font-weight: 300;
@@ -952,6 +968,16 @@ body {
 }
 #parameter-search .no-border-bottom-linea {
   border-bottom: none;
+}
+#parameter-select {
+  background: #fff;
+  border: none;
+  color: #3F51B5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  font-weight: 300;
+  border-radius: 2px;
+  padding: 0;
+  font-size: 16px;
 }
 .linea-parameter-search label {
   color: #fff;;
@@ -992,7 +1018,7 @@ body {
   position: absolute;
   right: 20px;
   margin-right: 15px;
-  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   border-radius: 32px;
   font-size: 30px;
   height: 65px;
@@ -1008,10 +1034,11 @@ body {
 .no-border-bottom-linea #submit-parameter-cribsearch:active {
   /*animation: materialResponse 0.4s ease;*/
   z-index: 2;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .no-border-bottom-linea #submit-parameter-cribsearch:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #parameter-cribsearch .linea-parameter-search .ui-widget-content {
@@ -1043,6 +1070,7 @@ color: #555555;
   color: #222222;
 }
 .canvas-cribhunt-agregar {
+  background-color: #EEE;
   width: 100%;
   height: 100%;
   display: block;

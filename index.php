@@ -56,7 +56,7 @@ $request = $_SERVER['REQUEST_URI'];
                 </div>
                 <div class="linea-parameter-search">
                     <label for="categoria-cribsearch">Categoría</label>
-                    <select name="categoria-cribsearch">
+                    <select id="parameter-select" name="categoria-cribsearch">
                       <option value="Cualquiera" selected>Cualquiera</option>
                       <option value="casa">Casa</option>
                       <option value="departamento">Departamento</option>
