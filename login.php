@@ -1,7 +1,7 @@
 <?php
 session_start();
     function verificar_login($user,$password,&$result) {
-    include('dbcon.php');
+    include('functions.php');
     $hashedpassword = crypt($user, $password);
     $sql = "SELECT * FROM usuarios WHERE email = '$user' and password = '$hashedpassword'";
     $rec = mysqli_query($con, $sql);

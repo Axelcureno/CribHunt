@@ -16,7 +16,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My CribHunt</title>
+        <title>CribHunt | Agregar Crib</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -424,7 +424,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             $.when.apply(null, group.files()).then(function() {
               arguments; // array of individual file infos
               $.each(arguments, function() {
-                $('#imagen-input').val($('#imagen-input').val() + this.cdnUrl);
+                $('#imagen-input').val($('#imagen-input').val() + this.cdnUrl + '#');
                 //$('#imagen-input').val(this.uuid);
               });
             });

@@ -88,7 +88,7 @@
                     }
 
 
-                    var contentString1 = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">Departamento en Altabrisa con 2 cuartos</h1></a><div id="bodyContent"><img style="max-width:200px;" src="img/cribs/property-218_5.jpg"></div>';
+                    var contentString1 = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em; padding: 5px 5px 5px 0;" id="firstHeading" class="firstHeading">Departamento en Altabrisa con 2 cuartos</h1></a><div id="bodyContent"><img style="max-width:200px;" src="img/cribs/property-218_5.jpg"></div>';
 
                     var infowindow = new google.maps.InfoWindow({
                         content: contentString1

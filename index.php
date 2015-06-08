@@ -21,16 +21,21 @@ $request = $_SERVER['REQUEST_URI'];
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>CribHunt</title>
+        <title><?php if (isset($cribArray[0]["titulocrib"])) {
+            echo $cribArray[0]["titulocrib"];
+        } else {
+            echo 'CribHunt';
+            } ?>  </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -123,8 +128,10 @@ if ($request != '/cribhunt/') {
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>
         <script src="<?php echo URL ?>js/main.js"></script>
+        
         <?php 
 
         if ($request != '/cribhunt/') {
@@ -137,7 +144,7 @@ if ($request != '/cribhunt/') {
 
         echo 'function initialize() {';
                  echo 'var mapOptions = {';
-                   echo 'zoom: 15';
+                   echo 'zoom: 18';
                   //styles: stylesArray
                  echo '};';
 
@@ -159,7 +166,7 @@ if ($request != '/cribhunt/') {
                      echo 'icon: image';
                     echo '});';
 
-                    echo 'var contentString1 = \'<div style="width:200px;" id="content">\'+\'<a style="font-weight:bold; font-size: 1em;" href="#"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' . $cribArray[0]["titulocrib"] . '</h1></a>\' + \'<div id="bodyContent">\'+ \'<img style="max-width:200px;" src="' . $cribArray[0]["imagenprincipalcrib"] . '">\' + \'</div>\';';
+                    echo 'var contentString1 = \'<div style="width:200px;" id="content">\'+\'<a style="font-weight:bold; font-size: 1em;" href="'. $cribArray[0]["urlcrib"] .' "><h1 style="font-weight:bold; font-size: 1em; padding: 5px 5px 5px 0;" id="firstHeading" class="firstHeading">' . $cribArray[0]["titulocrib"] . '</h1></a>\' + \'<div id="bodyContent">\'+ \'<img style="max-width:200px;" src="' . $cribArray[0]["imagenprincipalcrib"] . '">\' + \'</div>\';';
 
                     echo 'var infowindow = new google.maps.InfoWindow({';
                         echo 'content: contentString1';
@@ -242,7 +249,18 @@ if ($request != '/cribhunt/') {
                 }); 
                 $( "#amount" ).val( "$" + $( "#slider-precio-cribsearch" ).slider( "values", 0 ) + 
                                     " - $" + $( "#slider-precio-cribsearch" ).slider( "values", 1 ) ); 
-            }); 
+            });
+
+        //Pequeño código que evita que se envíe el formulario de búsqueda con la tecla enter
+        var submitFocus = false;
+        $('input :submit').focus(function() {
+          submitFocus = true;
+        });
+        $(window).keydown(function(event) {
+            if (event.keyCode == 13 && submitFocus == false) {
+                window.event.keyCode = 9;
+            }
+        });
         </script>
     </body>
 </html>

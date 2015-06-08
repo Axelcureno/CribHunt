@@ -16,6 +16,12 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	$('.bxslider').bxSlider({
+	    pagerCustom: '#bx-pager'
+	});
+
+
 	$("#registro-usuario").submit(function(event) {
 	  // Stop form from submitting normally
 	  event.preventDefault();
@@ -99,7 +105,6 @@ $(document).ready(function() {
                     }
                 });
             });
-
 
       	$("#parameter-cribsearch").submit(function(event) {
 		// Stop form from submitting normally

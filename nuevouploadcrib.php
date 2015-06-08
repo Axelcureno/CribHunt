@@ -15,7 +15,6 @@ if(isset($_POST['titulo'])) {
     $categoriacrib = $_POST['categoria'];
     $imagenprincipalcrib = $_POST['imagenprincipalinput'];
     $imagenescrib = $_POST['imageninput'];
-    $ubicacioncrib = $latitudcrib . ", " . $longitudcrib;
     $caracteristicascrib = $_POST['caracteristicas'];
     $requisitoscrib = $_POST['requisitos'];
     $preciocrib = $_POST['precio'];
@@ -31,8 +30,8 @@ if(isset($_POST['titulo'])) {
     $paiscrib = $_POST['pais'];
     $target = "uploads/".$id."/".$categoriacrib."/".$titulocrib;
 
-    mysqli_query($con, "INSERT INTO cribs (titulocrib, urlcrib, categoriacrib, imagenescrib, imagenprincipalcrib, ubicacioncrib, caracteristicascrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, telefonocontacto, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib)
-                                   VALUES ('$titulocrib', '$urlcrib', '$categoriacrib', '$imagenescrib', '$imagenprincipalcrib', '$ubicacioncrib', '$caracteristicascrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$telefonocontacto', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
+    mysqli_query($con, "INSERT INTO cribs (titulocrib, urlcrib, categoriacrib, imagenescrib, imagenprincipalcrib, latitudcrib, longitudcrib, caracteristicascrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, telefonocontacto, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib)
+                                   VALUES ('$titulocrib', '$urlcrib', '$categoriacrib', '$imagenescrib', '$imagenprincipalcrib', '$latitudcrib', '$longitudcrib', '$caracteristicascrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$telefonocontacto', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
     if(error_get_last()) {
         $result = error_get_last();
     } else {

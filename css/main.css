@@ -464,11 +464,13 @@ body {
 }
 .titulo-crib {
   font-size: 24px;
-  color: #0288D1;
+  color: #222222;
   padding: 10px;
   font-weight: bold;
 }
 .imagen-principal-crib {
+  background-color: #fff;
+  margin-top: 10px;
   width: 100%;
   padding: 5px;
   border-radius: 2px;
@@ -488,11 +490,14 @@ body {
   padding-left: 10px;
   margin-right: -10px;
   padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .elemento-crib {
   color: #222222;
   font-size: 16px;
   font-weight: 300;
+  padding-top: 10px;
 }
 .elemento-crib ul li {
   margin-left: 20px;
@@ -505,7 +510,8 @@ body {
 #canvas-mycribhunt .bit-4 {
   padding: 5px;
 }
-#site-wrap-agregarcrib {
+
+#site-wrap-detallecrib {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -514,6 +520,31 @@ body {
   top: 0px;
   float: left;
   background-color: #fff;
+  padding-bottom: 10px;
+}
+
+#site-wrap-agregarcrib {
+  width: 70%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  float: left;
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+
+#site-wrap-detallecrib {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  float: left;
+  background-color: #fff;
+  padding-bottom: 10px;
 }
 #canvas-cribmap {
   width: 30%;
@@ -890,6 +921,7 @@ body {
   /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
+  border-radius: 2px;
 }
 
 .crib-container:hover {
@@ -1037,7 +1069,6 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .no-border-bottom-linea #submit-parameter-cribsearch:hover {
-  transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
@@ -1069,6 +1100,16 @@ color: #555555;
   background: #E91E63;
   color: #222222;
 }
+.canvas-cribhunt-detalle {
+  background-color: #EEE;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
 .canvas-cribhunt-agregar {
   background-color: #EEE;
   width: 100%;
@@ -1076,7 +1117,9 @@ color: #555555;
   display: block;
   overflow: scroll;
   overflow-x: hidden;
+  padding: 10px;
 }
+
 .canvas-cribhunt-lista {
   width: 100%;
   height: 93%;
@@ -1229,6 +1272,20 @@ form-uploadcrib .label-form {
 .latlong-container {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.bx-pager {
+
+}
+.imagen-carrousel {
+
+}
+
+.imagen-carrousel img {
+  max-width: 150px;
+  max-height: 90px;
+  overflow: hidden;
+  padding: 5px;
+}
 }
 /* ==========================================================================
    Helper classes
