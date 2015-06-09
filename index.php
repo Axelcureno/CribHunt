@@ -90,8 +90,6 @@ if ($request != '/cribhunt/') {
 
     $parts = explode('/', rtrim($request, '/'));
 
-
-
     $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
@@ -100,10 +98,13 @@ if ($request != '/cribhunt/') {
             $cribArray[$index] = $row;
             $index++;
         }
+
+        include('detallecrib.php');
+    } else {
+      
+        echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
+    
     }
-
-
-    include('detallecrib.php');
 } else {
     echo '<div id="canvas-mycribhunt" class="frame">';
     $sql = "SELECT * FROM cribs";
@@ -114,16 +115,14 @@ if ($request != '/cribhunt/') {
             $cribArray[$index] = $row;
             $index++;
         }
+    for ($i=0; $i < count($cribArray); $i++) { 
+        echo '<a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></div></a>';
+    }
     } else {
         echo "0 resultados";
     }
-    for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<a class="crib-item wow zoomIn" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '<div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . '</div></div><div class="descripcion-crib">' . $cribArray[$i]["titulocrib"] . '</div></div></div></a>';
-    }
     echo '</div>';
 }
-
-
 
 ?>
             </div>
@@ -134,6 +133,7 @@ if ($request != '/cribhunt/') {
                 </svg>
             </div>
                 <div id="cribmap-container"></div>
+                <div class="fullscreen"></div>
             </div>
         </div>
 

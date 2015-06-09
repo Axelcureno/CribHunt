@@ -16,6 +16,8 @@ if(isset($_POST['titulo'])) {
     $imagenprincipalcrib = $_POST['imagenprincipalinput'];
     $imagenescrib = $_POST['imageninput'];
     $caracteristicascrib = $_POST['caracteristicas'];
+    $cuartoscrib = $_POST['cuartos'];
+    $banioscrib = $_POST['banios'];
     $requisitoscrib = $_POST['requisitos'];
     $preciocrib = $_POST['precio'];
     $universidadescrib = $_POST['universidades'];
@@ -30,8 +32,8 @@ if(isset($_POST['titulo'])) {
     $paiscrib = $_POST['pais'];
     $target = "uploads/".$id."/".$categoriacrib."/".$titulocrib;
 
-    mysqli_query($con, "INSERT INTO cribs (titulocrib, urlcrib, categoriacrib, imagenescrib, imagenprincipalcrib, latitudcrib, longitudcrib, caracteristicascrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, telefonocontacto, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib)
-                                   VALUES ('$titulocrib', '$urlcrib', '$categoriacrib', '$imagenescrib', '$imagenprincipalcrib', '$latitudcrib', '$longitudcrib', '$caracteristicascrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$telefonocontacto', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
+    mysqli_query($con, "INSERT INTO cribs (titulocrib, urlcrib, categoriacrib, imagenescrib, imagenprincipalcrib, latitudcrib, longitudcrib, caracteristicascrib, cuartoscrib, banioscrib, requisitoscrib, preciocrib, universidadescrib, idusuarioqueregistracrib, telefonocontacto, fechaderegistrocrib, ciudadcrib, estadocrib, coloniacrib, cpcrib, direccioncrib, paiscrib)
+                                   VALUES ('$titulocrib', '$urlcrib', '$categoriacrib', '$imagenescrib', '$imagenprincipalcrib', '$latitudcrib', '$longitudcrib', '$caracteristicascrib', '$cuartoscrib', '$banioscrib', '$requisitoscrib', '$preciocrib', '$universidadescrib', '$idusuarioqueregistracrib', '$telefonocontacto', '$fechaderegistrocrib', '$ciudadcrib', '$estadocrib', '$coloniacrib', '$cpcrib', '$direccioncrib', '$paiscrib')") or die(mysqli_error($con));
     if(error_get_last()) {
         $result = error_get_last();
     } else {

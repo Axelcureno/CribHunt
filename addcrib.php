@@ -129,7 +129,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         </ul>
             <div class="main-menu">
                 <div class="logo-container">
-                    <a href="mycribhunt.php"><img src="img/logo.svg" alt="CribHunt"></a>
+                    <a href="http://localhost/cribhunt/"><img src="img/logo.svg" alt="CribHunt"></a>
                 </div>
             <div class="search-container">
                     <form id="cribsearch" action="" method="post">
@@ -214,7 +214,39 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                         </div>
                                       </div>
                                     <textarea required id="caractextarea" type="text" cols="40" rows="8" name="caracteristicas" required></textarea>
-                                    <br><input type="reset" value="Volver a comenzar!">
+                                    <br>
+                                </div>
+                                <div class="form-upload-container">
+                                  <label for="cuartos">Cuartos</label>
+                                  <select name="cuartos">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="10+">10+</option>
+                                  </select>
+                                </div>
+                                <div class="form-upload-container">
+                                  <label for="banios">Baños</label>
+                                  <select name="banios">
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4">4</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5">5</option>
+                                    <option value="5.5">5.5</option>
+                                    <option value="6+">6+</option>
+                                  </select>
                                 </div>
                                 <div class="form-upload-container">
                                         <label for="titulo">Requisitos</label>
@@ -258,7 +290,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                                 </div>
                                               </div>
                                             <textarea id="reqtextarea" type="text" cols="40" rows="8" name="requisitos" required></textarea>
-                                            <br><input type="reset" value="Volver a comenzar!">
+                                            <br>
                                     </div>
                         </div>
                         <div class="bit-2">
@@ -308,7 +340,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                                 </div>
                                               </div>
                                         <textarea id="unitextarea" type="text" cols="40" rows="8" name="universidades" required></textarea>
-                                <br><input type="reset" value="Volver a comenzar!">
+                                <br>
                                     </div>
                                     <div class="form-upload-container">
                                         <label for="titulo">Teléfono</label>

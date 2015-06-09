@@ -246,6 +246,10 @@ textarea {
   .bit-12 {
     width: 50%;
   }
+.canvas-cribhunt-detalle .bit-2 {
+  width: 100%;
+}
+
   #parameter-search .parameter-cribsearch #slider-precio-cribsearch {
     width: 30%;
   }
@@ -421,7 +425,6 @@ body {
 }
 .canvas-cribhunt {
   width: 70%;
-  height: 66%;
   padding: 0;
   margin: 0;
   position: absolute;
@@ -429,7 +432,7 @@ body {
   float: left;
   overflow: scroll;
   overflow-x: hidden;
-}
+  border-right: 1px solid #9E9E9E;
 }
 .titulo-miscribs {
   background-color: #039BE5;
@@ -477,6 +480,7 @@ body {
   /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
+  margin-bottom: 10px;
 }
 .titulo-prop-crib {
   color: #222222;
@@ -495,6 +499,7 @@ body {
   font-size: 16px;
   font-weight: 300;
   padding-top: 10px;
+  margin-right: -15px;
 }
 .elemento-crib ul li {
   margin-left: 20px;
@@ -944,22 +949,65 @@ body {
   color: #222;
   padding: 10px 10px 10px 10px;
   border-radius: 0px 0px 2px 2px;
+  height: inherit;
+  clear: both;
 }
-.crib-image .precio-crib {
-  float: right;
-  padding: 10px;
-  color: #fff;
-  font-size: 28px;
-  font-weight: 300;
-  margin-top:-50px;
-  position: relative;
-  text-shadow: 0 0 20px rgba(0,0,0,1.5);
-}
-.descripcion-crib .titulo-crib {
-  font-weight: 500;
-  color: #fff;
+.precio-crib {
+  padding: 5px 5px 0 0;
   font-size: 16px;
-  padding: 10px;
+  color: #3F51B5;
+  font-weight: 400;
+  display: table-cell;
+  float: left;
+}
+.titulo-crib-item {
+  font-weight: 500;
+  color: #222222;
+  font-size: 16px;
+  border-bottom: 1px solid #D7D7D7;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.crib-cuartos-banios {
+  width: auto;
+  display: table-cell;
+  float: right;
+}
+.mas-detalle-crib {
+  width: 100%;
+  padding-top: 5px;
+  display: table;
+}
+.cuartos-crib-item {
+  font-size: 13px;
+  background-image: url('../img/icons/cuartos.svg');
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: 0px 7px;
+  color: #9E9E9E;
+  background-size: 30px 20px;
+  width: 50px;
+  clear: both;
+  display: inline-block;
+  padding-left: 30px;
+  padding-top: 8px;
+}
+.banios-crib-item {
+  font-size: 13px;
+  background-image: url('../img/icons/banio.svg');
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  color: #9E9E9E;
+  background-size: 30px 20px;
+  width: 50px;
+  clear: both;
+  display: inline-block;
+  padding-left: 30px;
+  padding-top: 8px;
 }
 #crib-grid-container {
   width: 100%;
@@ -1276,8 +1324,65 @@ form-uploadcrib .label-form {
 
 }
 
+[class*='imagen-carrousel']:last-of-type {
+  float: left;
+}
+
 .imagen-carrousel img {
   width: 100%;
+}
+
+.fullscreen {
+  background-image: url('../img/icons/fullscreen.svg');
+  background-size: 60%;
+  background-color: #FF5722;
+  color: #fff;
+  padding: 10px;
+  float: right;
+  margin-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: absolute;
+  right: 20px;
+  margin-right: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 32px;
+  font-size: 30px;
+  height: 65px;
+  width: 65px;
+  padding-top: 14px;
+  transition: all .2s ease-in-out;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 13px 14px;
+  bottom: 20px;
+  position: fixed;
+  right: 0px;
+}
+
+
+.fullscreen:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.not-found {
+  font-size: 24px;
+  color: #212121;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /* ==========================================================================

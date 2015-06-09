@@ -4,7 +4,15 @@ $(window).load(function() {
 	//$('#site-wrap-detallecrib').css('display', 'block');
     $(".se-pre-con").fadeOut();
 });
+
+
+$(window).resize(function(){
+	$('.canvas-cribhunt').height($(window).height() - 225);
+});
+
 $(document).ready(function() {
+	$('.canvas-cribhunt').height($(window).height() - 225);
+	
 	$('.inline').fancybox({
 		type : 'inline',
 		height : '100%',

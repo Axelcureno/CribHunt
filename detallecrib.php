@@ -1,8 +1,8 @@
 <?php 
-    // Put each element into an array.
+    // PSepara las imagenes y las inserta en un arreglo.
     $elements = explode('#', $cribArray[0]["imagenescrib"]);
 
-    // Create a new empty array.
+    // Crea un nuevo arreglo para las imagenes.
     $args = array();
 ?>
 <div class="se-pre-con">
@@ -36,23 +36,37 @@
                         </div>
                     </div>
                     <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Dirección</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["direccioncrib"]; ?></div>
+                    <div class="frame">
+                        <div class="titulo-prop-crib bit-2">Dirección</div>
+                        <div class="titulo-prop-crib bit-2">Colonia</div>
+                    </div>
+                    <div class="frame">
+                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["direccioncrib"]; ?></div>
+                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
+                    </div>
                     </div>
                     <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Colonia</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Ciudad</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Código Postal</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["cpcrib"]; ?></div>
+                        <div class="frame">
+                            <div class="titulo-prop-crib bit-2">Ciudad</div>
+                            <div class="titulo-prop-crib bit-2">Estado</div>
+                        </div>
+                        <div class="frame">
+                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
+                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["estadocrib"]; ?></div>
+                        </div>
                     </div>
                 </div>
                 <div class="bit-2">
+                    <div class="linea-prop-crib">
+                        <div class="frame">
+                            <div class="titulo-prop-crib bit-2">Cuartos</div>
+                            <div class="titulo-prop-crib bit-2">Baños</div>
+                        </div>
+                        <div class="frame">
+                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["cuartoscrib"]; ?></div>
+                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["banioscrib"]; ?></div>
+                        </div>
+                    </div>
                     <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Precio</div>
                         <div class="elemento-crib">$<?php echo $cribArray[0]["preciocrib"]; ?>MXN / Mes</div>
@@ -80,12 +94,14 @@
                         </div>
                     </div>
                     <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Estado</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["estadocrib"]; ?></div>
+                    <div class="frame">
+                        <div class="titulo-prop-crib bit-2">Código Postal</div>
+                        <div class="titulo-prop-crib bit-2">País</div>
                     </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">País</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["paiscrib"]; ?></div>
+                    <div class="frame">
+                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["cpcrib"]; ?></div>
+                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["paiscrib"]; ?></div>
+                    </div>
                     </div>
                 </div>
             </div>
