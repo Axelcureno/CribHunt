@@ -30,9 +30,11 @@ $request = $_SERVER['REQUEST_URI'];
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
@@ -77,6 +79,11 @@ $request = $_SERVER['REQUEST_URI'];
             </form>
             </div>
             <div class="canvas-cribhunt">
+<div class="se-pre-con">
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
                 
 <?php 
 if ($request != '/cribhunt/') {
@@ -111,7 +118,7 @@ if ($request != '/cribhunt/') {
         echo "0 resultados";
     }
     for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '<div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . '</div></div><div class="descripcion-crib">' . $cribArray[$i]["titulocrib"] . '</div></div></div></a>';
+        echo '<a class="crib-item wow zoomIn" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '<div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . '</div></div><div class="descripcion-crib">' . $cribArray[$i]["titulocrib"] . '</div></div></div></a>';
     }
     echo '</div>';
 }
@@ -121,6 +128,11 @@ if ($request != '/cribhunt/') {
 ?>
             </div>
             <div id="canvas-cribmap">
+            <div class="se-pre-con">
+                <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+               <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+            </div>
                 <div id="cribmap-container"></div>
             </div>
         </div>

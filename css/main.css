@@ -421,7 +421,7 @@ body {
 }
 .canvas-cribhunt {
   width: 70%;
-  height: 83%;
+  height: 66%;
   padding: 0;
   margin: 0;
   position: absolute;
@@ -453,7 +453,7 @@ body {
 }
 .linea-prop-crib {
   width: 100%;
-  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #fff;
   color: #222;
   padding: 10px 10px 10px 10px;
@@ -478,9 +478,6 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
 }
-.imagen-principal-crib img {
-  width: 100%;
-}
 .titulo-prop-crib {
   color: #222222;
   font-size: 18px;
@@ -503,6 +500,7 @@ body {
   margin-left: 20px;
 }
 #canvas-mycribhunt {
+  display: none;
   height: 70%;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -512,6 +510,7 @@ body {
 }
 
 #site-wrap-detallecrib {
+  visibility: hidden;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -544,7 +543,6 @@ body {
   top: 0px;
   float: left;
   background-color: #fff;
-  padding-bottom: 10px;
 }
 #canvas-cribmap {
   width: 30%;
@@ -573,7 +571,8 @@ body {
   z-index: 998;
 }
 #cribmap-container {
- height: 100%; margin: 0; padding: 0;
+  display: none;
+  height: 100%; margin: 0; padding: 0;
 }
 #somecomponent {
  height: 100%; margin: 0; padding: 0;
@@ -1273,20 +1272,14 @@ form-uploadcrib .label-form {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.bx-pager {
-
-}
 .imagen-carrousel {
 
 }
 
 .imagen-carrousel img {
-  max-width: 150px;
-  max-height: 90px;
-  overflow: hidden;
-  padding: 5px;
+  width: 100%;
 }
-}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

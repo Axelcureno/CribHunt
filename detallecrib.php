@@ -5,6 +5,11 @@
     // Create a new empty array.
     $args = array();
 ?>
+<div class="se-pre-con">
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
 <div id="site-wrap-detallecrib">
     <div class="canvas-cribhunt-detalle">
             <div class="frame">
@@ -17,23 +22,18 @@
                             <?php 
                                 for( $i = 0; $i < count($elements); $i++) {
                                     $args[$elements[$i]] = $elements[$i];
-                                    echo '<li><img class="fancy-img" src="'. $args[$elements[$i]] . '" /></li>';
+                                    echo '<a class="inline" data-fancybox-type="iframe" rel="group" href="'. $args[$elements[$i]] . '" ><li><img src="'. $args[$elements[$i]] . '" /></li></a>';
                                 }
                              ?>
                         </ul>
-                        <div id="bx-pager">
+                        <div id="bx-pager" class="frame">
                             <?php 
                                 for( $i = 0; $i < count($elements); $i++) {
                                     $args[$elements[$i]] = $elements[$i];
-                                    echo '<a class="imagen-carrousel" data-slide-index="' . $i . '" href=""><img src="'. $args[$elements[$i]] . '" /></a>';
+                                    echo '<a class="imagen-carrousel bit-4" data-slide-index="' . $i . '" href=""><img src="'. $args[$elements[$i]] . '" /></a>';
                                 }
                              ?>
                         </div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Contacto</div>
-                        <div class="elemento-crib">Teléfono: 9999999999</div>
-                        <div class="elemento-crib">Email: axelcureno@me.com</div>
                     </div>
                     <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Dirección</div>
@@ -42,6 +42,14 @@
                     <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Colonia</div>
                         <div class="elemento-crib"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
+                    </div>
+                    <div class="linea-prop-crib">
+                        <div class="titulo-prop-crib">Ciudad</div>
+                        <div class="elemento-crib"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
+                    </div>
+                    <div class="linea-prop-crib">
+                        <div class="titulo-prop-crib">Código Postal</div>
+                        <div class="elemento-crib"><?php echo $cribArray[0]["cpcrib"]; ?></div>
                     </div>
                 </div>
                 <div class="bit-2">
@@ -70,14 +78,6 @@
                         <div class="elemento-crib">
                             <?php echo $cribArray[0]["universidadescrib"]; ?>
                         </div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Ciudad</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="titulo-prop-crib">Código Postal</div>
-                        <div class="elemento-crib"><?php echo $cribArray[0]["cpcrib"]; ?></div>
                     </div>
                     <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Estado</div>

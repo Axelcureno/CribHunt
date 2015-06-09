@@ -1,3 +1,9 @@
+$(window).load(function() {
+	$('#canvas-mycribhunt').css('display', 'block');
+	$('#cribmap-container').css('display', 'block');
+	//$('#site-wrap-detallecrib').css('display', 'block');
+    $(".se-pre-con").fadeOut();
+});
 $(document).ready(function() {
 	$('.inline').fancybox({
 		type : 'inline',
@@ -18,9 +24,12 @@ $(document).ready(function() {
 	}
 
 	$('.bxslider').bxSlider({
-	    pagerCustom: '#bx-pager'
+	    pagerCustom: '#bx-pager',
+	    onSliderLoad: function(){
+        $("#site-wrap-detallecrib").css("visibility", "visible");
+        $(".se-pre-con").fadeOut();
+      }
 	});
-
 
 	$("#registro-usuario").submit(function(event) {
 	  // Stop form from submitting normally
