@@ -30,11 +30,29 @@ $request = $_SERVER['REQUEST_URI'];
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo URL ?>apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo URL ?>apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo URL ?>apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo URL ?>apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo URL ?>apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo URL ?>apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URL ?>apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo URL ?>android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL ?>favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo URL ?>favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL ?>favicon-16x16.png">
+        <link rel="manifest" href="<?php echo URL ?>manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="<?php echo URL ?>ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/ripple.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
@@ -52,6 +70,12 @@ $request = $_SERVER['REQUEST_URI'];
                             <input id="cribhunt-searchfield" type="text" placeholder="Casa, 3 recamaras, 3 baños, Mérida..." name="cribsearch">
                             <input id="cribsearch-submit" type="submit" value="" name="cribsearch">
                         </form>
+                </div>
+                <div class="toolbar">
+                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
+                        <div class="perfil-container">
+                                <a href="logout.php"><img src="<?php echo URL ?>img/icons/logout.svg" alt="Usuario" title="Cerrar Sesión"></a>
+                        </div>
                 </div>
             </div>
         <div class="site-wrap">
@@ -74,7 +98,7 @@ $request = $_SERVER['REQUEST_URI'];
                     <label for="precio-cribsearch">Precio</label>
                     <div id="slider-precio-cribsearch"></div>
                     <input type="text" id="amount" readonly>
-                    <input id="submit-parameter-cribsearch" type="submit" value="" name="submit-parameter-cribsearch">
+                    <input class="ripple" id="submit-parameter-cribsearch" type="submit" value="" name="submit-parameter-cribsearch">
                 </div>
             </form>
             </div>
@@ -116,7 +140,7 @@ if ($request != '/cribhunt/') {
             $index++;
         }
     for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="bit-4">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></div></a>';
+        echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
     } else {
         echo "0 resultados";
@@ -133,8 +157,33 @@ if ($request != '/cribhunt/') {
                 </svg>
             </div>
                 <div id="cribmap-container"></div>
-                <div class="fullscreen"></div>
             </div>
+            <div class="fullscreen ripple"></div>
+        </div>
+
+        <div style="display:none" class="sugerencias-forma">
+            <div class="titulo-subtitulo-sugerencias">
+                <h1>Queremos escucharte.</h1>
+                <h2>Tu opinión es muy importante para nosotros, si tienes algún comentario, queja, sugerencia, problema o encontraste un bug envíanos un mensaje y te responderemos cuanto antes.</h2>
+            </div>
+                <form id="forma-de-sugerencias" action="" method="post" accept-charset="utf-8">
+                    <div class="frame">
+                        <div class="bit-1">
+                            <input type="text" name="nombre" placeholder="Nombre (Opcional)">
+                        </div>
+                        <div class="bit-1">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="bit-1">
+                            <textarea type="text" name="mensaje" placeholder="Mensaje, queja o sugerencia" required></textarea>
+                        </div>
+                        <div class="bit-1">
+                            <input class="ripple" type="submit" value="Enviar"></input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         </div>
 
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>

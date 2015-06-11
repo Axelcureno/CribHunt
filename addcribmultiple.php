@@ -1,7 +1,7 @@
 <?php 
 
 require('functions.php');
-connectDb();
+
 session_start();
     function verificar_login($user,$password,&$result) {
     include('dbcon.php');
@@ -60,7 +60,6 @@ if(!isset($_SESSION['usersicam']))
         <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
         <script src="js/locationpicker.jquery.js"></script>
         <style>

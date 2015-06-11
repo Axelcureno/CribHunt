@@ -409,6 +409,67 @@ body {
     background-repeat:no-repeat;
     background-size: cover;
 }
+.sugerencias-forma {
+  max-width: 500px;
+padding: 50px 20px 50px 20px;
+}
+.titulo-subtitulo-sugerencias {
+  padding-bottom: 20px;
+}
+.titulo-subtitulo-sugerencias h1 {
+  color: #009688;
+padding-bottom: 10px;
+}
+.titulo-subtitulo-sugerencias h2 {
+  font-size: 16px;
+}
+.sugerencias-forma label {
+
+}
+.sugerencias-forma input {
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #FF5722;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+.sugerencias-forma .frame input[type=submit] {
+  float: right;
+  font-size: 16px;
+  padding: 10px;
+  padding-top: 10px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  background-color: #FF5722;
+  border-radius: 2px;
+  color: #fff;
+  margin-top: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+}
+.sugerencias-forma .frame input[type=submit]:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.sugerencias-forma textarea {
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #FF5722;
+  background-color: transparent;
+  margin-bottom: 20px;
+  resize: none;
+  min-height: 100px;
+}
 
 .main-menu {
   background-color: #FF5722;
@@ -433,6 +494,7 @@ body {
   overflow: scroll;
   overflow-x: hidden;
   border-right: 1px solid #9E9E9E;
+  transition: 1s all ease-in-out;
 }
 .titulo-miscribs {
   background-color: #039BE5;
@@ -493,6 +555,9 @@ body {
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.crib-grid {
+  transition: 1s all ease-in-out;
 }
 .elemento-crib {
   color: #222222;
@@ -561,6 +626,7 @@ body {
   padding-top: 0;
   overflow: hidden;
   z-index: 998;
+  transition: 1s all ease-in-out;
 }
 #canvas-cribmap-add {
   width: 30%;
@@ -583,11 +649,11 @@ body {
  height: 100%; margin: 0; padding: 0;
 }
 .logo-container {
-    width: 100px;
-    height: 50px;
-    margin-left: 0;
-    display: block;
-    float: left;
+  width: 100px;
+  height: 50px;
+  margin-left: 5px;
+  display: block;
+  float: left;
 }
 .registro-logo-container {
     width: 100%;
@@ -863,9 +929,19 @@ body {
   float: right;
   font-size: 14px;
   padding: 10px;
-  padding-bottom: 0;
-  padding-top: 15px;
+  padding-top: 10px;
   font-weight: 300;
+  padding-bottom: 10px;
+  background-color: #3F51B5;
+  border-radius: 2px;
+  color: #fff;
+  margin-top: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+.holausuario:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .perfil-container {
     width: 20%;
@@ -960,6 +1036,9 @@ body {
   display: table-cell;
   float: left;
 }
+.crib-item {
+  display: block;
+}
 .titulo-crib-item {
   font-weight: 500;
   color: #222222;
@@ -1037,6 +1116,7 @@ body {
   background-color: #3F51B5;
   font-weight: 300;
   z-index: 1;
+  transition: 1s all ease-in-out;
 }
 #parameter-search .linea-parameter-search {
   width: 100%;
@@ -1198,6 +1278,7 @@ color: #555555;
   padding-left: 0;
 }
 #agregarcribform input {
+  background-color: transparent;
   width: 100%;
   display: block;
   margin: 10px;
@@ -1215,10 +1296,21 @@ color: #555555;
 }
 
 #agregarcribform input[type="submit"], #agregarcribform input[type="reset"] {
-  border: 2px solid #29B6F6;
-  background: transparent;
+  float: right;
+  font-size: 16px;
+  padding: 10px;
+  padding-top: 10px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  background-color: #FF5722;
   border-radius: 2px;
-  color: #29B6F6;
+  color: #fff;
+  margin-top: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 100px;
 }
 .como-funciona {
   color: #0277BD;
@@ -1358,6 +1450,7 @@ form-uploadcrib .label-form {
   bottom: 20px;
   position: fixed;
   right: 0px;
+  z-index: 999;
 }
 
 

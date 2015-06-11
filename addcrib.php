@@ -138,14 +138,14 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                     </form>
             </div>
                 <div class="toolbar">
-                    <div class="usuario-bienvenido"><span class="holausuario">¿Alguna sugerencia?</span></div>
+                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><span class="holausuario">¿Alguna sugerencia?</span></a></div>
                         <div class="perfil-container">
                                 <a href="logout.php"><img src="img/icons/logout.svg" alt="Usuario" title="Cerrar Sesión"></a>
                         </div>
                 </div>
             </div>
         <div class="site-wrap-add">
-            <div id="site-wrap-agregarcrib">
+            <div id="site-wrap">
                 <div class="canvas-cribhunt-agregar">
                     <div class="frame">
                         <form id="agregarcribform" action="addcrib_submit" method="post" accept-charset="utf-8">

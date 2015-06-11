@@ -1,15 +1,8 @@
-body{
-  text-align: center; 
-}
-
-
-
-button{
+button {
   position: relative;
   border: none;
   outline:none;
   cursor: pointer;
-  background: #89669b;
   color: white;
   padding: 18px 60px;
   border-radius: 2px;
