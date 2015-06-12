@@ -1,6 +1,5 @@
 <?php
 include("functions.php");
-include("dbcon.php");
 startpage();
 
 $id = $_SESSION['usersicam'];
@@ -19,21 +18,19 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <title>CribHunt | Agregar Crib</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/fancybox.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/jquery.fileupload.css">
+        <link rel="stylesheet" href="<?php echo URL ?>css/jquery.fileupload.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-        <script src="js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
-        <script src="js/locationpicker.jquery.js"></script>
+        <script src="<?php echo URL ?>js/vendor/modernizr-2.8.3.min.js"></script>
+        <script type="<?php echo URL ?>text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+        <script src="<?php echo URL ?>js/locationpicker.jquery.js"></script>
         <style>
-  
   h2 {
     margin-bottom: 0;
   }
@@ -461,7 +458,6 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
               });
             });
           }
-
     });
     </script>
 

@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("functions.php");
-
 //$id = $_SESSION['usersicam'];
 //$sql = "SELECT * FROM usuarios WHERE id = '$id'";
 //    $rec = mysqli_query($con, $sql);
@@ -9,13 +8,10 @@ include("functions.php");
 //    {
 //        $nombreusuario = $row['nombres'];
 //    }
-
 $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
-
 ?>
-
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -28,7 +24,6 @@ $request = $_SERVER['REQUEST_URI'];
             } ?>  </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-icon-60x60.png">
@@ -74,7 +69,11 @@ $request = $_SERVER['REQUEST_URI'];
                 <div class="toolbar">
                     <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
                         <div class="perfil-container">
-                                <a href="logout.php"><img src="<?php echo URL ?>img/icons/logout.svg" alt="Usuario" title="Cerrar Sesión"></a>
+                            <?php if (!isset($_SESSION['usersicam'])) {
+                                echo '<a href="'. URL .'login.php"><button class="iniciar-sesion ripple">Iniciar Sesión</button></a>';
+                            } else {
+                                echo '<a href="'. URL .'logout.php"><button class="iniciar-sesion ripple">Cerrar Sesión</button></a>';
+                                } ?>    
                         </div>
                 </div>
             </div>
@@ -98,7 +97,7 @@ $request = $_SERVER['REQUEST_URI'];
                     <label for="precio-cribsearch">Precio</label>
                     <div id="slider-precio-cribsearch"></div>
                     <input type="text" id="amount" readonly>
-                    <input class="ripple" id="submit-parameter-cribsearch" type="submit" value="" name="submit-parameter-cribsearch">
+                    <button class="ripple" id="submit-parameter-cribsearch"></button>
                 </div>
             </form>
             </div>
@@ -178,10 +177,11 @@ if ($request != '/cribhunt/') {
                             <textarea type="text" name="mensaje" placeholder="Mensaje, queja o sugerencia" required></textarea>
                         </div>
                         <div class="bit-1">
-                            <input class="ripple" type="submit" value="Enviar"></input>
+                            <button id="submit-sugerencias-form" class="ripple">Enviar</button>
                         </div>
                     </div>
                 </form>
+                <div class="bit-1 resultado"></div>
             </div>
         </div>
         </div>
@@ -192,6 +192,15 @@ if ($request != '/cribhunt/') {
         <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>
         <script src="<?php echo URL ?>js/main.js"></script>
+        <script type="text/javascript">
+            $('.bxslider').bxSlider({
+                pagerCustom: '#bx-pager',
+                onSliderLoad: function(){
+                $("#site-wrap-detallecrib").css("visibility", "visible");
+                $(".se-pre-con").fadeOut();
+              }
+            });
+        </script>
         
         <?php 
 

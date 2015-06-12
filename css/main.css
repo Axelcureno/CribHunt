@@ -401,14 +401,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
-.body-container {
-    width: 100%;
-    height: 100%;
-    background-image: url('../img/heroimages/fourteen.jpg');
-    background-repeat:no-repeat;
-    background-size: cover;
-}
 .sugerencias-forma {
   max-width: 500px;
 padding: 50px 20px 50px 20px;
@@ -437,7 +429,7 @@ padding-bottom: 10px;
   background-color: transparent;
   margin-bottom: 20px;
 }
-.sugerencias-forma .frame input[type=submit] {
+#submit-sugerencias-form {
   float: right;
   font-size: 16px;
   padding: 10px;
@@ -454,7 +446,9 @@ padding-bottom: 10px;
   border: none;
   width: 100px;
 }
-.sugerencias-forma .frame input[type=submit]:hover {
+
+
+#submit-sugerencias-form:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .sugerencias-forma textarea {
@@ -655,75 +649,14 @@ padding-bottom: 10px;
   display: block;
   float: left;
 }
-.registro-logo-container {
-    width: 100%;
-    height: 15%;
-    display: block;
-    background-color: #00B0FF;
-}
-.registro-logo-container img {
-    width: 150px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    display: block;
-    margin: auto auto;
-}
+
+
 .logo-container img {
   width: 120px;
   height: 50px;
 }
-.bienvenido {
-    text-align: center;
-    color: #7f8c8d;
-    font-weight: 300;
-    padding-top: 1em;
-}
-.bienvenido h2 {
-    padding-top: 1.5em;
-}
-.register-container {
-    background-color: #fff;
-    width: 30%;
-    height: auto;
-    position: fixed;
-    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-    box-shadow: 10 2px 5px 0 rgba(0,0,0,.26);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.etabs {
-    margin: 0;
-    padding: 0;
-}
-.tab {
-    display: inline-block;
-    zoom:1;
-    width: 50%;
-    float: left;
-    *display:inline;
-    color: #fff;
-    background-color: #03A9F4;
-    border-bottom: none;
-    text-align: center;
-}
-.tab a {
-    font-size: 18px;
-    line-height: 2em;
-    display: block;
-    padding: 0 10px;
-    outline: none;
-}
-.tab a:hover {
-    text-decoration: none;
-}
-.tab.active {
-    background: #0288D1;
-    position: relative;
-}
+
+
 
 .navigation {
     list-style: none;
@@ -798,18 +731,7 @@ label[for="nav-trigger"] {
 body {
     overflow-x: hidden;
 }
-.tab-container .panel-container {
-    background: #fff;
-    border: solid #666 1px;
-    padding: 10px;
-    -moz-border-radius: 0 4px 4px 4px;
-    -webkit-border-radius: 0 4px 4px 4px;
-}
-.terminos-condiciones {
-    width: 100%;
-    display: block;
-    float: left;
-}
+
 .resultado {
     color: #e74c3c;
     padding-top: 5px;
@@ -817,113 +739,60 @@ body {
     display: block;
     float: left;
 }
-.forma-registroinicio {
-    display: block;
-    width: 100%;
-    padding: 1em;
-}
-.forma-registroinicio {
-    width: inherit;
-    height: inherit;
-    display: block;
-    margin-top: 0;
-}
-.forma-registroinicio input {
-    font-size: 16px;
-    width: 100%;
-    margin-top: 0.5em;
-    padding: 0.5em;
-    color: #2c3e50;
-    line-height: 20px;
-}
-.register-container .forma-registroinicio .boton-registroinicio {
-    background-color: #0288D1;
-    border: none;
-    color: #fff;
-}
-.register-container .forma-registroinicio .boton-registroinicio:hover {
-    background-color: #0277BD;
-}
-.register-container .forma-registroinicio .boton-registroinicio:disabled {
-    background-color: #81D4FA;
-}
-.container-agregar-crib {
-  padding:5px; }
-.olvidaste-password {
-    margin-top: 10px;
-    color: #2c3e50;
-    font-size: 12px;
-    text-align: center;
-    text-decoration: underline;
-}
-.forma-registroinicio .acepto {
-    width: initial;
-    float: left;
-    margin-top: 10px;
-}
-.heleido {
-    color: #01579B;
-    float: left;
-    margin: 5px;
-}
-.link-terminos {
-    text-decoration: underline;
-}
+
 .search-container {
-    width: 400px;
-    height: 50px;
-    float: left;
-    padding: 10px;
-    position: relative;
-    margin-left: 30px;
+  width: 400px;
+  height: 50px;
+  float: left;
+  padding: 10px;
+  position: relative;
+  margin-left: 40px;
+  background-color: #FF7043;
+  border-radius: 2px;
 }
 #cribsearch {
-    width: 100%;
-    height: 30px;
-    display: block;
-    float: left;
-    padding-right: 10px;
+  background-color: #FF7043;
+  width: 100%;
+  height: 30px;
+  display: block;
+  float: left;
 }
 #cribhunt-searchfield {
-    background: #FF5722;
-    width: 90%;
-    height: 30px;
-    padding: 7px;
-    float: left;
-    border: none;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 300;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-bottom: 1px solid #fff;
+  background-color: #FF7043;
+  width: 90%;
+  height: 30px;
+  padding: 5px;
+  float: left;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 300;
+  border: none;
+  border-radius: 2px;
 }
 #cribsearch-submit {
-    background-image: url('../img/icons/search_icon.svg');
-    width: 10%;
-    background-color: #FF5722;
-    color: #fff;
-    font-size: 18px;
-    padding: 6px;
-    border: none;
-    float: left;
-    cursor: pointer;
-    background-size: 100%;
-}
-#cribsearch-submit:hover {
-  background-color: #FF5722;
+  background-color: #FF7043;
+  background-image: url('../img/icons/search_icon.svg');
+  width: 36px;
+  color: #fff;
+  font-size: 18px;
+  padding: 0px;
+  border: none;
+  float: left;
+  cursor: pointer;
+  background-size: 90%;
+  height: 36px;
 }
 .toolbar {
-    width: 25%;
-    float: right;
-    display: block;
+  width: 270px;
+  float: right;
+  display: block;
 }
 .usuario-bienvenido {
-    color: #fff;
-    width: 80%;
-    height: 50px;
-    float: left;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  float: left;
 }
 .holausuario {
   float: right;
@@ -943,10 +812,30 @@ body {
 .holausuario:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+.iniciar-sesion:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.iniciar-sesion {
+  float: right;
+  font-size: 14px;
+  padding: 10px;
+  padding-top: 10px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  background-color: #0f9d58;
+  border-radius: 2px;
+  color: #fff;
+  margin-top: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
 .perfil-container {
-    width: 20%;
-    float: right;
-    height: 50px;
+  width: 105px;
+  float: right;
+  height: 50px;
 }
 .perfil-container img {
     width: 100%;

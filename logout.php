@@ -1,6 +1,5 @@
 <?php 
     session_start(); 
-    session_destroy(); 
-  
-    header('location: login.php'); 
+    session_destroy();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

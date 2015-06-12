@@ -4,25 +4,19 @@ $(window).load(function() {
 	//$('#site-wrap-detallecrib').css('display', 'block');
     $(".se-pre-con").fadeOut();
 });
-
 $(window).resize(function(){
 	$('.canvas-cribhunt').height($(window).height() - 225);
 });
 (function (window, $) {
-  
   $(function() {   
-    
     $('.ripple').on('click', function (event) {
-      event.preventDefault();
-      
+      //event.preventDefault();
       var $div = $('<div/>'),
           btnOffset = $(this).offset(),
       		xPos = event.pageX - btnOffset.left,
       		yPos = event.pageY - btnOffset.top;
-      
       $div.addClass('ripple-effect');
       var $ripple = $(".ripple-effect");
-      
       $ripple.css("height", $(this).height());
       $ripple.css("width", $(this).height());
       $div
@@ -32,29 +26,33 @@ $(window).resize(function(){
           background: $(this).data("ripple-color")
         }) 
         .appendTo($(this));
-
       window.setTimeout(function(){
         $div.remove();
       }, 2000);
     });
     
   });
-  
 })(window, jQuery);
 
 $(document).ready(function() {
 $('.canvas-cribhunt').height($(window).height() - 225);
-	
 $('.sugerencias-inline').fancybox({
 	type : 'inline',
 	height : '100%',
 });
-
+$('.iniciar-sesion-fancybox').fancybox({
+	type : 'iframe',
+	beforeShow: function(){
+  	$(".fancybox-skin").css("backgroundColor","transparent");
+  	$(".fancybox-skin").css("box-shadow","none");
+ 	}, afterShow: function() {
+  	$(".fancybox-close").css("visibility","hidden");
+ 	}
+});
 	$('.inline').fancybox({
 		type : 'inline',
 		height : '100%',
 	});
-
 	$('.fancy-img').fancybox();
 	$('.tab').on('click', function() {
 	$('.resultado').html('');
@@ -68,15 +66,12 @@ $('.sugerencias-inline').fancybox({
 			}
 		});
 	}
-
-	$('.bxslider').bxSlider({
-	    pagerCustom: '#bx-pager',
-	    onSliderLoad: function(){
-        $("#site-wrap-detallecrib").css("visibility", "visible");
-        $(".se-pre-con").fadeOut();
-      }
+	$('#submit-sugerencias-form').on('click', function(){
+		$('#forma-de-sugerencias').submit();
 	});
-
+	$('#submit-parameter-cribsearch').on('click', function(){
+		$('#parameter-cribsearch').submit();
+	});
 	$("#registro-usuario").submit(function(event) {
 	  // Stop form from submitting normally
 	  event.preventDefault();
@@ -91,31 +86,27 @@ $('.sugerencias-inline').fancybox({
 	        	$('.resultado').html(result);
 	    	},
 	        error:function() {
-
 	        }
 		});
 		$(".inline").trigger('click');
 	});
-	$("#cribsearch").submit(function(event) {
-	  // Stop form from submitting normally
-	  event.preventDefault();
-	  // Get some values from elements on the page:
-	  var values = $(this).serialize();
-	  // Send the data using post and put the results in a div
-	    $.ajax({
-	        url: "cribsearch.php",
-	        type: "post",
-	        data: values,
-	        success: function(result){
-	        	$('.resultado').html(result);
-	    	},
-	        error:function(){
-
-	               }
-		});
-
-	});
-	
+	//$("#cribsearch").submit(function(event) {
+	//  // Stop form from submitting normally
+	//  event.preventDefault();
+	//  // Get some values from elements on the page:
+	//  var values = $(this).serialize();
+	//  // Send the data using post and put the results in a div
+	//    $.ajax({
+	//        url: "http://localhost/cribhunt/cribsearch.php",
+	//        type: "post",
+	//        data: values,
+	//        success: function(result){
+	//        	$('.resultado').html(result);
+	//    	},
+	//        error:function(){
+	//               }
+	//	});
+	//});
 	$("#parameter-cribsearch").submit(function(event) {
 	  // Stop form from submitting normally
 	  event.preventDefault();
@@ -123,7 +114,7 @@ $('.sugerencias-inline').fancybox({
 	  var values = $(this).serialize();
 	  // Send the data using post and put the results in a div
 	    $.ajax({
-	        url: "uploadcrib.php",
+	        url: "http://localhost/cribhunt/searchcrib.php",
 	        type: "post",
 	        data: values,
 	        success: function(result){
@@ -133,9 +124,7 @@ $('.sugerencias-inline').fancybox({
 
 	        }
 		});
-
 	});
-
 });
 (function(){
 	var $container = $('#canvas-mycribhunt');
@@ -150,7 +139,6 @@ $('.sugerencias-inline').fancybox({
             }
         });
     });
-
 $('.fullscreen').on('click',function(){
  
 if($(this).attr('data-click-state') == 1) {
@@ -159,7 +147,6 @@ if($(this).attr('data-click-state') == 1) {
 		$('.canvas-cribhunt').css('width', '70%');
 		$('#canvas-cribmap').css('width', '30%');
 		$('.crib-grid').removeClass('bit-6').addClass('bit-4');
- 
 } 	else {
 		$(this).attr('data-click-state', 1)
 		$('#parameter-search').css('width', '100%');
@@ -171,26 +158,25 @@ if($(this).attr('data-click-state') == 1) {
 		$('.crib-grid').removeClass('bit-4').addClass('bit-6');
 	}
 });
-
 	$("#forma-de-sugerencias").submit(function(event) {
 	// Stop form from submitting normally
 	event.preventDefault();
 	// Get some values from elements on the page:
-	//var values = $(this).serialize();
+	var values = $(this).serialize();
 	// Send the data using post and put the results in a div
-	//	$.ajax({
-	//		url: "parametercribsearch.php",
-	//		type: "post",
-	//		data: values,
-	//		success: function(result){
-	//			$('.resultado').html(result);
-	//		},
-	//		error:function(){
-	//
-	//		}
-	//	});
+		$.ajax({
+			url: "http://localhost/cribhunt/enviarsugerencias.php",
+			type: "post",
+			data: values,
+			success: function(result){
+				$('.titulo-subtitulo-sugerencias').hide("slow");
+				$('#forma-de-sugerencias').hide("slow");
+				$('.resultado').html(result);
+			},
+			error:function(){
+			}
+		});
 	});
-
 	$("#parameter-cribsearch").submit(function(event) {
 	// Stop form from submitting normally
 	event.preventDefault();
@@ -198,17 +184,14 @@ if($(this).attr('data-click-state') == 1) {
 	var values = $(this).serialize();
 	// Send the data using post and put the results in a div
 		$.ajax({
-			url: "parametercribsearch.php",
+			url: "http://localhost/cribhunt/parametercribsearch.php",
 			type: "post",
 			data: values,
 			success: function(result){
 				$('.resultado').html(result);
 			},
 			error:function(){
-	
 			}
 		});
-	
 	});
-
 })();
