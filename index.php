@@ -48,6 +48,7 @@ $request = $_SERVER['REQUEST_URI'];
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/ripple.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo URL ?>css/materialize.min.css"  media="screen,projection"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
@@ -97,7 +98,7 @@ $request = $_SERVER['REQUEST_URI'];
                     <label for="precio-cribsearch">Precio</label>
                     <div id="slider-precio-cribsearch"></div>
                     <input type="text" id="amount" readonly>
-                    <button class="ripple" id="submit-parameter-cribsearch"></button>
+                    <button id="submit-parameter-cribsearch"></button>
                 </div>
             </form>
             </div>
@@ -192,6 +193,7 @@ if ($request != '/cribhunt/') {
         <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>
         <script src="<?php echo URL ?>js/main.js"></script>
+        <script type="text/javascript" src="<?php echo URL ?>js/materialize.min.js"></script>
         <script type="text/javascript">
             $('.bxslider').bxSlider({
                 pagerCustom: '#bx-pager',
