@@ -261,7 +261,7 @@ textarea {
     width: 330px;
   }
   #parameter-search .no-border-bottom-linea #submit-parameter-cribsearch {
-    top: 80px;
+    top: 140px;
   }
   .main-menu .logo-container img {
     width: 100px;
@@ -272,10 +272,13 @@ textarea {
     float: right;
     color: #f6931f;
     font-weight: bold;
-    margin-left: 0;
     width: 35%;
     border: 0!important;
-    margin-top: -5px;
+    margin-top: -51px;
+    padding-left: 7px;
+  }
+  .fullscreen {
+    display: none;
   }
   body .register-container {
     width: 100%;
@@ -295,6 +298,7 @@ textarea {
     width: 50%;
     float: right;
     margin: 0;
+    display: none;
   }
   .main-menu #cribhunt-searchfield {
     width: 80%;
