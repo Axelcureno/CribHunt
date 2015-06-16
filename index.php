@@ -180,7 +180,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $cribArray[$index] = $row;
             $index++; 
         }
-        include( URL . 'detallecrib.php');
+        include('detallecrib.php');
     
     } else {
       
