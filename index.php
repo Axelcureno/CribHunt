@@ -180,12 +180,12 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $cribArray[$index] = $row;
             $index++; 
         }
-        echo $parts[2] . ' ' . $parts[3];
         include( URL . 'detallecrib.php');
     
     } else {
       
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
+            echo $parts[2] . ' ' . $parts[3];
     
     }
 
