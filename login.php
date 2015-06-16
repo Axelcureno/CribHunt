@@ -121,7 +121,7 @@ input.middle:focus {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 500px;
   height: auto;
   border-radius: 2px;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -185,7 +185,7 @@ input.middle:focus {
 }
 .forma-registroinicio input {
   font-size: 16px;
-  width: 545px;
+  width: 440px;
   margin-top: 0.5em;
   padding: 0.5em;
   color: #2c3e50;

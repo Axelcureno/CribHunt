@@ -264,6 +264,7 @@ textarea {
   }
   #parameter-search .no-border-bottom-linea #submit-parameter-cribsearch {
     top: 140px;
+    right: 0;
   }
   .main-menu .logo-container img {
     width: 100px;
