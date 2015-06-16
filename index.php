@@ -172,7 +172,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 } else if ($request != '/' && $request != '?cribsearch=') {
 
     $parts = explode('/', rtrim($request, '/'));
-    $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
+    $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[1]' AND urlcrib = '$parts[2]'";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -185,7 +185,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     } else {
       
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
-            echo $parts[2] . ' ' . $parts[3];
+            echo $parts[1] . ' ' . $parts[2];
     
     }
 
