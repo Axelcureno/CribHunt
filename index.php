@@ -169,7 +169,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 
 //Detalle de Crib
 //
-} else if ($request != 'cribhunt.co' && $request != 'cribhunt.co?cribsearch=') {
+} else if ($request != '/cribhunt.co' && $request != 'cribhunt.co?cribsearch=') {
 
     $parts = explode('/', rtrim($request, '/'));
     $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
