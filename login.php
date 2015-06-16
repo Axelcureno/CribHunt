@@ -82,7 +82,7 @@ input.middle:focus {
     outline-width: 0;
 }
 @media (max-width: 30em) {
-  .register-container {
+  .body-container .register-container {
     top: 0;
     left: 0;
     width: 100%;
@@ -90,7 +90,7 @@ input.middle:focus {
     position: absolute;
     transform: none;
   }
-  .forma-registroinicio input {
+  .body-container .forma-registroinicio input {
     font-size: 16px;
     width: 302px;
     margin-top: 0.5em;
@@ -104,11 +104,10 @@ input.middle:focus {
     background-color: transparent;
     transition: 0.2s all ease-in-out;
   }
-  .forma-registroinicio {
+  .body-container .forma-registroinicio {
     padding-top: 0;
   }
 }
-
 
 .body-container {
     width: 100%;

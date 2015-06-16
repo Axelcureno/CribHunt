@@ -309,25 +309,23 @@ textarea {
     padding: 0;
   }
   .main-menu .toolbar {
-    width: 240px;
+    width: 195px;
     float: right;
     display: block;
     margin-top: 3px;
   }
   .toolbar .perfil-container {
-    width: 95px;
-    float: right;
-    height: 50px;
+    width: 80px;
   }
   .toolbar .usuario-bienvenido {
     color: #fff;
-    width: 135px;
+    width: 111px;
     height: 50px;
     float: left;
   }
   .toolbar .holausuario {
     float: right;
-    font-size: 12px;
+    font-size: 10px;
     padding: 10px;
     padding-top: 10px;
     font-weight: 300;
@@ -342,7 +340,7 @@ textarea {
   }
   .toolbar .iniciar-sesion {
     float: right;
-    font-size: 12px;
+    font-size: 10px;
     padding: 10px;
     padding-top: 10px;
     font-weight: 300;
