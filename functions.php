@@ -21,7 +21,7 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-$con = mysqli_connect('45.55.90.36','root','donfrijol13','cribhunt');
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno()) {
   throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
 }
