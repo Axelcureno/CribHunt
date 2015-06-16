@@ -34,6 +34,7 @@ if(!isset($_SESSION['usersicam']))
             echo "Usuario y/o contraseña incorrectos";
         }
     } 
+include('functions.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -319,9 +320,9 @@ input.middle:focus {
         </div>
     </div>
 </div>
-        <script src="js/vendor/jquery-2.1.1.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="<?php echo URL ?>js/plugins.js"></script>
+        <script src="<?php echo URL ?>js/main.js"></script>
         <script>$('#tab-container').easytabs({updateHash: false});</script>
         <script>new WOW().init();</script>
     </body>
