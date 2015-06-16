@@ -178,8 +178,9 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $cribArray[$index] = $row;
-            $index++;
+            $index++; 
         }
+        echo $parts[2] . ' ' . $parts[3];
         include( URL . 'detallecrib.php');
     
     } else {
