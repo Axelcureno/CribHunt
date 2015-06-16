@@ -397,6 +397,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             }
         });
         </script>
-        <script>$('#slider-precio-cribsearch').draggable();</script>
+        <script>$('#slider-precio-cribsearch').slider();</script>
     </body>
 </html>
