@@ -1,7 +1,16 @@
 <?php 
 
-define("URL", "http://cribhunt.co/");
+$externalIp = file_get_contents('http://phihag.de/ip/');
 
+if ($externalIp == '45.55.90.36') {
+
+	define("URL", "http://cribhunt.co/");
+
+} else {
+
+	define("URL", "http://cribhunt.dev/");
+
+}
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'cribhunt');
