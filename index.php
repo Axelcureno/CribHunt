@@ -102,7 +102,7 @@ $request = $_SERVER['REQUEST_URI'];
     </svg>
 </div>
 <?php 
-
+echo $_SERVER['REQUEST_URI'];
 //Busqueda de la barra superior.
 //
 if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
