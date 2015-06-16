@@ -102,7 +102,7 @@ $request = $_SERVER['REQUEST_URI'];
     </svg>
 </div>
 <?php 
-echo $_SERVER['REQUEST_URI'];
+
 //Busqueda de la barra superior.
 //
 if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
@@ -169,7 +169,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 
 //Detalle de Crib
 //
-} else if ($request != '/' && $request != 'cribhunt.co?cribsearch=') {
+} else if ($request != '/' && $request != '?cribsearch=') {
 
     $parts = explode('/', rtrim($request, '/'));
     $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
