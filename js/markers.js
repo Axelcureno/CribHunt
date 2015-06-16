@@ -5,7 +5,7 @@ $(function() {
     $.ajax({
         async: false,
         dataType : 'json',
-        url: 'http://localhost/cribhunt/markerswebservice.php',
+        url: 'http://cribhunt.co/markerswebservice.php',
         type : 'GET',
         success: function(data) {
             for(var i in data){
@@ -34,8 +34,8 @@ $(function() {
                     
                     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     //Iconos de Google Maps
-                    var image = 'http://localhost/cribhunt/img/icons/geolocation.png';
-                    var iconhouse = 'http://localhost/cribhunt/img/icons/location-red.png';
+                    var image = 'http://cribhunt.co/img/icons/geolocation.png';
+                    var iconhouse = 'http://cribhunt.co/img/icons/location-red.png';
                     var infowindow =  new google.maps.InfoWindow({
                         content: ""
                     });
@@ -49,7 +49,7 @@ $(function() {
                     for (var i = 0; i < json.length; i++) {
 
                         var obj = json[i];
-                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="http://localhost/cribhunt/' + obj.categoriacrib + '/' + obj.urlcrib + '/"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
+                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="http://cribhunt.co/' + obj.categoriacrib + '/' + obj.urlcrib + '/"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
 
                         var infowindow = new google.maps.InfoWindow({
                             content: description

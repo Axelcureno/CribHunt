@@ -1,13 +1,6 @@
 <?php
 session_start();
 include("functions.php");
-//$id = $_SESSION['usersicam'];
-//$sql = "SELECT * FROM usuarios WHERE id = '$id'";
-//    $rec = mysqli_query($con, $sql);
-//    while($row = mysqli_fetch_array($rec))
-//    {
-//        $nombreusuario = $row['nombres'];
-//    }
 $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
@@ -59,12 +52,12 @@ $request = $_SERVER['REQUEST_URI'];
         <![endif]-->
             <div class="main-menu">
                 <div class="logo-container">
-                    <a href="<?php echo URL ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
+                    <a href="<?php echo URL; ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
                 </div>
                 <div class="search-container">
-                        <form id="cribsearch" action="" method="post">
-                            <input id="cribhunt-searchfield" type="text" placeholder="Casa, 3 recamaras, 3 baños, Mérida..." name="cribsearch">
-                            <input id="cribsearch-submit" type="submit" value="" name="cribsearch">
+                        <form id="cribsearch" action="" method="get">
+                            <input id="cribhunt-searchfield" type="text" placeholder="<?php if (isset($_GET['cribsearch'])) { echo $_GET['cribsearch']; } else { echo 'Casa, 3 cuartos, 3 baños, Mérida...'; } ?>" name="cribsearch">
+                            <input id="cribsearch-submit" type="submit" value="">
                         </form>
                 </div>
                 <div class="toolbar">
@@ -80,24 +73,24 @@ $request = $_SERVER['REQUEST_URI'];
             </div>
         <div class="site-wrap">
             <div id="parameter-search">
-            <form id="parameter-cribsearch" action="" method="post">
+            <form id="parameter-cribsearch" action="" method="get">
                 <div class="linea-parameter-search">
-                    <label for="ciudad-cribsearch">Ciudad y/o Colonia</label>
-                    <input id="cribsearch-places" type="text" placeholder="Francisco de Montejo, Mérida" name="ciudad-cribsearch">
+                    <label for="ciudadocolonia">Ciudad y/o Colonia</label>
+                    <input id="cribsearch-places" type="text" placeholder=" <?php if (isset($_GET['ciudad-cribsearch'])) { echo $_GET['ciudad-cribsearch']; } else { echo "Francisco de Montejo, Mérida"; } ?>" name="ciudadocolonia">
                 </div>
                 <div class="linea-parameter-search">
-                    <label for="categoria-cribsearch">Categoría</label>
-                    <select id="parameter-select" name="categoria-cribsearch">
-                      <option value="Cualquiera" selected>Cualquiera</option>
+                    <label for="categoria">Categoría</label>
+                    <select id="parameter-select" name="categoria">
+                      <option value="cualquiera" selected>Cualquiera</option>
                       <option value="casa">Casa</option>
                       <option value="departamento">Departamento</option>
                       <option value="cuarto">Cuarto</option>
                     </select>
                 </div>
                 <div class="linea-parameter-search no-border-bottom-linea">
-                    <label for="precio-cribsearch">Precio</label>
+                    <label for="precio">Precio</label>
                     <div id="slider-precio-cribsearch"></div>
-                    <input type="text" id="amount" readonly>
+                    <input type="text" id="amount" name="precio" readonly>
                     <button id="submit-parameter-cribsearch"></button>
                 </div>
             </form>
@@ -108,12 +101,77 @@ $request = $_SERVER['REQUEST_URI'];
    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
     </svg>
 </div>
-                
 <?php 
-if ($request != '/cribhunt/') {
+
+//Busqueda de la barra superior.
+//
+if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
+    echo '<div id="canvas-mycribhunt" class="frame">';
+    $query = $_GET['cribsearch'];
+    preg_replace('/[^A-Za-z1-9]/', '', $query);
+    $sql = "SELECT * FROM cribs WHERE titulocrib LIKE '%" . $query . "%' OR categoriacrib = '$query' OR ciudadcrib LIKE '%" . $query . "%' OR caracteristicascrib LIKE '%" . $query . "%' OR universidadescrib LIKE '%" . $query . "%' OR cpcrib LIKE '%" . $query . "%' OR coloniacrib LIKE '%" . $query . "%' OR direccioncrib LIKE '%" . $query . "%' OR estadocrib LIKE '%" . $query . "%' OR coloniacrib LIKE '%" . $query . "%' OR preciocrib LIKE '%" . $query . "%' OR paiscrib LIKE '%" . $query . "%' ";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $cribArray[$index] = $row;
+            $index++;
+        }
+    for ($i=0; $i < count($cribArray); $i++) { 
+        echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
+    }
+    } else {
+        echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
+    }
+    echo '</div>';
+
+//Busqueda en base a Parámetros
+//
+} else if (isset($_GET['ciudadocolonia']) && $_GET['ciudadocolonia'] != '') {
+    echo '<div id="canvas-mycribhunt" class="frame">';
+    $ciudadcribsearch = $_GET['ciudadocolonia'];
+    $categoriacrib = $_GET['categoria'];
+    $preciocrib = $_GET['precio'];
+    preg_replace('/[^A-Za-z1-9]/', '', $ciudadcribsearch);
+
+    $ciudadycolonia = explode(', ', $ciudadcribsearch);
+    $argsciudad = array();
+    for( $i = 0; $i < count($ciudadycolonia); $i++) {
+        $argsciudad[$ciudadycolonia[$i]] = $ciudadycolonia[$i];
+        $ciudadycolonia[$i] = str_replace(', ', '', $ciudadycolonia[$i]);
+    }
+
+    $rangoprecios = explode('$', $preciocrib);
+    $args = array();
+    for( $i = 0; $i < count($rangoprecios); $i++) {
+        $args[$rangoprecios[$i]] = $rangoprecios[$i];
+        $rangoprecios[$i] = str_replace(' - ', '', $rangoprecios[$i]);
+    }
+    if ($categoriacrib == 'cualquiera') {
+        $sql = "SELECT * FROM cribs WHERE ciudadcrib LIKE '%" . $ciudadycolonia[1] . "%' AND coloniacrib LIKE '%" . $ciudadycolonia[0] . "%' AND categoriacrib = 'casa' OR categoriacrib = 'departamento' OR categoriacrib = 'cuarto' AND preciocrib BETWEEN $rangoprecios[1] AND $rangoprecios[2]";
+    } else {
+        $sql = "SELECT * FROM cribs WHERE ciudadcrib LIKE '%" . $ciudadycolonia[1] . "%' AND coloniacrib LIKE '%" . $ciudadycolonia[0] . "%' AND categoriacrib =  '$categoriacrib' AND preciocrib BETWEEN $rangoprecios[1] AND $rangoprecios[2]";
+    }
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $cribArray[$index] = $row;
+            $index++;
+        }
+    for ($i=0; $i < count($cribArray); $i++) { 
+        echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
+    }
+    } else {
+        echo '<div class="not-found">No se encontraron resultados :(</div>';
+    }
+    echo '</div>';
+
+//Detalle de Crib
+//
+} else if ($request != '/cribhunt/' && $request != '/cribhunt/?cribsearch=') {
 
     $parts = explode('/', rtrim($request, '/'));
-
     $sql = "SELECT * FROM cribs WHERE categoriacrib = '$parts[2]' AND urlcrib = '$parts[3]'";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
@@ -122,13 +180,16 @@ if ($request != '/cribhunt/') {
             $cribArray[$index] = $row;
             $index++;
         }
-
         include('detallecrib.php');
+    
     } else {
       
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
     
     }
+
+//Página de inicio
+//
 } else {
     echo '<div id="canvas-mycribhunt" class="frame">';
     $sql = "SELECT * FROM cribs";
@@ -143,7 +204,7 @@ if ($request != '/cribhunt/') {
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
     } else {
-        echo "0 resultados";
+        echo '<div class="not-found">0 resultados</div>';
     }
     echo '</div>';
 }
@@ -229,8 +290,8 @@ if ($request != '/cribhunt/') {
              echo 'navigator.geolocation.getCurrentPosition(function(position) {';
               echo 'var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);';
                     //Iconos de Google Maps
-              echo 'var image = "http://localhost/cribhunt/img/icons/geolocation.png";';
-               echo 'var iconhouse = "http://localhost/cribhunt/img/icons/location-red.png";';
+              echo 'var image = "' . URL . 'img/icons/geolocation.png";';
+               echo 'var iconhouse = "' . URL . 'img/icons/location-red.png";';
 
                     echo 'var geolocationmarker = new google.maps.Marker({';
                      echo 'position: pos,';

@@ -35,6 +35,21 @@ $(window).resize(function(){
 })(window, jQuery);
 
 $(document).ready(function() {
+	$('#cribsearch-submit').attr('disabled',true);
+    $('#cribhunt-searchfield').keyup(function(){
+        if($(this).val().length !=0)
+            $('#cribsearch-submit').attr('disabled', false);            
+        else
+            $('#cribsearch-submit').attr('disabled',true);
+    })
+
+    $('#submit-parameter-cribsearch').attr('disabled',true);
+    $('#cribsearch-places').keyup(function(){
+        if($(this).val().length !=0)
+            $('#submit-parameter-cribsearch').attr('disabled', false);            
+        else
+            $('#submit-parameter-cribsearch').attr('disabled',true);
+    })
 $('.canvas-cribhunt').height($(window).height() - 225);
 $('.sugerencias-inline').fancybox({
 	type : 'inline',
@@ -90,41 +105,13 @@ $('.iniciar-sesion-fancybox').fancybox({
 		});
 		$(".inline").trigger('click');
 	});
-	//$("#cribsearch").submit(function(event) {
-	//  // Stop form from submitting normally
-	//  event.preventDefault();
-	//  // Get some values from elements on the page:
-	//  var values = $(this).serialize();
-	//  // Send the data using post and put the results in a div
-	//    $.ajax({
-	//        url: "http://localhost/cribhunt/cribsearch.php",
-	//        type: "post",
-	//        data: values,
-	//        success: function(result){
-	//        	$('.resultado').html(result);
-	//    	},
-	//        error:function(){
-	//               }
-	//	});
-	//});
-	$("#parameter-cribsearch").submit(function(event) {
-	  // Stop form from submitting normally
-	  event.preventDefault();
-	  // Get some values from elements on the page:
-	  var values = $(this).serialize();
-	  // Send the data using post and put the results in a div
-	    $.ajax({
-	        url: "http://localhost/cribhunt/searchcrib.php",
-	        type: "post",
-	        data: values,
-	        success: function(result){
-	        	$('.resultado').html(result);
-	    	},
-	        error:function(){
 
-	        }
-		});
-	});
+        $('#cribsearch-submit').attr('disabled','disabled');;
+        $('cribhunt-searchfield').keyup(function() {
+        if($(this).val() != '') {
+        	$('#cribsearch-submit').removeAttr('disabled');
+        }
+     });
 });
 (function(){
 	var $container = $('#canvas-mycribhunt');
@@ -165,29 +152,12 @@ if($(this).attr('data-click-state') == 1) {
 	var values = $(this).serialize();
 	// Send the data using post and put the results in a div
 		$.ajax({
-			url: "http://localhost/cribhunt/enviarsugerencias.php",
+			url: "http://cribhunt.co/enviarsugerencias.php",
 			type: "post",
 			data: values,
 			success: function(result){
 				$('.titulo-subtitulo-sugerencias').hide("slow");
 				$('#forma-de-sugerencias').hide("slow");
-				$('.resultado').html(result);
-			},
-			error:function(){
-			}
-		});
-	});
-	$("#parameter-cribsearch").submit(function(event) {
-	// Stop form from submitting normally
-	event.preventDefault();
-		// Get some values from elements on the page:
-	var values = $(this).serialize();
-	// Send the data using post and put the results in a div
-		$.ajax({
-			url: "http://localhost/cribhunt/parametercribsearch.php",
-			type: "post",
-			data: values,
-			success: function(result){
 				$('.resultado').html(result);
 			},
 			error:function(){

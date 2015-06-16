@@ -1,6 +1,6 @@
 <?php 
 
-define("URL", "http://localhost/cribhunt/");
+define("URL", "http://cribhunt.co");
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
