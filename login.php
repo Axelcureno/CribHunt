@@ -82,7 +82,7 @@ input.middle:focus {
     outline-width: 0;
 }
 @media (max-width: 30em) {
-  .register container {
+  .register-container {
     top: 0;
     left: 0;
     width: 100%;
