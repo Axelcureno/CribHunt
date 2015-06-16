@@ -1,5 +1,4 @@
 <?php
-include('functions.php');
 session_start();
     function verificar_login($user,$password,&$result) {
     include('functions.php');
@@ -35,6 +34,7 @@ if(!isset($_SESSION['usersicam']))
             echo "Usuario y/o contraseña incorrectos";
         }
     } 
+include('functions.php');
 ?>
 <!DOCTYPE html>
 <html>
