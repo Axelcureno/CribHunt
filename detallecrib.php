@@ -9,10 +9,10 @@
     <div class="canvas-cribhunt-detalle">
             <div class="frame">
                 <div class="bit-2">
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="titulo-crib"><?php echo $cribArray[0]["titulocrib"]; ?></div>
                     </div>
-                    <div class="imagen-principal-crib wow slideInUp">
+                    <div class="imagen-principal-crib">
                         <ul class="bxslider">
                             <?php 
                                 for( $i = 0; $i < count($elements); $i++) {
@@ -30,7 +30,7 @@
                              ?>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                     <div class="frame">
                         <div class="titulo-prop-crib bit-2">Dirección</div>
                         <div class="titulo-prop-crib bit-2">Colonia</div>
@@ -40,7 +40,7 @@
                         <div class="elemento-crib bit-2"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
                     </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="frame">
                             <div class="titulo-prop-crib bit-2">Ciudad</div>
                             <div class="titulo-prop-crib bit-2">Estado</div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="bit-2">
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="frame">
                             <div class="titulo-prop-crib bit-2">Cuartos</div>
                             <div class="titulo-prop-crib bit-2">Baños</div>
@@ -62,7 +62,7 @@
                             <div class="elemento-crib bit-2"><?php echo $cribArray[0]["banioscrib"]; ?></div>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="frame">
                             <div class="titulo-prop-crib bit-2">Categoría</div>
                             <div class="titulo-prop-crib bit-2">Precio</div>
@@ -72,25 +72,25 @@
                             <div class="elemento-crib bit-2">$<?php echo $cribArray[0]["preciocrib"]; ?>MXN / Mes</div>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp" >
+                    <div class="linea-prop-crib" >
                         <div class="titulo-prop-crib">Características</div>
                         <div class="elemento-crib">
                             <?php echo $cribArray[0]["caracteristicascrib"]; ?>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Requisitos</div>
                         <div class="elemento-crib">
                             <?php echo $cribArray[0]["requisitoscrib"]; ?>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                         <div class="titulo-prop-crib">Universidades aledañas</div>
                         <div class="elemento-crib">
                             <?php echo $cribArray[0]["universidadescrib"]; ?>
                         </div>
                     </div>
-                    <div class="linea-prop-crib wow slideInUp">
+                    <div class="linea-prop-crib">
                     <div class="frame">
                         <div class="titulo-prop-crib bit-2">Código Postal</div>
                         <div class="titulo-prop-crib bit-2">País</div>
