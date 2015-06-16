@@ -249,7 +249,9 @@ textarea {
 .canvas-cribhunt-detalle .bit-2 {
   width: 100%;
 }
-
+.elemento-crib {
+  width: 50%;
+}
   #parameter-search .parameter-cribsearch #slider-precio-cribsearch {
     width: 30%;
   }
@@ -288,11 +290,10 @@ textarea {
     width: 100%;
   }
   .body-container-mycribhunt .toolbar {
-    width: 70%;
+    width: 235px;
     float: right;
     display: block;
-    right: 0;
-    position: absolute;
+    margin-top: 3px;
   }
   .main-menu .search-container {
     width: 50%;
@@ -307,7 +308,51 @@ textarea {
     padding: 0;
   }
   .main-menu .toolbar {
-    display: none;
+    width: 240px;
+    float: right;
+    display: block;
+    margin-top: 3px;
+  }
+  .toolbar .perfil-container {
+    width: 95px;
+    float: right;
+    height: 50px;
+  }
+  .toolbar .usuario-bienvenido {
+    color: #fff;
+    width: 135px;
+    height: 50px;
+    float: left;
+  }
+  .toolbar .holausuario {
+    float: right;
+    font-size: 12px;
+    padding: 10px;
+    padding-top: 10px;
+    font-weight: 300;
+    padding-bottom: 10px;
+    background-color: #3F51B5;
+    border-radius: 2px;
+    color: #fff;
+    margin-top: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+  }
+  .iniciar-sesion {
+    float: right;
+    font-size: 12px;
+    padding: 10px;
+    padding-top: 10px;
+    font-weight: 300;
+    padding-bottom: 10px;
+    background-color: #0f9d58;
+    border-radius: 2px;
+    color: #fff;
+    margin-top: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
   }
   .main-menu #cribsearch-submit {
     width: 20%;
