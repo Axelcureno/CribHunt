@@ -81,6 +81,35 @@ input:focus {
 input.middle:focus {
     outline-width: 0;
 }
+@media (max-width: 30em) {
+  .register container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: none;
+  }
+  .forma-registroinicio input {
+    font-size: 16px;
+    width: 302px;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    color: #2c3e50;
+    line-height: 20px;
+    border-bottom: 2px solid #FF5722;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    background-color: transparent;
+    transition: 0.2s all ease-in-out;
+  }
+  .forma-registroinicio {
+    padding-top: 0;
+  }
+}
+
+
 .body-container {
     width: 100%;
     height: 100%;
