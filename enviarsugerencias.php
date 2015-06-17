@@ -33,22 +33,22 @@ $mail->isSMTP();
 $mail->CharSet = 'UTF-8';
 
 //Set the hostname of the mail server
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'smtp.zoho.com';
 
 //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 587;
+$mail->Port = 465;
 
 //Set the encryption system to use - ssl (deprecated) or tls
-$mail->SMTPSecure = 'tls';
+$mail->SMTPSecure = 'ssl';
 
 //Whether to use SMTP authentication
-$mail->SMTPAuth = true;
+//$mail->SMTPAuth = false;
 
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "axelcureno@gmail.com";
+$mail->Username = "axelcureno@cribhunt.co";
 
 //Password to use for SMTP authentication
-$mail->Password = "Cabrinha2012";
+$mail->Password = "donfrijol13";
 
 //Set who the message is to be sent from
 $mail->setFrom($email, $nombre);
@@ -57,7 +57,7 @@ $mail->setFrom($email, $nombre);
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 
 //Set who the message is to be sent to
-$mail->addAddress('axelcureno@gmail.com', 'John Doe');
+$mail->addAddress('axelcureno@cribhunt.co', 'Buzón CribHunt');
 
 //Set the subject line
 $mail->Subject = 'Mensaje de CribHunt';

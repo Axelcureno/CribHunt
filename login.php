@@ -113,7 +113,7 @@ input.middle:focus {
 .body-container {
     width: 100%;
     height: 100%;
-    background-image: url('http://localhost/cribhunt/img/heroimages/fourteen.jpg');
+    background-image: url('http://cribhunt.co/img/heroimages/fourteen.jpg');
     background-repeat:no-repeat;
     background-size: cover;
 }

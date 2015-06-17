@@ -30,47 +30,77 @@
                              ?>
                         </div>
                     </div>
-                    <div class="linea-prop-crib">
                     <div class="frame">
-                        <div class="titulo-prop-crib bit-2">Dirección</div>
-                        <div class="titulo-prop-crib bit-2">Colonia</div>
-                    </div>
-                    <div class="frame">
-                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["direccioncrib"]; ?></div>
-                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
-                    </div>
-                    </div>
-                    <div class="linea-prop-crib">
-                        <div class="frame">
-                            <div class="titulo-prop-crib bit-2">Ciudad</div>
-                            <div class="titulo-prop-crib bit-2">Estado</div>
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Dirección</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["direccioncrib"]; ?></div>
+                            </div>
                         </div>
-                        <div class="frame">
-                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
-                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["estadocrib"]; ?></div>
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Colonia</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["coloniacrib"]; ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame">
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Ciudad</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["ciudadcrib"]; ?></div>
+                            </div>
+                        </div>
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Estado</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["estadocrib"]; ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame">
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">Código Postal</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["cpcrib"]; ?></div>
+                            </div>
+                        </div>
+                        <div class="bit-2">
+                            <div class="linea-prop-crib">
+                                <div class="titulo-prop-crib">País</div>
+                                <div class="elemento-crib"><?php echo $cribArray[0]["paiscrib"]; ?></div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="bit-2">
-                    <div class="linea-prop-crib">
-                        <div class="frame">
-                            <div class="titulo-prop-crib bit-2">Cuartos</div>
-                            <div class="titulo-prop-crib bit-2">Baños</div>
-                        </div>
-                        <div class="frame">
-                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["cuartoscrib"]; ?></div>
-                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["banioscrib"]; ?></div>
+                    <div class="frame">
+                    <div class="bit-2">
+                        <div class="linea-prop-crib">
+                            <div class="titulo-prop-crib">Cuartos</div>
+                            <div class="elemento-crib"><?php echo $cribArray[0]["cuartoscrib"]; ?></div>
                         </div>
                     </div>
-                    <div class="linea-prop-crib">
-                        <div class="frame">
-                            <div class="titulo-prop-crib bit-2">Categoría</div>
-                            <div class="titulo-prop-crib bit-2">Precio</div>
+                    <div class="bit-2">
+                        <div class="linea-prop-crib">
+                            <div class="titulo-prop-crib">Baños</div>
+                            <div class="elemento-crib"><?php echo $cribArray[0]["banioscrib"]; ?></div>
                         </div>
-                        <div class="frame">
-                            <div class="elemento-crib bit-2"><?php echo $cribArray[0]["categoriacrib"]; ?></div>
-                            <div class="elemento-crib bit-2">$<?php echo $cribArray[0]["preciocrib"]; ?>MXN / Mes</div>
+                    </div>
+                    </div>
+                    <div class="frame">
+                    <div class="bit-2">
+                        <div class="linea-prop-crib">
+                            <div class="titulo-prop-crib">Categoría</div>
+                            <div class="elemento-crib"><?php echo $cribArray[0]["categoriacrib"]; ?></div>
                         </div>
+                    </div>
+                    <div class="bit-2">
+                        <div class="linea-prop-crib">
+                            <div class="titulo-prop-crib">Precio</div>
+                            <div class="elemento-crib"><?php echo $cribArray[0]["preciocrib"]; ?></div>
+                        </div>
+                    </div>
                     </div>
                     <div class="linea-prop-crib" >
                         <div class="titulo-prop-crib">Características</div>
@@ -89,16 +119,6 @@
                         <div class="elemento-crib">
                             <?php echo $cribArray[0]["universidadescrib"]; ?>
                         </div>
-                    </div>
-                    <div class="linea-prop-crib">
-                    <div class="frame">
-                        <div class="titulo-prop-crib bit-2">Código Postal</div>
-                        <div class="titulo-prop-crib bit-2">País</div>
-                    </div>
-                    <div class="frame">
-                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["cpcrib"]; ?></div>
-                        <div class="elemento-crib bit-2"><?php echo $cribArray[0]["paiscrib"]; ?></div>
-                    </div>
                     </div>
                 </div>
             </div>

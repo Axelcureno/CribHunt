@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['nombres'])) {
-include('dbcon.php');
+include('functions.php');
 $nombres = $_POST['nombres'];
 $apellidos = $_POST['apellidos'];
 $email = $_POST['email'];
