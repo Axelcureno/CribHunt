@@ -4,6 +4,16 @@ include("functions.php");
 $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
+
+if (isset($_SESSION['usersicam'])) {
+    $id = $_SESSION['usersicam'];
+    $sqlname = "SELECT * FROM usuarios WHERE id = '$id'";
+    $rec = mysqli_query($con, $sqlname);
+    while($row = mysqli_fetch_array($rec))
+    {
+        $nombreusuario = $row['nombres'];
+    }
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -50,8 +60,9 @@ $request = $_SERVER['REQUEST_URI'];
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+            <?php if (isset($_SESSION['usersicam'])){ echo '<input type="checkbox" id="nav-trigger" class="nav-trigger" /><label class="ripple" for="nav-trigger"></label>'; }  ?>
             <div class="main-menu">
-                <div class="logo-container">
+                <div <?php if (isset($_SESSION['usersicam'])){ echo 'style="  margin-left: 65px; "'; }  ?> class="logo-container">
                     <a href="<?php echo URL; ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
                 </div>
                 <div class="search-container">
@@ -71,6 +82,22 @@ $request = $_SERVER['REQUEST_URI'];
                         </div>
                 </div>
             </div>
+        <ul class="navigation">
+          <div class="perfil-usuario">
+              <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
+              <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
+          </div>
+          <div class="menu-de-usuario">
+              <div class="que-deseas">
+              ¿Qué deseas hacer?
+          </div>
+              <!--<a class="nav-a-item" href="#"><button class="ripple nav-ripple"><li class="nav-item">Mis Cribs</li></button></a>-->
+              <a class="nav-a-item" href="<?php echo URL; ?>"><button class="ripple nav-ripple"><li class="nav-item">Buscar Crib</li></button></a>
+              <a class="nav-a-item" href="<?php echo URL; ?>addcrib.php"><button class="ripple nav-ripple"><li class="nav-item">Publicar Crib</li></button></a>
+              <!--<a class="nav-a-item" href="#"><li class="nav-item"><button class="ripple nav-ripple">Administrar Perfil</li></button></a>-->
+              <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Cerrar Sesión</li></button></a>
+          </div>
+        </ul>
         <div class="site-wrap">
             <div id="parameter-search">
             <form id="parameter-cribsearch" action="" method="get">

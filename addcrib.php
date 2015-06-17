@@ -1,7 +1,6 @@
 <?php
 include("functions.php");
 startpage();
-
 $id = $_SESSION['usersicam'];
 $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     $rec = mysqli_query($con, $sql);
@@ -26,10 +25,9 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.fileupload.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <script src="<?php echo URL ?>js/vendor/modernizr-2.8.3.min.js"></script>
-        <script type="<?php echo URL ?>text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
-        <script src="<?php echo URL ?>js/locationpicker.jquery.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+        <script src="<?php echo URL ?>js/locationpicker.jquery.js"></script>å
         <style>
   h2 {
     margin-bottom: 0;
@@ -46,7 +44,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     color: #666;
   }
   
-  a {
+  textarea a {
     color: #000;
     text-decoration: underline;
     cursor: pointer;
@@ -105,42 +103,44 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <ul class="navigation">
-        <div class="perfil-usuario">
-            <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
-            <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
-        </div>
-        <div class="menu-de-usuario">
-            <div class="que-deseas">
-            ¿Qué deseas hacer?
-        </div>
-            <a class="nav-a-item" href="miscribs.php"><li class="nav-item">Mis Cribs</li></a>
-            <a class="nav-a-item" href="mycribhunt.php"><li class="nav-item">Buscar Crib</li></a>
-            <a class="nav-a-item" href="agregarcrib.php"><li class="nav-item">Publicar tu Crib</li></a>
-            <!--<a class="nav-a-item" href="mycribwishlist.php"><li class="nav-item">Mi Crib Wishlist</li></a>-->
-            <a class="nav-a-item" href="perfil.php"><li class="nav-item">Administrar Perfil</li></a>
-            <!--<a class="nav-a-item" href="opciones.php"><li class="nav-item">Opciones</li></a>-->
-            <a class="nav-a-item" href="logout.php"><li class="nav-item last-nav-item">Salir</li></a>
-        </div>
-        
-        </ul>
+            <?php if (isset($_SESSION['usersicam'])){ echo '<input type="checkbox" id="nav-trigger" class="nav-trigger" /><label class="ripple" for="nav-trigger"></label>'; }  ?>
             <div class="main-menu">
-                <div class="logo-container">
-                    <a href="http://localhost/cribhunt/"><img src="img/logo.svg" alt="CribHunt"></a>
+                <div <?php if (isset($_SESSION['usersicam'])){ echo 'style="  margin-left: 65px; "'; }  ?> class="logo-container">
+                    <a href="<?php echo URL; ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
                 </div>
-            <div class="search-container">
-                    <form id="cribsearch" action="" method="post">
-                        <input id="cribhunt-searchfield" type="text" placeholder="Casa, 3 recamaras, 3 baños, Mérida..." name="cribsearch">
-                        <input id="cribsearch-submit" type="submit" value="" name="cribsearch">
-                    </form>
-            </div>
+                <div class="search-container">
+                        <form id="cribsearch" action="" method="get">
+                            <input id="cribhunt-searchfield" type="text" placeholder="<?php if (isset($_GET['cribsearch'])) { echo $_GET['cribsearch']; } else { echo 'Casa, 3 cuartos, 3 baños, Mérida...'; } ?>" name="cribsearch">
+                            <input id="cribsearch-submit" type="submit" value="">
+                        </form>
+                </div>
                 <div class="toolbar">
-                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><span class="holausuario">¿Alguna sugerencia?</span></a></div>
+                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
                         <div class="perfil-container">
-                                <a href="logout.php"><img src="img/icons/logout.svg" alt="Usuario" title="Cerrar Sesión"></a>
+                            <?php if (!isset($_SESSION['usersicam'])) {
+                                echo '<a href="'. URL .'login.php"><button class="iniciar-sesion ripple">Iniciar Sesión</button></a>';
+                            } else {
+                                echo '<a href="'. URL .'logout.php"><button class="iniciar-sesion ripple">Cerrar Sesión</button></a>';
+                                } ?>    
                         </div>
                 </div>
             </div>
+        <ul class="navigation">
+          <div class="perfil-usuario">
+              <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
+              <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
+          </div>
+          <div class="menu-de-usuario">
+              <div class="que-deseas">
+              ¿Qué deseas hacer?
+          </div>
+              <!--<a class="nav-a-item" href="#"><button class="ripple nav-ripple"><li class="nav-item">Mis Cribs</li></button></a>-->
+              <a class="nav-a-item" href="<?php echo URL; ?>"><button class="ripple nav-ripple"><li class="nav-item">Buscar Crib</li></button></a>
+              <a class="nav-a-item" href="<?php echo URL; ?>addcrib.php"><button class="ripple nav-ripple"><li class="nav-item">Publicar Crib</li></button></a>
+              <!--<a class="nav-a-item" href="#"><li class="nav-item"><button class="ripple nav-ripple">Administrar Perfil</li></button></a>-->
+              <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Cerrar Sesión</li></button></a>
+          </div>
+        </ul>
         <div class="site-wrap-add">
             <div id="site-wrap">
                 <div class="canvas-cribhunt-agregar">
@@ -383,11 +383,11 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             </div>
         </div>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="<?php echo URL ?>js/plugins.js"></script>
+        <script src="<?php echo URL ?>js/main.js"></script>
        <script charset="utf-8" src="//ucarecdn.com/widget/2.0.4/uploadcare/uploadcare.full.min.js"></script>
-        <script src="js/parser_rules/advanced.js"></script>
-        <script src="js/wysihtml5-0.3.0.min.js"></script>
+        <script src="<?php echo URL ?>js/parser_rules/advanced.js"></script>
+        <script src="<?php echo URL ?>js/wysihtml5-0.3.0.min.js"></script>
         <script>
           var editor1 = new wysihtml5.Editor("caractextarea", {
             toolbar:      "toolbar1",
@@ -469,7 +469,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
           var values = $(this).serialize();
           // Send the data using post and put the results in a div
             $.ajax({
-                url: "nuevouploadcrib.php",
+                url: 'http://' + location.host + '/nuevouploadcrib.php',
                 type: "post",
                 data: values,
                 success: function(result){

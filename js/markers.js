@@ -5,7 +5,7 @@ $(function() {
     $.ajax({
         async: false,
         dataType : 'json',
-        url: 'http://' +location.host + '/markerswebservice.php',
+        url: 'http://' + location.host + '/markerswebservice.php',
         type : 'GET',
         success: function(data) {
             for(var i in data){

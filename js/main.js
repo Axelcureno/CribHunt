@@ -94,8 +94,8 @@ $('.iniciar-sesion-fancybox').fancybox({
 	  var values = $(this).serialize();
 	  // Send the data using post and put the results in a div
 	    $.ajax({
-	        url: "http://cribhunt.co/registrousuario.php",
-	        type: "post",
+	        url: 'http://' + location.host + '/registrousuario.php',
+	        type: 'post',
 	        data: values,
 	        success: function(result){
 	        	$('.resultado').html(result);
@@ -114,6 +114,18 @@ $('.iniciar-sesion-fancybox').fancybox({
      });
 });
 (function(){
+	var $container = $('#canvas-mycribhunt');
+
+	//Funcion de Isotope para las columnas de las casas
+    $container.imagesLoaded( function() {
+        $container.isotope({
+            itemSelector: '.bit-4',
+            layoutMode: 'fitRows',
+            masonry: {
+              columnWidth: 0
+            }
+        });
+    });
 $('.fullscreen').on('click',function(){
  
 if($(this).attr('data-click-state') == 1) {
@@ -133,19 +145,19 @@ if($(this).attr('data-click-state') == 1) {
 		$('.crib-grid').removeClass('bit-4').addClass('bit-6');
 	}
 });
-	$("#forma-de-sugerencias").submit(function(event) {
+	$('#forma-de-sugerencias').submit(function(event) {
 	// Stop form from submitting normally
 	event.preventDefault();
 	// Get some values from elements on the page:
 	var values = $(this).serialize();
 	// Send the data using post and put the results in a div
 		$.ajax({
-			url: "http://cribhunt.co/enviarsugerencias.php",
-			type: "post",
+			url: 'http://' + location.host + '/enviarsugerencias.php',
+			type: 'post',
 			data: values,
 			success: function(result){
-				$('.titulo-subtitulo-sugerencias').hide("slow");
-				$('#forma-de-sugerencias').hide("slow");
+				$('.titulo-subtitulo-sugerencias').hide('slow');
+				$('#forma-de-sugerencias').hide('slow');
 				$('.resultado').html(result);
 			},
 			error:function(){

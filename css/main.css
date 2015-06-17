@@ -309,13 +309,13 @@ textarea {
     padding: 0;
   }
   .main-menu .toolbar {
-    width: 195px;
+    width: 115px;
     float: right;
     display: block;
-    margin-top: 3px;
+    margin-top: 5px;
   }
   .toolbar .perfil-container {
-    width: 80px;
+    display: none;
   }
   .toolbar .usuario-bienvenido {
     color: #fff;
@@ -362,9 +362,13 @@ textarea {
   }
   .site-wrap .canvas-cribhunt {
     width: 100%;
+    top: 238px;
   }
   .site-wrap #canvas-cribmap {
     display: none;
+  }
+  #mobile-maps {
+
   }
 }
 
@@ -405,7 +409,7 @@ textarea {
     display: none;
   }
   .main-menu #cribsearch-submit {
-    width: 20%;
+    float: right;
   }
   .site-wrap #parameter-search {
     width: 100%;
@@ -494,8 +498,6 @@ padding-bottom: 10px;
   border: none;
   width: 100px;
 }
-
-
 #submit-sugerencias-form:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
@@ -614,8 +616,7 @@ padding-bottom: 10px;
 #canvas-mycribhunt {
   display: none;
   height: 70%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 #canvas-mycribhunt .bit-4 {
   padding: 5px;
@@ -687,6 +688,10 @@ padding-bottom: 10px;
   display: none;
   height: 100%; margin: 0; padding: 0;
 }
+#mobile-maps {
+
+}
+
 #somecomponent {
  height: 100%; margin: 0; padding: 0;
 }
@@ -704,19 +709,17 @@ padding-bottom: 10px;
   height: 50px;
 }
 
-
-
 .navigation {
     list-style: none;
     background: #3F51B5;
-    width: 100%;
+    width: 300px;
     height: 100%;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    z-index: 0;
+    left: -300px;
+    z-index: 998;
 }
 .site-wrap {
 /* min-width: 100%; */
@@ -734,16 +737,16 @@ padding-bottom: 10px;
 }
 
 .site-wrap-add {
-/* min-width: 100%; */
-/* min-height: 100%; */
+  /* min-width: 100%; */
+  /* min-height: 100%; */
   width: 100%;
-  height:90.5%;
+  height: 100%;
   overflow: hidden;
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  top: 63px;
+  top: 45px;
   left: 0;
   z-index: 1;
   box-shadow: 0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16);
@@ -757,23 +760,27 @@ padding-bottom: 10px;
 label[for="nav-trigger"] {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 15px;
     z-index: 2;
 }
 label[for="nav-trigger"] {
-    /* ... previous styles here... */
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    background-image: url("../img/ui/hamburger.svg");
-    background-size: contain;
-    z-index: 2000;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-image: url("../img/ui/hamburger.svg");
+  background-size: 27px;
+  z-index: 2000;
+  border-radius: 20px;
+  background-position: 6px 7px;
+  background-repeat: no-repeat;
+  margin-top: -7px;
 }
  
-.nav-trigger:checked ~ .site-wrap {
-    left: 300px;
+.nav-trigger:checked ~ .navigation {
+    left: 0;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
-.nav-trigger + label, .site-wrap {
+.nav-trigger + label, .navigation {
     transition: left 0.2s;
 } 
 body {
@@ -856,6 +863,7 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
   cursor: pointer;
+  border: none;
 }
 .holausuario:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -879,6 +887,7 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .2s ease-in-out;
   cursor: pointer;
+  border: none;
 }
 .perfil-container {
   width: 105px;
@@ -910,6 +919,16 @@ body {
 .nav-item {
   padding: 12px;
   color: #fff;
+}
+.nav-ripple {
+  background-color: transparent;
+  padding: 0;
+  display: block;
+  border-radius: 0;
+  font-size: inherit;
+  width: 100%;
+  text-align: left;
+  border: none;
 }
 .nav-item:hover {
   background-color: #283593;
@@ -1176,12 +1195,13 @@ color: #555555;
 
 .canvas-cribhunt-agregar {
   background-color: #EEE;
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: block;
   overflow: scroll;
   overflow-x: hidden;
   padding: 10px;
+  position: absolute;
 }
 
 .canvas-cribhunt-lista {
