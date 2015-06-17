@@ -18,23 +18,23 @@ $request = $_SERVER['REQUEST_URI'];
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo URL ?>apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo URL ?>apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo URL ?>apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo URL ?>apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo URL ?>apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo URL ?>apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URL ?>apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo URL ?>android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL ?>favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo URL ?>favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL ?>favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo URL ?>apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo URL ?>apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo URL ?>apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo URL ?>apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo URL ?>apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo URL ?>apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URL ?>apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="<?php echo URL ?>android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-16x16.png" sizes="16x16">
         <link rel="manifest" href="<?php echo URL ?>manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="<?php echo URL ?>ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="msapplication-TileColor" content="#FF5722">
+        <meta name="theme-color" content="#FF5722">
+        <meta name="msapplication-TileImage" content="<?php echo URL ?>mstile-144x144.png">
         <link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
@@ -188,7 +188,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             echo $parts[1] . ' ' . $parts[2];
     
     }
-
 //Página de inicio
 //
 } else {
@@ -209,7 +208,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     }
     echo '</div>';
 }
-
 ?>
             </div>
             <div id="canvas-cribmap">
@@ -248,16 +246,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             </div>
         </div>
         </div>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-47439231-8', 'auto');
-          ga('send', 'pageview');
-
-        </script>
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
@@ -275,90 +263,67 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
               }
             });
         </script>
-        
         <?php 
 
-        if ($request != '/') {
-
+        if ($request != '/' && $request != '?cribsearch=') {
         echo '<script>';
         echo '$(function() {';
         echo 'var houselatlong = new google.maps.LatLng(' . $cribArray[0]["latitudcrib"] . ', ' . $cribArray[0]["longitudcrib"] . ');';
-            //var stylesArray = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}]
         echo 'var map;';
-
         echo 'function initialize() {';
                  echo 'var mapOptions = {';
                    echo 'zoom: 18';
-                  //styles: stylesArray
                  echo '};';
-
          echo '$("#cribsearch-places").geocomplete();';
-            // To add the marker to the map, call setMap();
-            
          echo 'map = new google.maps.Map(document.getElementById("cribmap-container"), mapOptions);';
-            // Intento de HTML5 Geolocation
              echo 'if(navigator.geolocation) {';
              echo 'navigator.geolocation.getCurrentPosition(function(position) {';
               echo 'var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);';
-                    //Iconos de Google Maps
               echo 'var image = "' . URL . 'img/icons/geolocation.png";';
                echo 'var iconhouse = "' . URL . 'img/icons/location-red.png";';
-
                     echo 'var geolocationmarker = new google.maps.Marker({';
                      echo 'position: pos,';
                      echo 'map: map,';
                      echo 'icon: image';
                     echo '});';
-
                     echo 'var contentString1 = \'<div style="width:200px;" id="content">\'+\'<a style="font-weight:bold; font-size: 1em;" href="'. $cribArray[0]["urlcrib"] .' "><h1 style="font-weight:bold; font-size: 1em; padding: 5px 5px 5px 0;" id="firstHeading" class="firstHeading">' . $cribArray[0]["titulocrib"] . '</h1></a>\' + \'<div id="bodyContent">\'+ \'<img style="max-width:200px;" src="' . $cribArray[0]["imagenprincipalcrib"] . '">\' + \'</div>\';';
-
                     echo 'var infowindow = new google.maps.InfoWindow({';
                         echo 'content: contentString1';
                     echo '});';
-
                     echo 'var marker = new google.maps.Marker({';
                     echo 'position: houselatlong,';
                     echo 'map: map,';
                     echo 'icon: iconhouse';
                      echo '});';
-                    //Agrega el listener cuando das click en el marker
                     echo 'google.maps.event.addListener(marker, \'click\', function() {';
                     echo 'infowindow.open(map,marker);';
                     echo '});';
-
                     echo 'map.setCenter(houselatlong);';
                     echo 'marker.setMap(map);';
-
                     echo '}, function() {';
                     echo 'handleNoGeolocation(true);';
                 echo '});';
               echo '} else {';
-                // Navegador no soporta HTML5 Geolocation
                 echo 'handleNoGeolocation(false);';
               echo '}';
             echo '}';
-
             echo 'function handleNoGeolocation(errorFlag) {';
             echo 'if (errorFlag) {';
             echo 'var content = \'Hubo un error con el servicio de Geolocalización.\';';
             echo '} else {';
             echo 'var content = \'Error: Tu navegador no soporta Geolocalización :(\';';
             echo '}';
-
             echo 'var options = {';
             echo 'map: map,';
             echo 'position: new google.maps.LatLng(60, 105),';
             echo 'content: content';
             echo '};';
-
             echo 'var infowindow = new google.maps.InfoWindow(options);';
             echo 'map.setCenter(options.position);';
             echo '}';
-            
             echo 'google.maps.event.addDomListener(window, \'load\', initialize);';
         echo '});';
         echo '</script>'; 
-        
         } else {
             echo '<script src="' . URL . 'js/markers.js"></script>';
         }
@@ -367,7 +332,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
         <script>
-            //Funcion para crear el UI Slider de jQuery UI para el rango de precio
             $(function() {
               $( "#slider-precio-cribsearch" ).slider({ range: true });
             });
@@ -387,8 +351,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                         // Cuando el slider cambia
                     },
                     stop: function(event, ui) {
-                        // Cuando no hay mas cambios en el slider
-                        //$.POST("to.php",{first_value:ui.values[0], second_value:ui.values[1]},function(data){},'json');
                     }
                 }); 
                 $( "#amount" ).val( "$" + $( "#slider-precio-cribsearch" ).slider( "values", 0 ) + 

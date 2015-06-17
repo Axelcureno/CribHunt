@@ -114,18 +114,6 @@ $('.iniciar-sesion-fancybox').fancybox({
      });
 });
 (function(){
-	var $container = $('#canvas-mycribhunt');
-
-	//Funcion de Isotope para las columnas de las casas
-    $container.imagesLoaded( function() {
-        $container.isotope({
-            itemSelector: '.bit-4',
-            layoutMode: 'fitRows',
-            masonry: {
-              columnWidth: 0
-            }
-        });
-    });
 $('.fullscreen').on('click',function(){
  
 if($(this).attr('data-click-state') == 1) {
