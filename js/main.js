@@ -91,6 +91,11 @@ $('.iniciar-sesion-fancybox').fancybox({
 	  // Stop form from submitting normally
 	  event.preventDefault();
 	  // Get some values from elements on the page:
+	 $('#registro-usuario input').hide();
+	 $('.terminos-condiciones').hide();
+	 $('.bienvenido h2').hide();
+	 $('.espacio-spinner').fadeIn();
+	  $('.se-pre-con').fadeIn();
 	  var values = $(this).serialize();
 	  // Send the data using post and put the results in a div
 	    $.ajax({
@@ -99,14 +104,26 @@ $('.iniciar-sesion-fancybox').fancybox({
 	        data: values,
 	        success: function(result){
 	        	$('.resultado').html(result);
+	        	if (result == 'El registro fue exitoso. Ya puedes iniciar tu sesión') {
+	        		$('.bienvenido h2').fadeIn();
+	        		$('.espacio-spinner').hide();
+	        		$(".se-pre-con").fadeOut();
+	        		$('.resultado').css('color', '#388E3C');
+	        	} else {
+	        		$('.espacio-spinner').hide();
+	        		$('.bienvenido h2').fadeIn();
+	        		$(".se-pre-con").hide();
+	        		$('.resultado').css('color', '#D32F2F');
+	        		$('#registro-usuario input').show();
+	        		$('.terminos-condiciones').show();
+	        	}
 	    	},
 	        error:function() {
 	        }
 		});
 		$(".inline").trigger('click');
 	});
-
-        $('#cribsearch-submit').attr('disabled','disabled');;
+        $('#cribsearch-submit').attr('disabled','disabled');
         $('cribhunt-searchfield').keyup(function() {
         if($(this).val() != '') {
         	$('#cribsearch-submit').removeAttr('disabled');
@@ -115,7 +132,6 @@ $('.iniciar-sesion-fancybox').fancybox({
 });
 (function(){
 	var $container = $('#canvas-mycribhunt');
-
 	//Funcion de Isotope para las columnas de las casas
     $container.imagesLoaded( function() {
         $container.isotope({
@@ -126,6 +142,9 @@ $('.iniciar-sesion-fancybox').fancybox({
             }
         });
     });
+
+//Script que habilida la funcion de fullscreen
+//del floating action button
 $('.fullscreen').on('click',function(){
  
 if($(this).attr('data-click-state') == 1) {

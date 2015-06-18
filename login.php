@@ -51,6 +51,7 @@ if(!isset($_SESSION['usersicam']))
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 <link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/spinner.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <style type="text/css" media="screen">
     * {
@@ -293,7 +294,7 @@ input.middle:focus {
           </ul>
           <div id="tabs1-registro">
             <div class="bienvenido">
-                <h2>¡Bienvenido a tu registro!</h2>
+                <h2>¡Bienvenid@ a tu registro!</h2>
             </div>
                 <div class="forma-registroinicio">
                     <form id="registro-usuario" action="" method="post">
@@ -303,15 +304,22 @@ input.middle:focus {
                         <input id="password" required placeholder="Contraseña" type="password" name="password">
                         <input id="password2" required placeholder="Confirmar Contraseña" type="password" name="passwordconfirmacion">
                         <div class="terminos-condiciones">
-                            <input required id="aceptocheck" class="acepto" type="checkbox"><span class="heleido">He leído y estoy de acuerdo con el<span class="link-terminos"><a href="http://cribhunt.dev/aviso-de-privacidad.pdf">Aviso de Privacidad</a></span></span>
-                        </div>                                <div class="resultado"></div>
+                            <input required id="aceptocheck" class="acepto" type="checkbox"><span class="heleido">He leído y estoy de acuerdo con el <span class="link-terminos"><a href="http://cribhunt.dev/aviso-de-privacidad.pdf">Aviso de Privacidad</a></span></span>
+                        </div>
+                        <div class="espacio-spinner" style="width: 100%; height: 100px; margin-top: 80px; margin-bottom: 70px; display:none;"></div>
+                        <div class="resultado"></div>
+                          <div class="se-pre-con">
+                            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                           <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                        </div>
                         <input id="botonderegistro" class="boton-registroinicio" disabled="disabled" name="registrarse" type="submit" value="Registrarse">
                     </form>
                 </div>
           </div>
           <div id="tabs1-iniciosesion">
             <div class="bienvenido">
-                <h2>¡Bienvenido de vuelta!</h2>
+                <h2>¡Bienvenid@ de vuelta!</h2>
             </div>
                 <div class="forma-registroinicio">
                     <form id="iniciosesion-usuario" action="" method="post">

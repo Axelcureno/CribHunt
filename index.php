@@ -282,16 +282,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script src="<?php echo URL ?>js/main.js"></script>
         <script src="<?php echo URL ?>js/jquery.ui.touch-punch.min.js"></script>
         <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-47439231-8', 'auto');
-          ga('send', 'pageview');
-
-        </script>
         <script type="text/javascript">
             $('.bxslider').bxSlider({
                 pagerCustom: '#bx-pager',
@@ -361,11 +351,10 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             echo '}';
             echo 'google.maps.event.addDomListener(window, \'load\', initialize);';
         echo '});';
-        echo '</script>'; 
+        echo '</script>';
         } else {
             echo '<script src="' . URL . 'js/markers.js"></script>';
         }
-
 ?>
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
@@ -394,7 +383,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                 $( "#amount" ).val( "$" + $( "#slider-precio-cribsearch" ).slider( "values", 0 ) + 
                                     " - $" + $( "#slider-precio-cribsearch" ).slider( "values", 1 ) ); 
             });
-
         //Pequeño código que evita que se envíe el formulario de búsqueda con la tecla enter
         var submitFocus = false;
         $('input :submit').focus(function() {
@@ -405,6 +393,16 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                 window.event.keyCode = 9;
             }
         });
+        </script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-47439231-8', 'auto');
+          ga('send', 'pageview');
+
         </script>
         <script>$('#slider-precio-cribsearch').slider();</script>
     </body>
