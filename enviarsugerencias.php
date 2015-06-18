@@ -5,7 +5,7 @@
 
 //SMTP needs accurate times, and the PHP time zone MUST be set
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
-date_default_timezone_set('Etc/UTC');
+date_default_timezone_set("America/Merida");
 
 require 'PHPMailerAutoload.php';
 
@@ -40,7 +40,7 @@ $mail->Username = "axelcureno@cribhunt.co";
 $mail->Password = "donfrijol13";
 
 //Set who the message is to be sent from
-$mail->setFrom($email, $nombre);
+$mail->From = "axelcureno@cribhunt.co";
 
 //Set who the message is to be sent to
 $mail->addAddress('axelcureno@cribhunt.co', 'Buzón CribHunt');
@@ -49,7 +49,10 @@ $mail->addAddress('axelcureno@cribhunt.co', 'Buzón CribHunt');
 $mail->Subject = 'Mensaje de CribHunt';
 
 //Replace the plain text body with one created manually
-$mail->Body = $mensaje;
+//$mail->Body = $mensaje;
+$mail->MsgHTML($mensaje);
+
+$mail->AltBody;
 
 //send the message, check for errors
 if (!$mail->send()) {

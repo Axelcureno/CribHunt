@@ -1,5 +1,7 @@
 <?php
     include('functions.php');
+
+    
 session_start();
     function verificar_login($user,$password,&$result) {
     $con = mysqli_connect('localhost', 'root', 'donfrijol13', 'cribhunt');
@@ -35,6 +37,7 @@ if(!isset($_SESSION['usersicam']))
         }
         else
         { 
+            $resultado = 'Usuario y/o contraseña incorrectos';
             echo "Usuario y/o contraseña incorrectos";
         }
     } 
@@ -314,7 +317,9 @@ input.middle:focus {
                     <form id="iniciosesion-usuario" action="" method="post">
                         <input required placeholder="Email" type="text" <?php if(isset($_POST['submit']))  echo 'value="'.$_POST['email'].'"'; ?> name="user" >
                         <input required placeholder="Contraseña" type="password" name="passwordinicio">
-                        <div class="resultado"></div>
+                        <div class="resultado"> <?php if (isset($resultado)) {
+                          echo $resultado;
+                        } ?></div>
                         <input class="boton-registroinicio" type="submit" name="login" value="Iniciar Sesión">
                         <a href="#"><div class="olvidaste-password">Olvidaste tu contraseña?</div></a>
                     </form>
