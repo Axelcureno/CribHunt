@@ -51,6 +51,16 @@ if (isset($_SESSION['usersicam'])) {
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/ripple.css">
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-47439231-8', 'auto');
+          ga('send', 'pageview');
+
+        </script>
         <!--<link type="text/css" rel="stylesheet" href="<?php echo URL ?>css/materialize.min.css"  media="screen,projection"/>-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -393,16 +403,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                 window.event.keyCode = 9;
             }
         });
-        </script>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-47439231-8', 'auto');
-          ga('send', 'pageview');
-
         </script>
         <script>$('#slider-precio-cribsearch').slider();</script>
     </body>
