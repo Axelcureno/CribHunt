@@ -303,7 +303,7 @@ input.middle:focus {
                         <input id="password" required placeholder="Contraseña" type="password" name="password">
                         <input id="password2" required placeholder="Confirmar Contraseña" type="password" name="passwordconfirmacion">
                         <div class="terminos-condiciones">
-                            <input required id="aceptocheck" class="acepto" type="checkbox"><span class="heleido">He leído y acepto los <span class="link-terminos"><a href="">Términos y Condiciones</a></span></span>
+                            <input required id="aceptocheck" class="acepto" type="checkbox"><span class="heleido">He leído y estoy de acuerdo con el<span class="link-terminos"><a href="http://cribhunt.dev/aviso-de-privacidad.pdf">Aviso de Privacidad</a></span></span>
                         </div>                                <div class="resultado"></div>
                         <input id="botonderegistro" class="boton-registroinicio" disabled="disabled" name="registrarse" type="submit" value="Registrarse">
                     </form>
@@ -333,6 +333,16 @@ input.middle:focus {
         <script src="<?php echo URL ?>js/main.js"></script>
         <script>$('#tab-container').easytabs({updateHash: false});</script>
         <script>new WOW().init();</script>
+                <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-47439231-8', 'auto');
+          ga('send', 'pageview');
+
+        </script>
     </body>
 </html>
 <?php

@@ -127,7 +127,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             </div>
         <ul class="navigation">
           <div class="perfil-usuario">
-              <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
+              <img class="profilepic-user" src="<?php echo URL; ?>img/ui/ui-mask.png" alt="">
               <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
           </div>
           <div class="menu-de-usuario">
@@ -139,6 +139,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
               <a class="nav-a-item" href="<?php echo URL; ?>addcrib.php"><button class="ripple nav-ripple"><li class="nav-item">Publicar Crib</li></button></a>
               <!--<a class="nav-a-item" href="#"><li class="nav-item"><button class="ripple nav-ripple">Administrar Perfil</li></button></a>-->
               <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Cerrar Sesión</li></button></a>
+              <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Ayuda</li></button></a>
           </div>
         </ul>
         <div class="site-wrap-add">
@@ -178,7 +179,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                         <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
                                         <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
                                         <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
-                                        <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                        <a data-wysihtml5-command="insertUnorderedList">Insertar Lista Sin Enumerar</a> |
                                         <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
                                         <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
                                         <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
@@ -254,7 +255,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                                 <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
                                                 <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
                                                 <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
-                                                <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                                <a data-wysihtml5-command="insertUnorderedList">Insertar Lista Sin Enumerar</a> |
                                                 <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
                                                 <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
                                                 <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
@@ -304,7 +305,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                                                 <a data-wysihtml5-command="insertImage">Insertar Imagen</a> |
                                                 <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">H1</a> |
                                                 <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">H2</a> |
-                                                <a data-wysihtml5-command="insertUnorderedList">iInsertar Lista Sin Enumerar</a> |
+                                                <a data-wysihtml5-command="insertUnorderedList">Insertar Lista Sin Enumerar</a> |
                                                 <a data-wysihtml5-command="insertOrderedList">Insertar Lista Enumerada</a> |
                                                 <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">Rojo</a> |
                                                 <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">Verde</a> |
@@ -381,6 +382,30 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             <div id="canvas-cribmap-add">
                     <div id="somecomponent" style="width: 100%; height: 100%;"></div>
             </div>
+
+        <div style="display:none" class="sugerencias-forma">
+          <div class="titulo-subtitulo-sugerencias">
+              <h1>Queremos escucharte.</h1>
+              <h2>Tu opinión es muy importante para nosotros, si tienes algún comentario, queja, sugerencia, problema o encontraste un bug envíanos un mensaje y te responderemos cuanto antes.</h2>
+          </div>
+            <form id="forma-de-sugerencias" action="" method="post" accept-charset="utf-8">
+                <div class="frame">
+                    <div class="bit-1">
+                        <input type="text" name="nombre" placeholder="Nombre (Opcional)">
+                    </div>
+                    <div class="bit-1">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="bit-1">
+                        <textarea type="text" name="mensaje" placeholder="Mensaje, queja o sugerencia" required></textarea>
+                    </div>
+                    <div class="bit-1">
+                        <button id="submit-sugerencias-form" class="ripple">Enviar</button>
+                    </div>
+                </div>
+            </form>
+            <div class="bit-1 resultado"></div>
+        </div>
         </div>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>

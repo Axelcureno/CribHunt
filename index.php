@@ -84,7 +84,7 @@ if (isset($_SESSION['usersicam'])) {
             </div>
         <ul class="navigation">
           <div class="perfil-usuario">
-              <img class="profilepic-user" src="img/ui/ui-mask.png" alt="">
+              <img class="profilepic-user" src="<?php echo URL; ?>img/ui/ui-mask.png" alt="">
               <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
           </div>
           <div class="menu-de-usuario">
@@ -96,6 +96,7 @@ if (isset($_SESSION['usersicam'])) {
               <a class="nav-a-item" href="<?php echo URL; ?>addcrib.php"><button class="ripple nav-ripple"><li class="nav-item">Publicar Crib</li></button></a>
               <!--<a class="nav-a-item" href="#"><li class="nav-item"><button class="ripple nav-ripple">Administrar Perfil</li></button></a>-->
               <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Cerrar Sesión</li></button></a>
+              <a class="nav-a-item" href="<?php echo URL; ?>#"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Ayuda</li></button></a>
           </div>
         </ul>
         <div class="site-wrap">
@@ -281,6 +282,16 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script src="<?php echo URL ?>js/main.js"></script>
         <script src="<?php echo URL ?>js/jquery.ui.touch-punch.min.js"></script>
         <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-47439231-8', 'auto');
+          ga('send', 'pageview');
+
+        </script>
         <script type="text/javascript">
             $('.bxslider').bxSlider({
                 pagerCustom: '#bx-pager',
