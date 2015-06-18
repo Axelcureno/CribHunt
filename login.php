@@ -1,7 +1,11 @@
 <?php
+    include('functions.php');
 session_start();
     function verificar_login($user,$password,&$result) {
-    include('functions.php');
+    $con = mysqli_connect('localhost', 'root', 'donfrijol13', 'cribhunt');
+    if (mysqli_connect_errno()) {
+      throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
+    }
     $hashedpassword = crypt($user, $password);
     $sql = "SELECT * FROM usuarios WHERE email = '$user' and password = '$hashedpassword'";
     $rec = mysqli_query($con, $sql);
@@ -34,7 +38,6 @@ if(!isset($_SESSION['usersicam']))
             echo "Usuario y/o contraseña incorrectos";
         }
     } 
-include('functions.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,13 +90,13 @@ input.middle:focus {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     position: absolute;
     transform: none;
   }
   .body-container .forma-registroinicio input {
     font-size: 16px;
-    width: 302px;
+    width: 262px;
     margin-top: 0.5em;
     padding: 0.5em;
     color: #2c3e50;

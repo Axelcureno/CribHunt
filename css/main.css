@@ -260,7 +260,7 @@ textarea {
   }
   #parameter-search .linea-parameter-search #cribsearch-places {
     display: inline-block;
-    width: 330px;
+    width: 90%;
   }
   #parameter-search .no-border-bottom-linea #submit-parameter-cribsearch {
     top: 140px;
@@ -313,15 +313,17 @@ textarea {
     float: right;
     display: block;
     margin-top: 5px;
+    
   }
   .toolbar .perfil-container {
-    display: none;
+    width: 80px;
   }
   .toolbar .usuario-bienvenido {
     color: #fff;
     width: 111px;
     height: 50px;
     float: left;
+    display: none;
   }
   .toolbar .holausuario {
     float: right;
