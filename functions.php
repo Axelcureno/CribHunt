@@ -1,5 +1,17 @@
 <?php 
 
+/*
+DETECCIÓN DE AMBIENTE DE DESARROLLO
+
+Pequeño script que detecta el ambiente de desarrollo basandose en
+la dirección IP externa, el VPS tiene la dirección fija de 45.55.90.36
+El ambiente de desarrollo local debe estar configurado con la dirección
+http://cribhunt.dev utilizando el servidor web nginx con PHP-FPM
+
+Nota: NUNCA se debe de trabajar directamente sobre lo archivos del servidor.
+Para hacer un deploy al servidor remoto, se debe configurar el repositorio
+remoto de Git y a través de Web Hooks hacer el deploy.
+ */
 $externalIp = file_get_contents('http://phihag.de/ip/');
 
 if ($externalIp == '45.55.90.36') {
@@ -11,8 +23,16 @@ if ($externalIp == '45.55.90.36') {
 	define("URL", "http://cribhunt.dev/");
 
 }
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
+
+/* 
+CONFIGURACIÓN MySQL 
+
+Siempre es la misma configuración en el servidor remoto
+y debe ser igual en el servidor local, para hacer una copia
+de la base de datos con el fin de trabajar localmente
+simplemente se debe exportar la base de datos a través de 
+un cliente de MySQL con las mismas credenciales usando SSH.
+*/
 define('DB_NAME', 'cribhunt');
 
 /** MySQL database username */
@@ -35,6 +55,17 @@ if (mysqli_connect_errno()) {
   throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
 }
 
+/*
+DETECCIÓN DE LA SESIÓN DEL USUARIO
+
+Todas las páginas que necesiten estar protegidas, osea
+que necesite haber una sesión creada para poder acceder
+a ellas deberán invocar esta función.
+Lo que hace la función es iniciar una sesión en la página
+PHP, detectar si existe una sesión del usuario y en el caso
+de que no exista la sesión, redireccione a la página de 
+inicio de sesión.
+ */
 function startpage() {
 	session_start();
 	if(!isset($_SESSION['usersicam']))
@@ -42,9 +73,17 @@ function startpage() {
 	   header("location:login.php");
 	}
 }
-//Funcion que verifica si existe una propiedad en la base de datos
-//Si existe, entonces despliega el valor en el formulario para 
-//hacerlo sticky y el usuario solo tenga que actualizar el campo.
+
+
+/* 
+DETECCIÓN DE LA EXISTENCIA DE UN DATO
+
+Funcion que verifica si existe una propiedad en la base de datos
+Si existe, entonces despliega el valor en el formulario para 
+hacerlo sticky y el usuario solo tenga que actualizar el campo.
+Esta función puede ser util cuando se vayan a modificar valores o
+mostrar valores que ya están definidos en la base de datos.
+*/
 function dataexists($property) {
     if (isset($property)) {
         echo 'value="'.$property.'"';
@@ -58,21 +97,24 @@ function dataisempty($property) {
     }
 }
 
-//Funcion que genera URIs a partir del titulo de los cribs.
+/*
+CREACIÓN DE URL's
+
+Funcion que genera URIs a partir del titulo de los cribs.
+Cuando el usuario registra un nuevo Crib, al momento de dar de alta
+el titulo, a través de esta función se extraen caractéres especiales y 
+espacios para crear una URL bonita.
+*/
 function slugify($text)
 { 
   // replace non letter or digits by -
   $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
-
   // trim
   $text = trim($text, '-');
-
   // transliterate
   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-
   // lowercase
   $text = strtolower($text);
-
   // remove unwanted characters
   $text = preg_replace('~[^-\w]+~', '', $text);
 
@@ -80,14 +122,19 @@ function slugify($text)
   {
     return 'n-a';
   }
-
   return $text;
 }
 
 
+/*
+DEFINICIÓN DE CLASE CRIB
 
+En un futuro se planea utilizar programación
+orientada a objetos para el registro de Cribs,
+De momento no se utiliza de esta manera sino
+es por medio de programación estructurada.
+ */
 class Crib {
-
 	public $titulo;
 	public $categoria;
 	public $ubicacion;

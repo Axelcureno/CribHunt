@@ -141,8 +141,21 @@ if (isset($_SESSION['usersicam'])) {
 </div>
 <?php 
 
-//Busqueda de la barra superior.
-//
+/*
+Puesto que se trata de una Web App,
+La mayor parte de la interacción entre el usuario y
+la interfaz es en la página de inicio, por ello 
+se presentan diferentes casos en los que el usuario
+pudiera hacer una acción.
+*/
+
+
+/*
+Caso 1: Busqueda de la barra superior.
+Cuando el usuario realiza una búsqueda en la barra superior
+de la aplicación, se define la variable GET cribsearch
+*/
+
 if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     echo '<div id="canvas-mycribhunt" class="frame">';
     $query = $_GET['cribsearch'];
@@ -318,8 +331,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
              echo 'navigator.geolocation.getCurrentPosition(function(position) {';
               echo 'var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);';
               echo 'var image = "' . URL . 'img/icons/geolocation.png";';
-               echo 'var iconhouse = "' . URL . 'img/icons/location-red.png";';
-                    echo 'var geolocationmarker = new google.maps.Marker({';
+               echo 'var iconhouse = "' . URL . 'img/icons/location-red.png";'; echo 'var geolocationmarker = new google.maps.Marker({';
                      echo 'position: pos,';
                      echo 'map: map,';
                      echo 'icon: image';
