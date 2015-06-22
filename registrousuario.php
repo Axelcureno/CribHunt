@@ -52,6 +52,7 @@ $date = date('Y-m-d H:i:s');
 			$mail->Password = "donfrijol13";
 			//Set who the message is to be sent from
 			$mail->From = "contacto@cribhunt.co";
+			
 			$mail->FromName = "CribHunt";
 			//Set who the message is to be sent to
 			$mail->addAddress($email, $nombres);

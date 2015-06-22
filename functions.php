@@ -54,6 +54,9 @@ $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno()) {
   throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
 }
+if (!mysqli_set_charset($con, "utf8")) {
+} else {
+}
 
 /*
 DETECCIÓN DE LA SESIÓN DEL USUARIO

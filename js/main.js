@@ -34,7 +34,7 @@ $(window).resize(function(){
   });
 })(window, jQuery);
 
-$(document).ready(function() {
+(function(){
 	$('#cribsearch-submit').attr('disabled',true);
     $('#cribhunt-searchfield').keyup(function(){
         if($(this).val().length !=0)
@@ -51,10 +51,17 @@ $(document).ready(function() {
             $('#submit-parameter-cribsearch').attr('disabled',true);
     })
 $('.canvas-cribhunt').height($(window).height() - 225);
+
+$('.inline-loquiero').fancybox({
+	type : 'inline',
+	height : '100%',
+});
+
 $('.sugerencias-inline').fancybox({
 	type : 'inline',
 	height : '100%',
 });
+
 $('.iniciar-sesion-fancybox').fancybox({
 	type : 'iframe',
 	beforeShow: function(){
@@ -68,6 +75,14 @@ $('.iniciar-sesion-fancybox').fancybox({
 		type : 'inline',
 		height : '100%',
 	});
+
+$(".iframe-img").fancybox({
+    'transitionIn'  : 'none',
+    'transitionOut' : 'none',
+    'type'          : 'iframe'
+});
+
+
 	$('.fancy-img').fancybox();
 	$('.tab').on('click', function() {
 	$('.resultado').html('');
@@ -83,6 +98,9 @@ $('.iniciar-sesion-fancybox').fancybox({
 	}
 	$('#submit-sugerencias-form').on('click', function(){
 		$('#forma-de-sugerencias').submit();
+	});
+	$('#submit-loquiero-form').on('click', function(){
+		$('#forma-de-loquiero').submit();
 	});
 	$('#submit-parameter-cribsearch').on('click', function(){
 		$('#parameter-cribsearch').submit();
@@ -121,7 +139,7 @@ $('.iniciar-sesion-fancybox').fancybox({
 	        error:function() {
 	        }
 		});
-		$(".inline").trigger('click');
+		return false;
 	});
         $('#cribsearch-submit').attr('disabled','disabled');
         $('cribhunt-searchfield').keyup(function() {
@@ -129,8 +147,6 @@ $('.iniciar-sesion-fancybox').fancybox({
         	$('#cribsearch-submit').removeAttr('disabled');
         }
      });
-});
-(function(){
 	var $container = $('#canvas-mycribhunt');
 	//Funcion de Isotope para las columnas de las casas
     $container.imagesLoaded( function() {
@@ -146,23 +162,22 @@ $('.iniciar-sesion-fancybox').fancybox({
 //Script que habilida la funcion de fullscreen
 //del floating action button
 $('.fullscreen').on('click',function(){
- 
-if($(this).attr('data-click-state') == 1) {
-	$(this).attr('data-click-state', 0)
- 		$('#parameter-search').css('width', '70%');
-		$('.canvas-cribhunt').css('width', '70%');
-		$('#canvas-cribmap').css('width', '30%');
-		$('.crib-grid').removeClass('bit-6').addClass('bit-4');
-} 	else {
-		$(this).attr('data-click-state', 1)
-		$('#parameter-search').css('width', '100%');
-		$('.canvas-cribhunt').css('width', '100%');
-		$('#canvas-cribmap').css('width', '0');
-		$('.crib-item').css('display', 'block');
-		var $container = $('#canvas-mycribhunt');
-		$container.isotope('reloadItems');
-		$('.crib-grid').removeClass('bit-4').addClass('bit-6');
-	}
+	if($(this).attr('data-click-state') == 1) {
+		$(this).attr('data-click-state', 0)
+	 		$('#parameter-search').css('width', '70%');
+			$('.canvas-cribhunt').css('width', '70%');
+			$('#canvas-cribmap').css('width', '30%');
+			$('.crib-grid').removeClass('bit-6').addClass('bit-4');
+	} 	else {
+			$(this).attr('data-click-state', 1)
+			$('#parameter-search').css('width', '100%');
+			$('.canvas-cribhunt').css('width', '100%');
+			$('#canvas-cribmap').css('width', '0');
+			$('.crib-item').css('display', 'block');
+			var $container = $('#canvas-mycribhunt');
+			$container.isotope('reloadItems');
+			$('.crib-grid').removeClass('bit-4').addClass('bit-6');
+		}
 });
 	$('#forma-de-sugerencias').submit(function(event) {
 	// Stop form from submitting normally
@@ -178,6 +193,32 @@ if($(this).attr('data-click-state') == 1) {
 				$('.titulo-subtitulo-sugerencias').hide('slow');
 				$('#forma-de-sugerencias').hide('slow');
 				$('.resultado').html(result);
+				return false;
+			},
+			error:function(){
+			}
+		});
+	});
+	$('#forma-de-loquiero').submit(function(event) {
+	 $('#forma-de-loquiero').hide();
+	 $('.espacio-spinner').fadeIn();
+	  $('.se-pre-con').fadeIn();
+	// Stop form from submitting normally
+	event.preventDefault();
+	// Get some values from elements on the page:
+	var values = $(this).serialize();
+	// Send the data using post and put the results in a div
+		$.ajax({
+			url: 'http://' + location.host + '/enviarloquiero.php',
+			type: 'post',
+			data: values,
+			success: function(result){
+				$('.titulo-subtitulo-loquiero').hide();
+				$('#forma-de-loquiero').hide();
+				$(".se-pre-con").hide();
+				$('.espacio-spinner').hide();
+				$('.resultado').html(result);
+				return false;
 			},
 			error:function(){
 			}

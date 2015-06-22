@@ -11,7 +11,7 @@ require 'PHPMailerAutoload.php';
 
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
-$mensaje = 'Mensaje desde el buzón de sugerencias de: ' . $_POST['nombre'] . '<br>Email: ' .  $_POST['email'] . '<br>Mensaje: ' . $_POST['mensaje'];
+$mensaje = 'Id de Crib: ' . $_POST['id'] . '<br>Titulo de Crib: ' . $_POST['titulo'] . '<br>Mensaje de: ' . $_POST['nombre'] . '<br>Teléfono: ' . $_POST['telefono'] . '<br>Email: ' . $_POST['email'] . '<br>Mensaje: ' . $_POST['mensaje'];
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
 
@@ -41,13 +41,15 @@ $mail->Password = "donfrijol13";
 
 //Set who the message is to be sent from
 $mail->From = "axelcureno@cribhunt.co";
-$mail->FromName = "Buzón de Sugerencias CribHunt";
+
+//Set the name of the message is to be sent from
+$mail->FromName = "Buzón de Lo Quiero CribHunt";
 
 //Set who the message is to be sent to
-$mail->addAddress('axelcureno@cribhunt.co', $nombre);
+$mail->addAddress('axelcureno@cribhunt.co', 'Buzón CribHunt');
 
 //Set the subject line
-$mail->Subject = 'Mensaje de CribHunt';
+$mail->Subject = $nombre . ' solicitó Información de un Crib';
 
 //Replace the plain text body with one created manually
 //$mail->Body = $mensaje;
@@ -59,6 +61,6 @@ $mail->AltBody;
 if (!$mail->send()) {
     $result = 'Hubo un error al enviar su mensaje:' . $mail->ErrorInfo;
 } else {
-    $result = 'El mensaje se envió correctamente.';
+    $result = 'El mensaje se envió correctamente. El dueño se pondra en contacto muy pronto. Cualquier duda escríbenos a <a href="mailto:contacto@cribhunt.co">contacto@cribhunt.co</div>';
 }
 echo $result;
