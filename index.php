@@ -303,6 +303,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>
         <script src="<?php echo URL ?>js/main.js"></script>
+        <script src="<?php echo URL ?>js/pace.min.js"></script>
         <script src="<?php echo URL ?>js/jquery.ui.touch-punch.min.js"></script>
         <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
         <script type="text/javascript">
