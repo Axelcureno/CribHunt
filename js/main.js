@@ -96,12 +96,12 @@ $(".iframe-img").fancybox({
 			}
 		});
 	}
-	$('#submit-sugerencias-form').on('click', function(){
-		$('#forma-de-sugerencias').submit();
-	});
-	$('#submit-loquiero-form').on('click', function(){
-		$('#forma-de-loquiero').submit();
-	});
+	//$('#submit-sugerencias-form').unbind('click').bind('click', function(){
+	//	$('#forma-de-sugerencias').submit();
+	//});
+	//$('#submit-loquiero-form').unbind('click').bind('click', function(){
+	//	$('#forma-de-loquiero').submit();
+	//});
 	$('#submit-parameter-cribsearch').on('click', function(){
 		$('#parameter-cribsearch').submit();
 	});
@@ -139,7 +139,7 @@ $(".iframe-img").fancybox({
 	        error:function() {
 	        }
 		});
-		return false;
+		//$(".inline").trigger('click');
 	});
         $('#cribsearch-submit').attr('disabled','disabled');
         $('cribhunt-searchfield').keyup(function() {
@@ -179,6 +179,7 @@ $('.fullscreen').on('click',function(){
 			$('.crib-grid').removeClass('bit-4').addClass('bit-6');
 		}
 });
+	$('#submit-sugerencias-form').unbind('click').bind('click', function(){
 	$('#forma-de-sugerencias').submit(function(event) {
 	// Stop form from submitting normally
 	event.preventDefault();
@@ -193,35 +194,36 @@ $('.fullscreen').on('click',function(){
 				$('.titulo-subtitulo-sugerencias').hide('slow');
 				$('#forma-de-sugerencias').hide('slow');
 				$('.resultado').html(result);
-				return false;
 			},
 			error:function(){
 			}
 		});
 	});
-	$('#forma-de-loquiero').submit(function(event) {
-	 $('#forma-de-loquiero').hide();
-	 $('.espacio-spinner').fadeIn();
-	  $('.se-pre-con').fadeIn();
-	// Stop form from submitting normally
-	event.preventDefault();
-	// Get some values from elements on the page:
-	var values = $(this).serialize();
-	// Send the data using post and put the results in a div
-		$.ajax({
-			url: 'http://' + location.host + '/enviarloquiero.php',
-			type: 'post',
-			data: values,
-			success: function(result){
-				$('.titulo-subtitulo-loquiero').hide();
-				$('#forma-de-loquiero').hide();
-				$(".se-pre-con").hide();
-				$('.espacio-spinner').hide();
-				$('.resultado').html(result);
-				return false;
-			},
-			error:function(){
-			}
+});
+	$('#submit-loquiero-form').unbind('click').bind('click', function(){
+		$('#forma-de-loquiero').submit(function(event) {
+		 $('#forma-de-loquiero').hide();
+		 $('.espacio-spinner').fadeIn();
+		  $('.se-pre-con').fadeIn();
+		// Stop form from submitting normally
+		event.preventDefault();
+		// Get some values from elements on the page:
+		var values = $(this).serialize();
+		// Send the data using post and put the results in a div
+			$.ajax({
+				url: 'http://' + location.host + '/enviarloquiero.php',
+				type: 'post',
+				data: values,
+				success: function(result){
+					$('.titulo-subtitulo-loquiero').hide();
+					$('#forma-de-loquiero').hide();
+					$(".se-pre-con").hide();
+					$('.espacio-spinner').hide();
+					$('.resultado-loquiero').html(result);
+				},
+				error:function(){
+				}
+			});
 		});
 	});
 })();

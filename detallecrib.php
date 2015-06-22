@@ -161,5 +161,5 @@
                 </div>
             </div>
         </form>
-    <div class="bit-1 resultado"></div>
+    <div class="bit-1 resultado-loquiero"></div>
 </div>

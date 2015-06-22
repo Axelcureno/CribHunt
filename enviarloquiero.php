@@ -61,6 +61,6 @@ $mail->AltBody;
 if (!$mail->send()) {
     $result = 'Hubo un error al enviar su mensaje:' . $mail->ErrorInfo;
 } else {
-    $result = 'El mensaje se envió correctamente. El dueño se pondra en contacto muy pronto. Cualquier duda escríbenos a <a href="mailto:contacto@cribhunt.co">contacto@cribhunt.co</div>';
+    $result = '¡Mensaje enviado! El dueño se pondra en contacto muy pronto. Cualquier duda escríbenos a <a href="mailto:contacto@cribhunt.co">contacto@cribhunt.co</div>';
 }
 echo $result;

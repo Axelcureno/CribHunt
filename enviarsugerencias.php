@@ -59,6 +59,6 @@ $mail->AltBody;
 if (!$mail->send()) {
     $result = 'Hubo un error al enviar su mensaje:' . $mail->ErrorInfo;
 } else {
-    $result = 'El mensaje se envió correctamente.';
+    $result = 'El mensaje se envió correctamente. ¡Gracias por tu comentario!';
 }
 echo $result;
