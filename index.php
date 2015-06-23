@@ -23,6 +23,7 @@ if (isset($_SESSION['usersicam'])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php $output = '<title>%TITLE%</title>';  ?>
         <meta name="description" content="CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.">
+        <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
