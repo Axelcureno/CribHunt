@@ -22,9 +22,12 @@ if (isset($_SESSION['usersicam'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php $output = '<title>%TITLE%</title>';  ?>
-        <meta name="description" content="CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.">
+        <?php $ogdesc = '<meta name="description" content="%DESC%">' ?>;
         <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png" />
+        <?php $ogoutput = '<meta property="og:title" content="%OGTITLE%" />'; ?>
+        <?php $ogdesc = '<meta property="og:description" content="%OGDESC%" />'; ?>
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">
@@ -177,10 +180,16 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 
     } else {
 
-        //Definir el titulo de la página
+        //SEO
         $title = 'No se encontraron resultados - CribHunt';
+        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         $output = str_replace('%TITLE%', $title, $output);
+        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+        $desc = str_replace('%DESC%', $description, $desc);
+        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
         echo $output;
+        echo $ogoutput;
+        echo $desc;
 
         echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
     }
@@ -224,17 +233,29 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
 
-    //Definir el titulo de la página
+    //SEO
     $title = 'Resultados de la búsqueda - CribHunt';
+    $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
     $output = str_replace('%TITLE%', $title, $output);
+    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+    $desc = str_replace('%DESC%', $description, $desc);
+    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
     echo $output;
+    echo $ogoutput;
+    echo $desc;
 
     } else {
 
-        //Definir el titulo de la página
+        //SEO
         $title = 'No se encontraron resultados - CribHunt';
+        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         $output = str_replace('%TITLE%', $title, $output);
+        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+        $desc = str_replace('%DESC%', $description, $desc);
+        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
         echo $output;
+        echo $ogoutput;
+        echo $desc;
 
         echo '<div class="not-found">No se encontraron resultados :(</div>';
     }
@@ -254,20 +275,32 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $index++; 
         }
 
-    //Definir el titulo de la página con el titulo del Crib, precio y nombre de CribHunt.
+    //SEO
     $title = $cribArray[0]["titulocrib"] . ' - ' . $cribArray[0]["preciocrib"] . ' - CribHunt';
+    $description = htmlspecialchars_decode($cribArray[$i]["caracteristicascrib"]);
     $output = str_replace('%TITLE%', $title, $output);
+    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+    $desc = str_replace('%DESC%', $description, $desc);
+    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
     echo $output;
+    echo $ogoutput;
+    echo $desc;
 
         include('detallecrib.php');
 
     
     } else {
 
-        //Definir el titulo de la página
+        //SEO
         $title = 'Página no encontrada - CribHunt';
+        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         $output = str_replace('%TITLE%', $title, $output);
+        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+        $desc = str_replace('%DESC%', $description, $desc);
+        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
         echo $output;
+        echo $ogoutput;
+        echo $desc;
 
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
             echo $parts[1] . ' ' . $parts[2];
@@ -291,10 +324,16 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
 
-    //Definir el titulo de la página
+    //SEO
     $title = 'CribHunt - Casas, departamentos y cuartos en renta.';
+    $description = htmlspecialchars_decode($cribArray[$i]["caracteristicascrib"]);
     $output = str_replace('%TITLE%', $title, $output);
+    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
+    $desc = str_replace('%DESC%', $description, $desc);
+    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
     echo $output;
+    echo $ogoutput;
+    echo $desc;
 
     } else {
         echo '<div class="not-found">0 resultados</div>';
