@@ -21,12 +21,12 @@ if (isset($_SESSION['usersicam'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php $output = '<title>%TITLE%</title>';  ?>
-        <?php $ogdesc = '<meta name="description" content=%DESC%>' ?>;
+        <?php $desc = '<meta name="description" content=%DESC%>'; ?>
         <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png" />
-        <?php $ogoutput = '<meta property="og:title" content=%OGTITLE% />'; ?>
-        <?php $ogdesc = '<meta property="og:description" content=%OGDESC% />'; ?>
+        <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png">
+        <?php $ogoutput = '<meta property="og:title" content="%OGTITLE%">'; ?>
+        <?php $ogdesc = '<meta property="og:description" content="%OGDESC%">'; ?>
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">
@@ -188,6 +188,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
         echo $output;
         echo $ogoutput;
+        echo $ogdesc;
         echo $desc;
 
         echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
@@ -242,6 +243,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     echo $output;
     echo $ogoutput;
     echo $desc;
+    echo $ogdesc;
 
     } else {
 
@@ -255,6 +257,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         echo $output;
         echo $ogoutput;
         echo $desc;
+        echo $ogdesc;
 
         echo '<div class="not-found">No se encontraron resultados :(</div>';
     }
@@ -284,6 +287,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     echo $output;
     echo $ogoutput;
     echo $desc;
+    echo $ogdesc;
 
         include('detallecrib.php');
 
@@ -300,6 +304,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         echo $output;
         echo $ogoutput;
         echo $desc;
+        echo $ogdesc;
 
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
             echo $parts[1] . ' ' . $parts[2];
@@ -325,7 +330,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 
     //SEO
     $title = 'CribHunt - Casas, departamentos y cuartos en renta.';
-    $description = htmlspecialchars_decode($cribArray[$i]["caracteristicascrib"]);
+    $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
     $output = str_replace('%TITLE%', $title, $output);
     $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
     $desc = str_replace('%DESC%', $description, $desc);
@@ -333,6 +338,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     echo $output;
     echo $ogoutput;
     echo $desc;
+    echo $ogdesc;
 
     } else {
         echo '<div class="not-found">0 resultados</div>';
