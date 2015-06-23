@@ -4,7 +4,6 @@ include("functions.php");
 $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
-$titulopagina = '';
 
 if (isset($_SESSION['usersicam'])) {
     $id = $_SESSION['usersicam'];
@@ -22,12 +21,12 @@ if (isset($_SESSION['usersicam'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php $output = '<title>%TITLE%</title>';  ?>
-        <?php $ogdesc = '<meta name="description" content="%DESC%">' ?>;
+        <?php $ogdesc = '<meta name="description" content=%DESC%>' ?>;
         <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png" />
-        <?php $ogoutput = '<meta property="og:title" content="%OGTITLE%" />'; ?>
-        <?php $ogdesc = '<meta property="og:description" content="%OGDESC%" />'; ?>
+        <?php $ogoutput = '<meta property="og:title" content=%OGTITLE% />'; ?>
+        <?php $ogdesc = '<meta property="og:description" content=%OGDESC% />'; ?>
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">
