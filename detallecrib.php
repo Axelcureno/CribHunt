@@ -3,6 +3,7 @@
     $elements = explode('#', $cribArray[0]["imagenescrib"]);
     // Crea un nuevo arreglo para las imagenes.
     $args = array();
+
 ?>
 <div id="site-wrap-detallecrib">
     <div class="canvas-cribhunt-detalle">

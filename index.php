@@ -4,6 +4,7 @@ include("functions.php");
 $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
+$titulopagina = '';
 
 if (isset($_SESSION['usersicam'])) {
     $id = $_SESSION['usersicam'];
@@ -20,12 +21,8 @@ if (isset($_SESSION['usersicam'])) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php if (isset($cribArray[0]["titulocrib"])) {
-            echo $cribArray[0]["titulocrib"];
-        } else {
-            echo 'CribHunt';
-            } ?>  </title>
-        <meta name="description" content="">
+        <?php $output = '<title>%TITLE%</title>';  ?>
+        <meta name="description" content="CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
@@ -171,7 +168,19 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     for ($i=0; $i < count($cribArray); $i++) { 
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="crib-container"><div class="crib-image"><img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'"></div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
+
+    //Definir el titulo de la página
+    $title = 'Resultados de la búsqueda - CribHunt';
+    $output = str_replace('%TITLE%', $title, $output);
+    echo $output;
+
     } else {
+
+        //Definir el titulo de la página
+        $title = 'No se encontraron resultados - CribHunt';
+        $output = str_replace('%TITLE%', $title, $output);
+        echo $output;
+
         echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
     }
     echo '</div>';
@@ -213,7 +222,19 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     for ($i=0; $i < count($cribArray); $i++) { 
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
+
+    //Definir el titulo de la página
+    $title = 'Resultados de la búsqueda - CribHunt';
+    $output = str_replace('%TITLE%', $title, $output);
+    echo $output;
+
     } else {
+
+        //Definir el titulo de la página
+        $title = 'No se encontraron resultados - CribHunt';
+        $output = str_replace('%TITLE%', $title, $output);
+        echo $output;
+
         echo '<div class="not-found">No se encontraron resultados :(</div>';
     }
     echo '</div>';
@@ -231,16 +252,30 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $cribArray[$index] = $row;
             $index++; 
         }
+
+    //Definir el titulo de la página con el titulo del Crib, precio y nombre de CribHunt.
+    $title = $cribArray[0]["titulocrib"] . ' - ' . $cribArray[0]["preciocrib"] . ' - CribHunt';
+    $output = str_replace('%TITLE%', $title, $output);
+    echo $output;
+
         include('detallecrib.php');
+
     
     } else {
-      
+
+        //Definir el titulo de la página
+        $title = 'Página no encontrada - CribHunt';
+        $output = str_replace('%TITLE%', $title, $output);
+        echo $output;
+
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
             echo $parts[1] . ' ' . $parts[2];
     
     }
+
 //Página de inicio
 //
+
 } else {
     echo '<div id="canvas-mycribhunt" class="frame">';
     $sql = "SELECT * FROM cribs";
@@ -254,11 +289,17 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     for ($i=0; $i < count($cribArray); $i++) { 
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
+
+    //Definir el titulo de la página
+    $title = 'CribHunt - Casas, departamentos y cuartos en renta.';
+    $output = str_replace('%TITLE%', $title, $output);
+    echo $output;
+
     } else {
         echo '<div class="not-found">0 resultados</div>';
     }
-    echo '</div>';
-}
+        echo '</div>';
+    }
 ?>
             </div>
             <div id="canvas-cribmap">
