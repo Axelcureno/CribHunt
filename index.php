@@ -325,7 +325,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $index++;
         }
     for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
+        echo '<div class="bit-4 crib-grid"><a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
 
     //SEO

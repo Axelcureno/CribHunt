@@ -152,7 +152,7 @@ $(".iframe-img").fancybox({
     $container.imagesLoaded( function() {
         $container.isotope({
             itemSelector: '.bit-4',
-            layoutMode: 'fitRows',
+            layoutMode: 'masonry',
             masonry: {
               columnWidth: 0
             }
