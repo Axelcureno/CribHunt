@@ -5,6 +5,11 @@ $cribArray = array();
 $index = 0;
 $request = $_SERVER['REQUEST_URI'];
 
+if ($_COOKIE['iwashere'] != "yes") { 
+  setcookie("iwashere", "yes", time()+315360000);  
+  header('Location: ' . URL . 'landing/'); 
+}
+
 if (isset($_SESSION['usersicam'])) {
     $id = $_SESSION['usersicam'];
     $sqlname = "SELECT * FROM usuarios WHERE id = '$id'";
