@@ -279,7 +279,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
 
     //SEO
     $title = $cribArray[0]["titulocrib"] . ' - ' . $cribArray[0]["preciocrib"] . ' - CribHunt';
-    $description = htmlspecialchars_decode($cribArray[$i]["caracteristicascrib"]);
+    $description = $cribArray[0]["titulocrib"];
     $output = str_replace('%TITLE%', $title, $output);
     $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
     $desc = str_replace('%DESC%', $description, $desc);
