@@ -24,6 +24,8 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.fileupload.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/google.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/sweetalert.css">
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
@@ -413,6 +415,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
        <script charset="utf-8" src="//ucarecdn.com/widget/2.0.4/uploadcare/uploadcare.full.min.js"></script>
         <script src="<?php echo URL ?>js/parser_rules/advanced.js"></script>
         <script src="<?php echo URL ?>js/wysihtml5-0.3.0.min.js"></script>
+        <script src="<?php echo URL ?>js/sweetalert.min.js"></script>
         <script>
           var editor1 = new wysihtml5.Editor("caractextarea", {
             toolbar:      "toolbar1",
@@ -485,6 +488,10 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
           }
     });
     </script>
+    <script type="text/javascript"> 
+    (function() {
+    })();
+    </script>
 
     <script>
         $("#agregarcribform").submit(function(event) {
@@ -498,7 +505,9 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
                 type: "post",
                 data: values,
                 success: function(result){
-                  $('.resultado').html(result);
+                  $('#enviar').attr('disabled',true);
+                    swal({   title: "¡Felicidades!",   text: result,   type: "success",   confirmButtonText: "Cool" });                  
+                  //$('.resultado').html(result);
               },
                 error:function(){
 
