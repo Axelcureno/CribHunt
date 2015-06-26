@@ -1,6 +1,5 @@
 <?php
 include("functions.php");
-include("dbcon.php");
 startpage();
 
 if(isset($_POST['titulocrib'])) {

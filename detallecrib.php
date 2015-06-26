@@ -15,7 +15,7 @@
                     <div class="imagen-principal-crib">
                         <ul class="bxslider">
                             <?php 
-                                for( $i = 0; $i < count($elements); $i++) {
+                                for( $i = 1; $i < count($elements); $i++) {
                                     $args[$elements[$i]] = $elements[$i];
                                     echo '<a class="iframe-img" rel="group" href="'. $args[$elements[$i]] . '" ><li><img src="'. $args[$elements[$i]] . '-/resize/x600/" /></li></a>';
                                 }
@@ -23,7 +23,7 @@
                         </ul>
                         <div id="bx-pager" class="frame">
                             <?php 
-                                for( $i = 0; $i < count($elements); $i++) {
+                                for( $i = 1; $i < count($elements); $i++) {
                                     $args[$elements[$i]] = $elements[$i];
                                     echo '<a class="imagen-carrousel bit-4" data-slide-index="' . $i . '" href=""><img src="'. $args[$elements[$i]] . '-/preview/200x200/-/setfill/8d8578/-/stretch/fill/-/resize/240x160/" /></a>';
                                 }
@@ -144,6 +144,7 @@
             <div class="frame">
                 <input style="display:none;" type="text" name="titulo" value="<?php echo $cribArray[0]["titulocrib"]; ?>">
                 <input style="display:none;" type="text" name="id" value="<?php echo $cribArray[0]["id"]; ?>">
+                <input style="display:none;" type="text" name="idregistro" value="<?php echo $cribArray[0]["idusuarioqueregistracrib"]; ?>">
                 <div class="bit-1">
                     <input type="text" name="nombre" placeholder="Nombre" required>
                 </div>
