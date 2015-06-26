@@ -68,7 +68,7 @@ if (isset($_SESSION['usersicam'])) {
         </script>
         <!--<link type="text/css" rel="stylesheet" href="<?php echo URL ?>css/materialize.min.css"  media="screen,projection"/>-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
     </head>
     <body>
