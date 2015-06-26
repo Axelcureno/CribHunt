@@ -501,7 +501,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
           var values = $(this).serialize();
           // Send the data using post and put the results in a div
             $.ajax({
-                url: 'http://' + location.host + '/nuevouploadcrib.php',
+                url: 'https://' + location.host + '/nuevouploadcrib.php',
                 type: "post",
                 data: values,
                 success: function(result){

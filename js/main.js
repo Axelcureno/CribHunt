@@ -187,7 +187,7 @@ $('.fullscreen').on('click',function(){
 	var values = $(this).serialize();
 	// Send the data using post and put the results in a div
 		$.ajax({
-			url: 'http://' + location.host + '/enviarsugerencias.php',
+			url: 'https://' + location.host + '/enviarsugerencias.php',
 			type: 'post',
 			data: values,
 			success: function(result){
@@ -211,7 +211,7 @@ $('.fullscreen').on('click',function(){
 		var values = $(this).serialize();
 		// Send the data using post and put the results in a div
 			$.ajax({
-				url: 'http://' + location.host + '/enviarloquiero.php',
+				url: 'https://' + location.host + '/enviarloquiero.php',
 				type: 'post',
 				data: values,
 				success: function(result){
