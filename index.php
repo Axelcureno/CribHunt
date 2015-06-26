@@ -86,7 +86,9 @@ if (isset($_SESSION['usersicam'])) {
                             <input id="cribsearch-submit" type="submit" value="">
                         </form>
                 </div>
+
                 <div class="toolbar">
+                    <div class="titulo-mainnav"><h2>Casas, departamentos y cuartos en renta</h2></div>
                     <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
                         <div class="perfil-container">
                             <?php if (!isset($_SESSION['usersicam'])) {
@@ -466,7 +468,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             echo 'google.maps.event.addDomListener(window, \'load\', initialize);';
         echo '});';
         echo '</script>';
-        } else {
+        } else { 
             echo '<script src="' . URL . 'js/markers.js"></script>';
         }
 ?>

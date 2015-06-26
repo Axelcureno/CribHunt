@@ -368,6 +368,9 @@ textarea {
     float: left;
     display: none;
   }
+  .titulo-mainnav {
+    display: none;
+  }
   .toolbar .holausuario {
     float: right;
     font-size: 10px;
@@ -453,6 +456,9 @@ textarea {
   .main-menu #cribsearch {
     padding: 0;
   }
+  .titulo-mainnav {
+    display: none;
+  }
   .main-menu .toolbar {
     display: none;
   }
@@ -485,6 +491,12 @@ textarea {
   }
   body .register-container {
     width: 50%;
+  }
+  .main-menu .toolbar {
+    width: 270px;
+  }
+  .titulo-mainnav {
+    display: none;
   }
 }
 
@@ -981,9 +993,24 @@ body {
   height: 36px;
 }
 .toolbar {
-  width: 270px;
+  width: 610px;
   float: right;
   display: block;
+}
+.titulo-mainnav {
+  width: 340px;
+  margin: 12px 0 0 0;
+  float: left;
+  padding-right: 15px;
+}
+.titulo-mainnav h2 {
+  font-size: 18px;
+  color: #fff;
+  width: 340px;
+  margin: auto;
+  padding: 0;
+  display: inline-block;
+  font-weight: 300;
 }
 .usuario-bienvenido {
   color: #fff;
