@@ -16,7 +16,7 @@ $externalIp = file_get_contents('http://phihag.de/ip/');
 
 if ($externalIp == '45.55.90.36') {
 
-	define("URL", "http://cribhunt.co/");
+	define("URL", "https://cribhunt.co/");
 
 } else {
 
