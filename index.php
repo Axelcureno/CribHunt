@@ -392,7 +392,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         </div>
         <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
         <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
         <script src="<?php echo URL ?>js/plugins.js"></script>
         <script src="<?php echo URL ?>js/main.js"></script>
