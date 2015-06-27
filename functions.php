@@ -17,12 +17,12 @@ $externalIp = file_get_contents('http://phihag.de/ip/');
 if ($externalIp == '45.55.90.36') {
 
 	define("URL", "https://cribhunt.co/");
-	define("URI", "https://cribhunt.co/");
+	define("URI", "//cribhunt.co/");
 
 } else {
 
 	define("URL", "http://cribhunt.dev/");
-	define("URI", "http://cribhunt.dev/");
+	define("URI", "//cribhunt.dev/");
 }
 
 /* 
