@@ -488,12 +488,15 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
           }
     });
     </script>
-    <script type="text/javascript"> 
-    (function() {
-    })();
-    </script>
 
     <script>
+    var secureurl = '';
+
+    if (location.host == 'cribhunt.dev') {
+        secureurl = 'http://cribhunt.dev';
+    } else {
+        secureurl = 'https://cribhunt.co';
+    }
         $("#agregarcribform").submit(function(event) {
           // Stop form from submitting normally
           event.preventDefault();
@@ -501,7 +504,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
           var values = $(this).serialize();
           // Send the data using post and put the results in a div
             $.ajax({
-                url: 'https://' + location.host + '/nuevouploadcrib.php',
+                url: secureurl + '/nuevouploadcrib.php',
                 type: "post",
                 data: values,
                 success: function(result){

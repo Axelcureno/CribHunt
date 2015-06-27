@@ -1,11 +1,19 @@
-$(function() {    
+$(function() {   
+
+    var secureurl = '';
+
+    if (location.host == 'cribhunt.dev') {
+        secureurl = 'http://cribhunt.dev';
+    } else {
+        secureurl = 'https://cribhunt.co';
+    }
 
     var json = new Object();
 
     $.ajax({
         async: false,
         dataType : 'json',
-        url: 'https://' + location.host + '/markerswebservice.php',
+        url: secureurl + '/markerswebservice.php',
         type : 'GET',
         success: function(data) {
             for(var i in data){
@@ -34,8 +42,8 @@ $(function() {
                     
                     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     //Iconos de Google Maps
-                    var image = 'https://' +location.host + '/img/icons/geolocation.png';
-                    var iconhouse = 'https://' +location.host + '/img/icons/location-red.png';
+                    var image = secureurl + '/img/icons/geolocation.png';
+                    var iconhouse = secureurl + '/img/icons/location-red.png';
                     var infowindow =  new google.maps.InfoWindow({
                         content: ""
                     });
