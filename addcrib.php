@@ -26,10 +26,10 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/google.css">
         <link rel="stylesheet" type="text/css" href="<?php echo URL ?>css/sweetalert.css">
-        <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
-        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
-        <script src="<?php echo URL ?>js/locationpicker.jquery.js"></script>å
+        <script src="<?php echo URI ?>js/vendor/jquery-2.1.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+        <script src="<?php echo URI ?>js/locationpicker.jquery.js"></script>å
         <style>
   h2 {
     margin-bottom: 0;
@@ -467,6 +467,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             UPLOADCARE_LOCALE = "en";
             UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
             UPLOADCARE_PUBLIC_KEY = "1827376d3a32a0439684";
+            UPLOADCARE_CDN_BASE = "https";
 
     var multipleWidget = uploadcare.MultipleWidget("[role=uploadcare-uploader]");
         //$ = uploadcare.jQuery; // skip this if you already have jQuery on the page
