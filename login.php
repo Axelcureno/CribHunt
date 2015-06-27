@@ -46,13 +46,13 @@ if(!isset($_SESSION['usersicam']))
 <html>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>CribHunt | Ingresa</title>
+<title>CribHunt | Ingresa o Regístrate</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/spinner.css">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
+<link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <style type="text/css" media="screen">
     * {
         font-family: 'Roboto', sans-serif;
@@ -120,7 +120,7 @@ input.middle:focus {
 .body-container {
     width: 100%;
     height: 100%;
-    background-image: url('http://cribhunt.co/img/heroimages/fourteen.jpg');
+    background-image: url('https://cribhunt.co/img/heroimages/fourteen.jpg');
     background-repeat:no-repeat;
     background-size: cover;
 }
@@ -285,7 +285,7 @@ input.middle:focus {
 <div class="body-container">
     <div class="register-container">
         <div class="registro-logo-container">
-            <img src="img/logo.svg" alt="CribHunt">
+            <img src="<?php echo URL ?>img/logo.svg" alt="CribHunt">
         </div>
         <div id="tab-container" class="tab-container">
           <ul class='etabs'>
@@ -336,9 +336,9 @@ input.middle:focus {
         </div>
     </div>
 </div>
-        <script src="<?php echo URL ?>js/vendor/jquery-2.1.1.min.js"></script>
-        <script src="<?php echo URL ?>js/plugins.js"></script>
-        <script src="<?php echo URL ?>js/main.js"></script>
+        <script src="<?php echo URI ?>js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="<?php echo URI ?>js/plugins.js"></script>
+        <script src="<?php echo URI ?>js/main.js"></script>
         <script>$('#tab-container').easytabs({updateHash: false});</script>
         <script>new WOW().init();</script>
                 <script>
