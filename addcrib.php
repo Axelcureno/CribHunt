@@ -467,7 +467,7 @@ $sql = "SELECT * FROM usuarios WHERE id = '$id'";
             UPLOADCARE_LOCALE = "en";
             UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
             UPLOADCARE_PUBLIC_KEY = "1827376d3a32a0439684";
-            UPLOADCARE_CDN_BASE = "https";
+            UPLOADCARE_CDN_BASE = "ucarecdn.com";
 
     var multipleWidget = uploadcare.MultipleWidget("[role=uploadcare-uploader]");
         //$ = uploadcare.jQuery; // skip this if you already have jQuery on the page
