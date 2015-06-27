@@ -57,7 +57,7 @@ $(function() {
                     for (var i = 0; i < json.length; i++) {
 
                         var obj = json[i];
-                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="https://' +location.host + '/' + obj.categoriacrib + '/' + obj.urlcrib + '/"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
+                        var description = '<div style="width:200px;" id="content"><a style="font-weight:bold; font-size: 1em;" href="https://' +location.host + '/' + obj.categoriacrib + '/' + obj.urlcrib + '/"><h1 style="font-weight:bold; font-size: 1em;" id="firstHeading" class="firstHeading">' + obj.titulocrib + ' - $' + obj.preciocrib + '</h1></a><div id="bodyContent"><img style="max-width:200px;" src="' + obj.imagenprincipalcrib + '"></div>';
 
                         var infowindow = new google.maps.InfoWindow({
                             content: description
