@@ -393,11 +393,11 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-        <script src="<?php echo URL ?>js/jquery.bxslider.min.js"></script>
-        <script src="<?php echo URL ?>js/plugins.js"></script>
-        <script src="<?php echo URL ?>js/main.js"></script>
-        <script src="<?php echo URL ?>js/pace.min.js"></script>
-        <script src="<?php echo URL ?>js/jquery.ui.touch-punch.min.js"></script>
+        <script src="<?php echo URI ?>js/jquery.bxslider.min.js"></script>
+        <script src="<?php echo URI ?>js/plugins.js"></script>
+        <script src="<?php echo URI ?>js/main.js"></script>
+        <script src="<?php echo URI ?>js/pace.min.js"></script>
+        <script src="<?php echo URI ?>js/jquery.ui.touch-punch.min.js"></script>
         <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
         <script type="text/javascript">
             $('.bxslider').bxSlider({
