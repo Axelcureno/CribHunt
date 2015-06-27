@@ -79,7 +79,7 @@ $('.iniciar-sesion-fancybox').fancybox({
 $(".iframe-img").fancybox({
     'transitionIn'  : 'none',
     'transitionOut' : 'none',
-    'type'          : 'iframe'
+    'type'          : 'ajax'
 });
 
 

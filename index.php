@@ -469,7 +469,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         echo '});';
         echo '</script>';
         } else { 
-            echo '<script src="' . URL . 'js/markers.js"></script>';
+            echo '<script src="' . URI . 'js/markers.js"></script>';
         }
 ?>
         <script>$('#tab-container').easytabs();</script>
