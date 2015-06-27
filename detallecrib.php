@@ -17,7 +17,7 @@
                             <?php 
                                 for( $i = 0; $i < count($elements)-1; $i++) {
                                     $args[$elements[$i]] = $elements[$i];
-                                    echo '<a class="iframe-img" rel="group" href="'. $args[$elements[$i]] . '" ><li><img src="'. $args[$elements[$i]] . '-/resize/x600/" /></li></a>';
+                                    echo '<a class="iframe-img" rel="group" target="_blank" href="'. $args[$elements[$i]] . '" ><li><img src="'. $args[$elements[$i]] . '-/resize/x600/" /></li></a>';
                                 }
                              ?>
                         </ul>
