@@ -710,7 +710,7 @@ padding-bottom: 10px;
   margin-bottom: 10px;
 }
 .titulo-prop-crib {
-  color: #222222;
+  color: #212121;
   font-size: 18px;
   font-weight: bold;
   margin-left: -10px;
@@ -724,9 +724,9 @@ padding-bottom: 10px;
   transition: 1s all ease-in-out;
 }
 .elemento-crib {
-  color: #222222;
+  color: #424242;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   padding-top: 10px;
   margin-right: -15px;
 }
@@ -1166,7 +1166,7 @@ body {
   display: block;
 }
 .titulo-crib-item {
-  font-weight: 500;
+  font-weight: 400;
   color: #222222;
   font-size: 16px;
   border-bottom: 1px solid #D7D7D7;
@@ -1225,11 +1225,11 @@ body {
 #amount {
   display: block;
   float: right;
-  color: #f6931f;
-  font-weight: bold;
+  color: #fff;
+  font-weight: 500;
   margin-left: 0;
   width: 37%;
-  border:0!important;
+  border: 0!important;
 }
 #parameter-search {
   width: 70%;
@@ -1291,29 +1291,6 @@ body {
   margin-left: 10px;
 }
 .no-border-bottom-linea #submit-parameter-cribsearch {
-/*  background-image: url('../img/icons/search_icon.svg');
-  background-size: 60%;
-  background-color: #FF5722;
-  color: #fff;
-  padding: 10px;
-  float: right;
-  margin-top: 0px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: absolute;
-  right: 4px;
-  margin-right: 15px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 32px;
-  font-size: 30px;
-  height: 65px;
-  width: 65px;
-  padding-top: 14px;
-  top: 130px;
-  transition: all .2s ease-in-out;
-  border: none;
-  background-repeat: no-repeat;
-  background-position: 13px 14px; */
   background-image: url('../img/icons/search_icon.svg');
   background-size: 60%;
   background-color: #FF5722;
@@ -1357,7 +1334,7 @@ height: 2px;
 }
 #parameter-cribsearch .linea-parameter-search .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 border: none;
-background: #e6e6e6;
+background: #FF5722;
 font-weight: normal;
 color: #555555;
 }
@@ -1374,7 +1351,7 @@ color: #555555;
 }
 #parameter-cribsearch .ui-widget-header {
   border: none!important;
-  background: #E91E63;
+  background: #FF5722;
   color: #222222;
 }
 .canvas-cribhunt-detalle {
