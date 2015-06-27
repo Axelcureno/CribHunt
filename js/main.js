@@ -35,6 +35,19 @@ $(window).resize(function(){
 })(window, jQuery);
 
 (function(){
+
+	var $container = $('#canvas-mycribhunt');
+	//Funcion de Isotope para las columnas de las casas
+    $container.imagesLoaded( function() {
+        $container.isotope({
+            itemSelector: '.bit-4',
+            layoutMode: 'masonry',
+            masonry: {
+              columnWidth: 0
+            }
+        });
+    });
+
 	$('#cribsearch-submit').attr('disabled',true);
     $('#cribhunt-searchfield').keyup(function(){
         if($(this).val().length !=0)
@@ -147,17 +160,6 @@ $(".iframe-img").fancybox({
         	$('#cribsearch-submit').removeAttr('disabled');
         }
      });
-	var $container = $('#canvas-mycribhunt');
-	//Funcion de Isotope para las columnas de las casas
-    $container.imagesLoaded( function() {
-        $container.isotope({
-            itemSelector: '.bit-4',
-            layoutMode: 'masonry',
-            masonry: {
-              columnWidth: 0
-            }
-        });
-    });
 
 //Script que habilida la funcion de fullscreen
 //del floating action button
