@@ -19,153 +19,10 @@ if (isset($_SESSION['usersicam'])) {
         $nombreusuario = $row['nombres'];
     }
 }
-?>
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <?php $output = '<title>%TITLE%</title>';  ?>
-        <?php $desc = '<meta name="description" content=%DESC%>'; ?>
-        <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png">
-        <?php $ogoutput = '<meta property="og:title" content="%OGTITLE%">'; ?>
-        <?php $ogdesc = '<meta property="og:description" content="%OGDESC%">'; ?>
-        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo URL ?>apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo URL ?>apple-touch-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo URL ?>apple-touch-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo URL ?>apple-touch-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo URL ?>apple-touch-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo URL ?>apple-touch-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URL ?>apple-touch-icon-180x180.png">
-        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="<?php echo URL ?>android-chrome-192x192.png" sizes="192x192">
-        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-96x96.png" sizes="96x96">
-        <link rel="icon" type="image/png" href="<?php echo URL ?>favicon-16x16.png" sizes="16x16">
-        <link rel="manifest" href="<?php echo URL ?>manifest.json">
-        <meta name="msapplication-TileColor" content="#FF5722">
-        <meta name="theme-color" content="#FF5722">
-        <meta name="msapplication-TileImage" content="<?php echo URL ?>mstile-144x144.png">
-        <link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
-        <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
-        <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
-        <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
-        <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
-        <link rel="stylesheet" href="<?php echo URL ?>css/ripple.css">
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-47439231-8', 'auto');
-          ga('require', 'linkid', 'linkid.js');
-          ga('send', 'pageview');
-
-        </script>
-        <!--<link type="text/css" rel="stylesheet" href="<?php echo URL ?>css/materialize.min.css"  media="screen,projection"/>-->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-            <?php if (isset($_SESSION['usersicam'])){ echo '<input type="checkbox" id="nav-trigger" class="nav-trigger" /><label class="ripple" for="nav-trigger"></label>'; }  ?>
-            <div class="main-menu">
-                <div <?php if (isset($_SESSION['usersicam'])){ echo 'style="  margin-left: 65px; "'; }  ?> class="logo-container">
-                    <a href="<?php echo URL; ?>"><img src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a>
-                </div>
-                <div class="search-container">
-                        <form id="cribsearch" action="" method="get">
-                            <input id="cribhunt-searchfield" type="text" placeholder="<?php if (isset($_GET['cribsearch'])) { echo $_GET['cribsearch']; } else { echo 'Casa, 3 cuartos, 3 baños, Mérida...'; } ?>" name="cribsearch">
-                            <input id="cribsearch-submit" type="submit" value="">
-                        </form>
-                </div>
-
-                <div class="toolbar">
-                    <div class="titulo-mainnav"><h2>Casas, departamentos y cuartos en renta</h2></div>
-                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
-                        <div class="perfil-container">
-                            <?php if (!isset($_SESSION['usersicam'])) {
-                                echo '<a href="'. URL .'login.php"><button class="iniciar-sesion ripple">Iniciar Sesión</button></a>';
-                            } else {
-                                echo '<a href="'. URL .'logout.php"><button class="iniciar-sesion ripple">Cerrar Sesión</button></a>';
-                                } ?>    
-                        </div>
-                </div>
-            </div>
-        <ul class="navigation">
-          <div class="perfil-usuario">
-              <img class="profilepic-user" src="<?php echo URL; ?>img/ui/ui-mask.png" alt="">
-              <div class="hello-usuario">Hola, <?php echo $nombreusuario;?></div>
-          </div>
-          <div class="menu-de-usuario">
-              <div class="que-deseas">
-              ¿Qué deseas hacer?
-          </div>
-              <!--<a class="nav-a-item" href="#"><button class="ripple nav-ripple"><li class="nav-item">Mis Cribs</li></button></a>-->
-              <a class="nav-a-item" href="<?php echo URL; ?>"><button class="ripple nav-ripple"><li class="nav-item">Buscar Crib</li></button></a>
-              <a class="nav-a-item" href="<?php echo URL; ?>addcrib.php"><button class="ripple nav-ripple"><li class="nav-item">Publicar Crib</li></button></a>
-              <!--<a class="nav-a-item" href="#"><li class="nav-item"><button class="ripple nav-ripple">Administrar Perfil</li></button></a>-->
-              <a class="nav-a-item" href="<?php echo URL; ?>logout.php"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Cerrar Sesión</li></button></a>
-              <a class="nav-a-item" href="<?php echo URL; ?>#"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Ayuda</li></button></a>
-          </div>
-        </ul>
-        <div class="site-wrap">
-            <div id="parameter-search">
-            <form id="parameter-cribsearch" action="" method="get">
-                <div class="linea-parameter-search">
-                    <label for="ciudadocolonia">Ciudad y/o Colonia</label>
-                    <input id="cribsearch-places" type="text" placeholder=" <?php if (isset($_GET['ciudad-cribsearch'])) { echo $_GET['ciudad-cribsearch']; } else { echo "Francisco de Montejo, Mérida"; } ?>" name="ciudadocolonia">
-                </div>
-                <div class="linea-parameter-search">
-                    <label for="categoria">Categoría</label>
-                    <select id="parameter-select" name="categoria">
-                      <option value="cualquiera" selected>Cualquiera</option>
-                      <option value="casa">Casa</option>
-                      <option value="departamento">Departamento</option>
-                      <option value="cuarto">Cuarto</option>
-                    </select>
-                </div>
-                <div class="linea-parameter-search no-border-bottom-linea">
-                    <label for="precio">Precio</label>
-                    <div id="slider-precio-cribsearch"></div>
-                    <input type="text" id="amount" name="precio" readonly>
-                    <button id="submit-parameter-cribsearch"></button>
-                </div>
-            </form>
-            </div>
-            <div class="canvas-cribhunt">
-<div class="se-pre-con">
-    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-    </svg>
-</div>
-<?php 
-
-/*
-Puesto que se trata de una Web App,
-La mayor parte de la interacción entre el usuario y
-la interfaz es en la página de inicio, por ello 
-se presentan diferentes casos en los que el usuario
-pudiera hacer una acción.
-*/
-
-
-/*
-Caso 1: Busqueda de la barra superior.
-Cuando el usuario realiza una búsqueda en la barra superior
-de la aplicación, se define la variable GET cribsearch
-*/
-
+//Busqueda de la barra superior.
 if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
-    echo '<div id="canvas-mycribhunt" class="frame">';
+
     $query = $_GET['cribsearch'];
     preg_replace('/[^A-Za-z1-9]/', '', $query);
     $sql = "SELECT * FROM cribs WHERE titulocrib LIKE '%" . $query . "%' OR categoriacrib = '$query' OR ciudadcrib LIKE '%" . $query . "%' OR caracteristicascrib LIKE '%" . $query . "%' OR universidadescrib LIKE '%" . $query . "%' OR cpcrib LIKE '%" . $query . "%' OR coloniacrib LIKE '%" . $query . "%' OR direccioncrib LIKE '%" . $query . "%' OR estadocrib LIKE '%" . $query . "%' OR coloniacrib LIKE '%" . $query . "%' OR preciocrib LIKE '%" . $query . "%' OR paiscrib LIKE '%" . $query . "%' ";
@@ -176,37 +33,27 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $cribArray[$index] = $row;
             $index++;
         }
-    for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="crib-container"><div class="crib-image"><img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'"></div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
-    }
 
-    //Definir el titulo de la página
-    $title = 'Resultados de la búsqueda - CribHunt';
-    $output = str_replace('%TITLE%', $title, $output);
-    echo $output;
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
+        for ($i=0; $i < count($cribArray); $i++) { 
+            echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="crib-container"><div class="crib-image"><img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'"></div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
+        }
 
     } else {
 
-        //SEO
-        $title = 'No se encontraron resultados - CribHunt';
-        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
-        $output = str_replace('%TITLE%', $title, $output);
-        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-        $desc = str_replace('%DESC%', $description, $desc);
-        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-        echo $output;
-        echo $ogoutput;
-        echo $ogdesc;
-        echo $desc;
-
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
+
     }
     echo '</div>';
 
 //Busqueda en base a Parámetros
-//
 } else if (isset($_GET['ciudadocolonia']) && $_GET['ciudadocolonia'] != '') {
-    echo '<div id="canvas-mycribhunt" class="frame">';
+
     $ciudadcribsearch = $_GET['ciudadocolonia'];
     $categoriacrib = $_GET['categoria'];
     $preciocrib = $_GET['precio'];
@@ -232,47 +79,35 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     }
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
+
+        $title = 'Resultados de la búsqueda - CribHunt';
+        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $cribArray[$index] = $row;
             $index++;
         }
     for ($i=0; $i < count($cribArray); $i++) { 
+
         echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
-
-    //SEO
-    $title = 'Resultados de la búsqueda - CribHunt';
-    $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
-    $output = str_replace('%TITLE%', $title, $output);
-    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-    $desc = str_replace('%DESC%', $description, $desc);
-    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-    echo $output;
-    echo $ogoutput;
-    echo $desc;
-    echo $ogdesc;
 
     } else {
 
         //SEO
         $title = 'No se encontraron resultados - CribHunt';
         $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
-        $output = str_replace('%TITLE%', $title, $output);
-        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-        $desc = str_replace('%DESC%', $description, $desc);
-        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-        echo $output;
-        echo $ogoutput;
-        echo $desc;
-        echo $ogdesc;
-
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">No se encontraron resultados :(</div>';
     }
     echo '</div>';
 
 //Detalle de Crib
-//
 } else if ($request != '/' && $request != '?cribsearch=') {
 
     $parts = explode('/', rtrim($request, '/'));
@@ -286,44 +121,29 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         }
 
     //SEO
-    $title = $cribArray[0]["titulocrib"] . ' - ' . $cribArray[0]["preciocrib"] . ' - CribHunt';
-    $description = $cribArray[0]["titulocrib"];
-    $output = str_replace('%TITLE%', $title, $output);
-    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-    $desc = str_replace('%DESC%', $description, $desc);
-    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-    echo $output;
-    echo $ogoutput;
-    echo $desc;
-    echo $ogdesc;
-
+        $title = $cribArray[0]["titulocrib"] . ' - $' . $cribArray[0]["preciocrib"] . ' - CribHunt';
+        $description = $cribArray[0]["titulocrib"];
+        include('head.php');
+        include('header.php');
         include('detallecrib.php');
 
-    
     } else {
 
         //SEO
         $title = 'Página no encontrada - CribHunt';
         $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
-        $output = str_replace('%TITLE%', $title, $output);
-        $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-        $desc = str_replace('%DESC%', $description, $desc);
-        $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-        echo $output;
-        echo $ogoutput;
-        echo $desc;
-        echo $ogdesc;
-
+        //Variable que indica si hay un error 404
+        $notfount = 1;
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
-            echo $parts[1] . ' ' . $parts[2];
     
     }
 
 //Página de inicio
-//
-
 } else {
-    echo '<div id="canvas-mycribhunt" class="frame">';
+
     $sql = "SELECT * FROM cribs";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
@@ -332,23 +152,22 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
             $cribArray[$index] = $row;
             $index++;
         }
+
+    $title = 'CribHunt - Casas, departamenos y cuartos en renta.';
+    $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
+    include('head.php');
+    include('header.php');
+    echo '<div id="canvas-mycribhunt" class="frame">';
     for ($i=0; $i < count($cribArray); $i++) { 
         echo '<div class="bit-4 crib-grid"><a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . '-/progressive/yes/" alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
 
-    //SEO
-    $title = 'CribHunt - Casas, departamentos y cuartos en renta.';
-    $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
-    $output = str_replace('%TITLE%', $title, $output);
-    $ogoutput = str_replace('%OGTITLE%', $title, $ogoutput);
-    $desc = str_replace('%DESC%', $description, $desc);
-    $ogdesc = str_replace('%OGDESC%', $description, $ogdesc);
-    echo $output;
-    echo $ogoutput;
-    echo $desc;
-    echo $ogdesc;
-
     } else {
+        $title = 'CribHunt - No hay resultados.';
+        $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
+        include('head.php');
+        include('header.php');
+        echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">0 resultados</div>';
     }
         echo '</div>';
@@ -399,7 +218,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         <script src="<?php echo URI ?>js/main.js"></script>
         <script src="<?php echo URI ?>js/pace.min.js"></script>
         <script src="<?php echo URI ?>js/jquery.ui.touch-punch.min.js"></script>
-        <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
         <script type="text/javascript">
             $('.bxslider').bxSlider({
                 pagerCustom: '#bx-pager',
@@ -411,7 +229,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         </script>
         <?php 
 
-        if ($request != '/' && $request != '?cribsearch=') {
+        if ($request != '/' && $request != '?cribsearch=' && $notfound != 1) {
         echo '<script>';
         echo '$(function() {';
         echo 'var houselatlong = new google.maps.LatLng(' . $cribArray[0]["latitudcrib"] . ', ' . $cribArray[0]["longitudcrib"] . ');';
