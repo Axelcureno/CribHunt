@@ -9,7 +9,7 @@
         <meta property="og:description" content="<?php echo $description; ?>">
         <meta name="keywords" content="casas, departamentos, cuartos, depas en renta, méxico, renta de inmuebles, casas departamentos, renta cuartos, casa en renta, deptos, deptos, renta departamento, amuebladas, casas en renta en merida">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:image" content="<?php echo URL ?>android-chrome-192x192.png">
+        <meta property="og:image" content="<?php if (isset($imgog)) { echo $imgog; } else { echo URL . 'android-chrome-192x192.png'; } ?>">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URL ?>apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URL ?>apple-touch-icon-60x60.png">

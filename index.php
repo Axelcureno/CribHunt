@@ -123,6 +123,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     //SEO
         $title = $cribArray[0]["titulocrib"] . ' - $' . $cribArray[0]["preciocrib"] . ' - CribHunt';
         $description = $cribArray[0]["titulocrib"];
+        $imgog = $cribArray[0]["imagenprincipalcrib"];
         include('head.php');
         include('header.php');
         include('detallecrib.php');
