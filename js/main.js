@@ -130,7 +130,7 @@ $(".iframe-img").fancybox({
 	  var values = $(this).serialize();
 	  // Send the data using post and put the results in a div
 	    $.ajax({
-	        url: 'http://' + location.host + '/registrousuario.php',
+	        url: 'https://' + location.host + '/registrousuario.php',
 	        type: 'post',
 	        data: values,
 	        success: function(result){
