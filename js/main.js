@@ -3,6 +3,18 @@ $(window).load(function() {
 	$('#cribmap-container').css('display', 'block');
 	//$('#site-wrap-detallecrib').css('display', 'block');
     $(".se-pre-con").fadeOut();
+    
+	var $container = $('#canvas-mycribhunt');
+	//Funcion de Isotope para las columnas de las casas
+    $container.imagesLoaded( function() {
+        $container.isotope({
+            itemSelector: '.bit-4',
+            layoutMode: 'masonry',
+            masonry: {
+              columnWidth: 0
+            }
+        });
+    });    
 });
 $(window).resize(function(){
 	$('.canvas-cribhunt').height($(window).height() - 225);
@@ -35,18 +47,6 @@ $(window).resize(function(){
 })(window, jQuery);
 
 (function(){
-
-	var $container = $('#canvas-mycribhunt');
-	//Funcion de Isotope para las columnas de las casas
-    $container.imagesLoaded( function() {
-        $container.isotope({
-            itemSelector: '.bit-4',
-            layoutMode: 'masonry',
-            masonry: {
-              columnWidth: 0
-            }
-        });
-    });
 
 	$('#cribsearch-submit').attr('disabled',true);
     $('#cribhunt-searchfield').keyup(function(){
