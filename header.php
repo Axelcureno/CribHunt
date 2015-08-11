@@ -12,12 +12,12 @@
 
                 <div class="toolbar">
                     <div class="titulo-mainnav"><h2>Casas, departamentos y cuartos en renta.</h2></div>
-                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">¿Alguna sugerencia?</button></a></div>
+                    <div class="usuario-bienvenido"><a class="sugerencias-inline" href=".sugerencias-forma"><button class="holausuario ripple">SUGERENCIAS</button></a></div>
                         <div class="perfil-container">
                             <?php if (!isset($_SESSION['usersicam'])) {
-                                echo '<a href="'. URL .'login.php"><button class="iniciar-sesion ripple">Iniciar Sesión</button></a>';
+                                echo '<a href="'. URL .'login.php"><button class="iniciar-sesion ripple">PUBLICAR</button></a>';
                             } else {
-                                echo '<a href="'. URL .'logout.php"><button class="iniciar-sesion ripple">Cerrar Sesión</button></a>';
+                                echo '<a href="'. URL .'logout.php"><button class="iniciar-sesion ripple">CERRAR SESIÓN</button></a>';
                                 } ?>    
                         </div>
                 </div>
