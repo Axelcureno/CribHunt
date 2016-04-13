@@ -39,7 +39,7 @@
               <a class="nav-a-item" href="<?php echo URL; ?>#"><button class="ripple nav-ripple"><li class="nav-item last-nav-item">Ayuda</li></button></a>
           </div>
         </ul>
-        <div class="site-wrap">
+            <div class="canvas-cribhunt">
             <div id="parameter-search">
             <form id="parameter-cribsearch" action="" method="get">
                 <div class="linea-parameter-search">
@@ -63,7 +63,6 @@
                 </div>
             </form>
             </div>
-            <div class="canvas-cribhunt">
 <div class="se-pre-con">
     <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>

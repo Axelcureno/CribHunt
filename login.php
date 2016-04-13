@@ -1,7 +1,6 @@
 <?php
     include('functions.php');
 
-    
 session_start();
     function verificar_login($user,$password,&$result) {
     $con = mysqli_connect('localhost', 'root', 'donfrijol13', 'cribhunt');
@@ -30,7 +29,7 @@ if(!isset($_SESSION['usersicam']))
 {
     if(isset($_POST['login']))
     {
-        if(verificar_login($_POST['user'],$_POST['passwordinicio'],$result) == 1)
+        if(verificar_login($_POST['user'],$_POST['password'],$result) == 1)
         {
             $_SESSION['usersicam'] = $result->id;
             header('Location: ' . URL);

@@ -35,7 +35,8 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         }
 
         include('head.php');
-        include('header.php');
+        include('newheader.php');
+        include('parametersearch.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         for ($i=0; $i < count($cribArray); $i++) { 
             echo '<div class="bit-4 crib-grid"><a class="crib-item wow zoomIn" data-wow-delay="' . $i*0.25 . 's" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/"><div class="crib-container"><div class="crib-image"><img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . 'alt="'. $cribArray[$i]["titulocrib"] .'"></div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
@@ -44,7 +45,8 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     } else {
 
         include('head.php');
-        include('header.php');
+        include('newheader.php');
+        include('parametersearch.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">No se encontraron resultados con la búsqueda: '. $query .' </div>';
 
@@ -83,7 +85,8 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         $title = 'Resultados de la búsqueda - CribHunt';
         $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         include('head.php');
-        include('header.php');
+        include('newheader.php');
+        include('parametersearch.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -101,7 +104,8 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         $title = 'No se encontraron resultados - CribHunt';
         $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         include('head.php');
-        include('header.php');
+        include('newheader.php');
+        include('parametersearch.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">No se encontraron resultados :(</div>';
     }
@@ -125,7 +129,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         $description = $cribArray[0]["titulocrib"];
         $imgog = $cribArray[0]["imagenprincipalcrib"];
         include('head.php');
-        include('header.php');
+        include('newheader.php');
         include('detallecrib.php');
 
     } else {
@@ -136,7 +140,7 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
         //Variable que indica si hay un error 404
         $notfount = 1;
         include('head.php');
-        include('header.php');
+        include('newheader.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">Lo sentimos, esta página no existe :(</div>';
     
@@ -157,24 +161,26 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
     $title = 'CribHunt - Casas, departamenos y cuartos en renta.';
     $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
     include('head.php');
-    include('header.php');
-    echo '<div id="canvas-mycribhunt" class="frame">';
+    include('newheader.php');
+    include('landing.php');
+    include('parametersearch.php');
+    echo '<div class="titulo-inicio mdl-typography--display-1">Te recomendamos ver</div><div id="canvas-mycribhunt" class="frame">';
     for ($i=0; $i < count($cribArray); $i++) { 
-        echo '<div class="bit-4 crib-grid"><a class="crib-item  wow zoomIn" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . '-/progressive/yes/" alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
+        echo '<div class="bit-4 crib-grid"><a class="crib-item" href="'. URL . $cribArray[$i]["categoriacrib"] . '/'. $cribArray[$i]["urlcrib"] .'/">' . '<div class="crib-container">' . '<div class="crib-image">' . '<img class="img-principal-crib" src="'. $cribArray[$i]["imagenprincipalcrib"] . '-/progressive/yes/" alt="'. $cribArray[$i]["titulocrib"] .'">' . '</div><div class="descripcion-crib"><div class="titulo-crib-item">' . $cribArray[$i]["titulocrib"] . '</div><div class="mas-detalle-crib"><div class="precio-crib">$' . $cribArray[$i]["preciocrib"] . ' / Mes</div><div class="crib-cuartos-banios"><div class="cuartos-crib-item">' . $cribArray[$i]["cuartoscrib"] . '</div><div class="banios-crib-item">' . $cribArray[$i]["banioscrib"] . '</div></div></div></div></div></a></div>';
     }
 
     } else {
         $title = 'CribHunt - No hay resultados.';
         $description = 'CribHunt es la plataforma para encontrar a los que ofrecen opciones para vivir con aquellos que las buscan de manera cómoda, rápida y sencilla.';
         include('head.php');
-        include('header.php');
+        include('newheader.php');
+        include('parametersearch.php');
         echo '<div id="canvas-mycribhunt" class="frame">';
         echo '<div class="not-found">0 resultados</div>';
     }
         echo '</div>';
     }
 ?>
-            </div>
             <div id="canvas-cribmap">
             <div class="se-pre-con">
                 <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +190,6 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                 <div id="cribmap-container"></div>
             </div>
             <div class="fullscreen ripple"></div>
-        </div>
 
         <div style="display:none" class="sugerencias-forma">
             <div class="titulo-subtitulo-sugerencias">
@@ -209,16 +214,78 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
                 </form>
                 <div class="bit-1 resultado"></div>
             </div>
-        </div>
-        </div>
+
+<footer class="mdl-mega-footer" style="display: none">
+  <div class="mdl-mega-footer__middle-section">
+
+    <div class="mdl-mega-footer__drop-down-section">
+      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+      <h1 class="mdl-mega-footer__heading">Características</h1>
+      <ul class="mdl-mega-footer__link-list">
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Terminos y condiciones</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Actualizaciones</a></li>
+      </ul>
+    </div>
+
+    <div class="mdl-mega-footer__drop-down-section">
+      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+      <h1 class="mdl-mega-footer__heading">Detalles</h1>
+      <ul class="mdl-mega-footer__link-list">
+        <li><a href="#">Especificaciones</a></li>
+        <li><a href="#">Herramientas</a></li>
+        <li><a href="#">Recursos</a></li>
+      </ul>
+    </div>
+
+    <div class="mdl-mega-footer__drop-down-section">
+      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+      <h1 class="mdl-mega-footer__heading">FAQ</h1>
+      <ul class="mdl-mega-footer__link-list">
+        <li><a href="#">Preguntas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="mdl-mega-footer__drop-down-section">
+      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+      <h1 class="mdl-mega-footer__heading"><a href="<?php echo URL; ?>"><img style="width: 200px;" src="<?php echo URL ?>img/logo.svg" alt="CribHunt"></a></h1>
+    </div>
+
+  </div>
+
+  <div class="mdl-mega-footer__bottom-section">
+    <div class="mdl-logo">CribHunt Technologies © 2015</div>
+    <ul class="mdl-mega-footer__link-list">
+      <li><a href="#">Ayuda</a></li>
+      <li><a href="#">Aviso de Privacidad</a></li>
+    </ul>
+  </div>
+
+</footer>            
+    </div><!-- page-content -->
+  </main><!-- mdl-layout -->
+</div><!--mdl-layout__container -->
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
         <script src="<?php echo URI ?>js/jquery.bxslider.min.js"></script>
+        <script src="<?php echo URI ?>js/skrollr.js"></script>
         <script src="<?php echo URI ?>js/plugins.js"></script>
         <script src="<?php echo URI ?>js/main.js"></script>
+        <script src="<?php echo URI ?>js/material.min.js"></script>
         <script src="<?php echo URI ?>js/pace.min.js"></script>
+        <script src="<?php echo URI ?>js/jquery.typer.js"></script>
+        <script src="<?php echo URI ?>js/t.min.js"></script>
         <script src="<?php echo URI ?>js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript">
+            $('[data-typer-targets]').typer({
+                typerInterval : 5000,
+                clearDelay        : 500,
+                typeDelay         : 200
+            });
+        </script>
         <script type="text/javascript">
             $('.bxslider').bxSlider({
                 pagerCustom: '#bx-pager',
@@ -228,72 +295,16 @@ if (isset($_GET['cribsearch']) && $_GET['cribsearch'] != '') {
               }
             });
         </script>
-        <?php 
-
-        if ($request != '/' && $request != '?cribsearch=' && $notfound != 1) {
-        echo '<script>';
-        echo '$(function() {';
-        echo 'var houselatlong = new google.maps.LatLng(' . $cribArray[0]["latitudcrib"] . ', ' . $cribArray[0]["longitudcrib"] . ');';
-        echo 'var map;';
-        echo 'function initialize() {';
-                 echo 'var mapOptions = {';
-                   echo 'zoom: 18';
-                 echo '};';
-         echo '$("#cribsearch-places").geocomplete();';
-         echo 'map = new google.maps.Map(document.getElementById("cribmap-container"), mapOptions);';
-             echo 'if(navigator.geolocation) {';
-             echo 'navigator.geolocation.getCurrentPosition(function(position) {';
-              echo 'var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);';
-              echo 'var image = "' . URL . 'img/icons/geolocation.png";';
-               echo 'var iconhouse = "' . URL . 'img/icons/location-red.png";'; echo 'var geolocationmarker = new google.maps.Marker({';
-                     echo 'position: pos,';
-                     echo 'map: map,';
-                     echo 'icon: image';
-                    echo '});';
-                    echo 'var contentString1 = \'<div style="width:200px;" id="content">\'+\'<a style="font-weight:bold; font-size: 1em;" href="'. $cribArray[0]["urlcrib"] .' "><h1 style="font-weight:bold; font-size: 1em; padding: 5px 5px 5px 0;" id="firstHeading" class="firstHeading">' . $cribArray[0]["titulocrib"] . '</h1></a>\' + \'<div id="bodyContent">\'+ \'<img style="max-width:200px;" src="' . $cribArray[0]["imagenprincipalcrib"] . '">\' + \'</div>\';';
-                    echo 'var infowindow = new google.maps.InfoWindow({';
-                        echo 'content: contentString1';
-                    echo '});';
-                    echo 'var marker = new google.maps.Marker({';
-                    echo 'position: houselatlong,';
-                    echo 'map: map,';
-                    echo 'icon: iconhouse';
-                     echo '});';
-                    echo 'google.maps.event.addListener(marker, \'click\', function() {';
-                    echo 'infowindow.open(map,marker);';
-                    echo '});';
-                    echo 'map.setCenter(houselatlong);';
-                    echo 'marker.setMap(map);';
-                    echo '}, function() {';
-                    echo 'handleNoGeolocation(true);';
-                echo '});';
-              echo '} else {';
-                echo 'handleNoGeolocation(false);';
-              echo '}';
-            echo '}';
-            echo 'function handleNoGeolocation(errorFlag) {';
-            echo 'if (errorFlag) {';
-            echo 'var content = \'Hubo un error con el servicio de Geolocalización.\';';
-            echo '} else {';
-            echo 'var content = \'Error: Tu navegador no soporta Geolocalización :(\';';
-            echo '}';
-            echo 'var options = {';
-            echo 'map: map,';
-            echo 'position: new google.maps.LatLng(60, 105),';
-            echo 'content: content';
-            echo '};';
-            echo 'var infowindow = new google.maps.InfoWindow(options);';
-            echo 'map.setCenter(options.position);';
-            echo '}';
-            echo 'google.maps.event.addDomListener(window, \'load\', initialize);';
-        echo '});';
-        echo '</script>';
-        } else { 
-            echo '<script src="' . URI . 'js/markers.js"></script>';
-        }
-?>
+        <?php include 'mapsservice.php'; ?>
         <script>$('#tab-container').easytabs();</script>
         <script>new WOW().init();</script>
+        <script type="text/javascript">
+            if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+                skrollr.init({
+                    forceHeight: false
+                });
+            }
+        </script>        
         <script>
             $(function() {
               $( "#slider-precio-cribsearch" ).slider({ range: true });

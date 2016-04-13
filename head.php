@@ -30,6 +30,8 @@
         <meta name="msapplication-TileImage" content="<?php echo URL ?>mstile-144x144.png">
         <link rel="stylesheet" href="<?php echo URL ?>css/spinner.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/main.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="<?php echo URL ?>css/material.deep_orange-indigo.min.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/animate.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/jquery.bxslider.css">
         <link rel="stylesheet" href="<?php echo URL ?>css/fancybox.css">
